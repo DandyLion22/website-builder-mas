@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dandylion22.github.io/website-builder-mas/sitemap.xml
