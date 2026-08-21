@@ -457,8 +457,8 @@
   .gallery-grid{
     display:grid;
     grid-template-columns:repeat(4, 1fr);
-    grid-auto-rows:140px;
-    gap:0.9rem;
+    grid-auto-rows:clamp(180px, 20vw, 260px);
+    gap:1.1rem;
   }
   .gallery-tile:nth-child(1){grid-column:1 / 3; grid-row:1 / 3;}
   .gallery-tile:nth-child(2){grid-column:3 / 5; grid-row:1 / 2;}
@@ -467,7 +467,7 @@
   .gallery-tile:nth-child(5){grid-column:1 / 3; grid-row:3 / 4;}
   .gallery-tile:nth-child(6){grid-column:3 / 5; grid-row:3 / 4;}
   @media (max-width:640px){
-    .gallery-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:170px;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:clamp(200px, 48vw, 280px);}
     .gallery-tile:nth-child(n){grid-column:auto; grid-row:auto;}
   }
   .gallery-tile{
@@ -941,7 +941,7 @@
   var canTilt = !reduceMotion && window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   if(canTilt){
     document.querySelectorAll('.tilt').forEach(function(card){
-      var maxTilt = 7;
+      var maxTilt = 2.5;
       card.addEventListener('mouseenter', function(){
         card.style.transition = 'none';
         card.style.zIndex = '2';
@@ -952,7 +952,7 @@
         var py = (e.clientY - rect.top) / rect.height;
         var rotY = (px - 0.5) * maxTilt * 2;
         var rotX = (0.5 - py) * maxTilt * 2;
-        card.style.transform = 'perspective(700px) translateY(-4px) rotateX(' + rotX.toFixed(2) + 'deg) rotateY(' + rotY.toFixed(2) + 'deg) scale(1.015)';
+        card.style.transform = 'perspective(900px) translateY(-3px) rotateX(' + rotX.toFixed(2) + 'deg) rotateY(' + rotY.toFixed(2) + 'deg) scale(1.008)';
       });
       card.addEventListener('mouseleave', function(){
         card.style.transition = 'transform .5s cubic-bezier(.22,1,.36,1), box-shadow .2s ease';
