@@ -44,6 +44,31 @@ Repo: `DandyLion22/website-builder-mas`
   generischen Template leer. Sie müssen aus strukturierten Intake-Daten
   befüllbar sein, nicht nur der sichtbare Text.
 
+## Differenzierung: eigene statt geliehene Design-Elemente
+
+- Versuch, unDraw-Illustrationen automatisiert per URL einzubinden, ist
+  gescheitert — die unDraw-Seite rendert die Download-Links per
+  JavaScript, es gibt keine dokumentierte, stabil abrufbare Asset-URL.
+  → Zufälliger, aber passender Beleg für den vorher diskutierten Punkt:
+  fertige Assets von der "üblichen" Anlaufstelle sind weder eigenständig
+  noch technisch immer einfach automatisiert einbindbar.
+- Stattdessen eine eigene, kleine Inline-SVG-Illustration (Terminkalender)
+  von Hand gebaut, die direkt die bestehenden CSS-Variablen
+  (`--pine`/`--brass`/`--paper`) referenziert. **Wichtig:** Das geht nur
+  mit *Inline*-SVG im HTML-Dokument — ein per `<img>` eingebundenes
+  externes `.svg` hat keinen Zugriff auf die CSS-Variablen der Seite und
+  müsste seine Farben fest codieren.
+  → Möglicher Schluss: Für Branding-konsistente Grafik-Elemente sollte
+  die Komponenten-Bibliothek auf Inline-SVG statt Bild-Dateien setzen.
+- Scroll-Einblendung und Hover-Effekte bewusst selbst geschrieben
+  (IntersectionObserver, reines CSS) statt einer Bibliothek wie AOS —
+  spart eine externe Abhängigkeit/Datei, und die bereits bestehende
+  `prefers-reduced-motion`-Regel greift automatisch mit, ohne Zusatzcode.
+- Für Sichtbarkeit ohne JavaScript wichtig: Die "Einblenden"-Optik wird
+  nur aktiv, wenn JS eine Klasse an `<body>` hängt (`js-enabled`). Ohne
+  JS bleibt alles regulär sichtbar. Sonst würden Besucher mit
+  deaktiviertem JavaScript dauerhaft unsichtbare Inhalte sehen.
+
 ## Deployment
 
 - Kostenlose Veröffentlichung (GitHub Pages) liefert automatisches SSL
