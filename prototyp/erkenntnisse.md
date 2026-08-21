@@ -122,6 +122,38 @@ Repo: `DandyLion22/website-builder-mas`
   Zähleffekt über `requestAnimationFrame`-Textänderungen läuft, nicht über
   eine CSS-Transition.
 
+## Feintuning nach direktem Feedback
+
+- Bento-Grid-Galerie wurde als "zu eng" empfunden, Tilt-Effekt als "zu
+  stark". Konkrete Korrektur: Zeilenhöhe von fix 140px auf
+  `clamp(180px, 20vw, 260px)` erhöht, Tilt-Winkel von max. 14° auf max. 5°
+  reduziert.
+  → Möglicher Schluss: Effekt-Stärken (Tilt-Winkel, Kachelgröße o. Ä.)
+  sollten in der Komponenten-Bibliothek als benannte, leicht einstellbare
+  Werte vorliegen (z. B. `--tilt-max: 5deg`), nicht als Magic Numbers im
+  JS/CSS vergraben — sonst ist jede Korrektur eine Sucherei.
+
+## Echte Google-Bewertungen einbinden
+
+- Technisch möglich über die Google Places API (liefert bis zu 5
+  Bewertungen je Standort), aber mit Auflagen: Google-Cloud-Account mit
+  Zahlungsmethode nötig, Attributionspflicht ("powered by Google"), kein
+  dauerhaftes Zwischenspeichern der Texte, und der API-Key darf nicht im
+  Frontend offen liegen — Abruf muss server-/build-seitig passieren und
+  als statischer Inhalt ausgeliefert werden (gleiches Muster wie bei den
+  selbst gehosteten Bildern/Fonts).
+  → Möglicher Schluss: Bewertungs-Anbindung gehört als eigener, kleiner
+  "Datenquellen"-Baustein in den Build-Agenten (periodischer Abruf +
+  Re-Deploy), nicht als Live-Client-Request bei jedem Seitenaufruf.
+- Für den Prototyp (fiktive Firma, kein echtes Google-Profil) stattdessen
+  nur die **Optik** im Google-Bewertungs-Stil gebaut (Avatar, Google-
+  Sternfarbe #FBBC04, Google-Logo, relative Zeitangabe), mit Mock-Daten
+  und klarer Kennzeichnung im HTML-Kommentar. Layout ist so vorbereitet,
+  dass später nur die Dateninhalte ausgetauscht werden müssten.
+  → Möglicher Schluss: "Optik jetzt vorbereiten, echte Anbindung später
+  nachrüsten" ist ein brauchbares Muster für alle Fälle, wo eine
+  Integration von echten (noch nicht vorhandenen) Kundendaten abhängt.
+
 ## Deployment
 
 - Kostenlose Veröffentlichung (GitHub Pages) liefert automatisches SSL
