@@ -846,12 +846,14 @@
   </section>
 
   <!--
-    MOCK-DATEN: Dieses Instagram-Raster zeigt keine echten, aktuellen
-    Instagram-Beiträge, sondern wiederverwendete Fotos aus der Galerie
-    plus erfundene Like-/Kommentarzahlen. Für eine echte Anbindung siehe
-    prototyp/erkenntnisse.md — braucht die Instagram/Meta Graph API mit
-    einem echten Business-Account, Server-/Build-seitigem Token-Handling
-    und regelmäßigem Neu-Abruf statt eines Live-Client-Requests.
+    MOCK-DATEN — Betriebsmodell: manuell gepflegt, keine API.
+    Entscheidung (siehe prototyp/erkenntnisse.md): Instagram/Meta Graph
+    API bewusst verworfen (Token-Verwaltung, App-Review, DSGVO-Aufwand
+    unverhältnismäßig für den Nutzen). Stattdessen: Salon liefert
+    gelegentlich ein paar Fotos (Handy-Export, E-Mail o. Ä.), die hier
+    von Hand als lokale Dateien ausgetauscht werden — genau wie die
+    Galerie-Fotos. Diese 6 <img>-Tags + die Like-/Kommentarzahlen sind
+    die einzigen Stellen, die beim Aktualisieren angefasst werden müssen.
   -->
   <!-- ---------- Instagram ---------- -->
   <section id="instagram" style="background:var(--bg-alt);">
@@ -923,11 +925,15 @@
         <p class="eyebrow">Stimmen</p>
         <h2>Was Kund:innen sagen</h2>
         <!--
-          MOCK-DATEN: Diese Bewertungen sind erfunden, keine echte
-          Google-Anbindung. Optisch schon im Google-Bewertungs-Stil
-          gehalten (Google-Logo, Google-Sternfarbe #FBBC04), damit sich
-          später echte Daten über die Google Places API einhängen lassen,
-          ohne das Layout neu zu bauen — siehe prototyp/erkenntnisse.md.
+          MOCK-DATEN — Betriebsmodell: manuell gepflegt, keine API.
+          Entscheidung (siehe prototyp/erkenntnisse.md): Google Places
+          API bewusst verworfen (API-Key/Billing/Cache-Regeln
+          unverhältnismäßig für den Nutzen). Stattdessen: Betreiber
+          schaut gelegentlich im echten Google-Unternehmensprofil nach
+          und trägt neue/bessere Bewertungen hier von Hand als Text ein
+          (Name, Zeitangabe, Zitat je Karte). Die Google-Optik (Logo,
+          Sternfarbe #FBBC04) bleibt als reines Design-Signal für "diese
+          Bewertungen stammen von Google" — ohne Live-Datenanbindung.
         -->
         <div class="rating google">
           <span class="stars" aria-hidden="true">

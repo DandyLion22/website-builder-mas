@@ -135,6 +135,16 @@ Repo: `DandyLion22/website-builder-mas`
 
 ## Echte Google-Bewertungen einbinden
 
+**Entscheidung (2026-08-21): API verworfen, manuelle Pflege gewählt.**
+Nach Abwägung von Komplexität (Google-Cloud-Account, Billing,
+Cache-Regeln) gegen den Nutzen für eine einzelne Salon-Website: zu hoher
+Aufwand für zu wenig Gewinn gegenüber "Betreiber trägt neue Bewertungen
+gelegentlich von Hand als Text ein". Passt außerdem zu Leitprinzip 6 der
+Planung ("MVP zuerst manuell, dann automatisieren") — die Google-Optik
+(Logo, Sternfarbe) bleibt als Design-Signal, nur ohne Live-API dahinter.
+Automatisierung ist damit nicht für alle Zeit ausgeschlossen, nur aktuell
+nicht der richtige Aufwand-Nutzen-Punkt.
+
 - Technisch möglich über die Google Places API (liefert bis zu 5
   Bewertungen je Standort), aber mit Auflagen: Google-Cloud-Account mit
   Zahlungsmethode nötig, Attributionspflicht ("powered by Google"), kein
@@ -155,6 +165,14 @@ Repo: `DandyLion22/website-builder-mas`
   Integration von echten (noch nicht vorhandenen) Kundendaten abhängt.
 
 ## Echten Instagram-Feed einbinden
+
+**Entscheidung (2026-08-21): API verworfen, manuelle Pflege gewählt.**
+Instagram/Meta Graph API wurde als unnötig komplex eingeschätzt
+(Facebook-Seiten-Verknüpfung, App-Review, Token läuft alle 60 Tage ab) —
+noch mehr als bei Google. Stattdessen liefert der Salon gelegentlich
+Fotos (z. B. per Handy-Export), die von Hand als lokale Dateien
+ausgetauscht werden, genau wie die Galerie-Fotos. Kein API-Key, kein
+Token-Handling, kein DSGVO-Thema für diese Funktion.
 
 - Gleiches Muster wie bei Google-Bewertungen: Instagram/Meta Graph API
   braucht einen echten Business-/Creator-Account, Verknüpfung mit einer
