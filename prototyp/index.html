@@ -18,13 +18,14 @@
 <meta property="og:title" content="Salon Lindenblatt — Friseur in Kaiserslautern">
 <meta property="og:description" content="Schnitt, Farbe und Styling mit Zeit für persönliche Beratung.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://dandylion22.github.io/website-builder-mas/assets/img/salon-innenraum.jpg">
 <link rel="icon" href="data:,">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "HairSalon",
   "name": "Salon Lindenblatt",
-  "image": "",
+  "image": "https://dandylion22.github.io/website-builder-mas/assets/img/salon-innenraum.jpg",
   "telephone": "+49 631 3456789",
   "email": "info@salon-lindenblatt-beispiel.de",
   "priceRange": "€€",
@@ -309,7 +310,9 @@
     font-size:0.85rem;
     text-align:center;
     padding:1rem;
+    overflow:hidden;
   }
+  .team-photo img{width:100%; height:100%; object-fit:cover;}
   .team-info{padding:1rem 1.2rem 1.4rem;}
   .team-info .role{color:var(--ink-soft); font-size:0.88rem;}
 
@@ -329,7 +332,9 @@
     font-size:0.8rem;
     text-align:center;
     padding:0.8rem;
+    overflow:hidden;
   }
+  .gallery-tile img{width:100%; height:100%; object-fit:cover;}
 
   /* ---------- Testimonials ---------- */
   .quote-grid{
@@ -506,21 +511,21 @@
       </div>
       <div class="team-grid">
         <div class="team-card">
-          <div class="team-photo">Foto einfügen</div>
+          <div class="team-photo"><img src="assets/img/team-sabine-vogt.jpg" alt="Porträt von Sabine Vogt" loading="lazy" decoding="async"></div>
           <div class="team-info">
             <div>Sabine Vogt</div>
             <div class="role">Salonleitung, Coloristin</div>
           </div>
         </div>
         <div class="team-card">
-          <div class="team-photo">Foto einfügen</div>
+          <div class="team-photo"><img src="assets/img/team-timo-reinhardt.jpg" alt="Porträt von Timo Reinhardt" loading="lazy" decoding="async"></div>
           <div class="team-info">
             <div>Timo Reinhardt</div>
             <div class="role">Stylist</div>
           </div>
         </div>
         <div class="team-card">
-          <div class="team-photo">Foto einfügen</div>
+          <div class="team-photo"><img src="assets/img/team-lea-brandt.jpg" alt="Porträt von Lea Brandt" loading="lazy" decoding="async"></div>
           <div class="team-info">
             <div>Lea Brandt</div>
             <div class="role">Auszubildende</div>
@@ -538,12 +543,12 @@
         <h2>Eindrücke aus dem Salon</h2>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-tile">Foto: Salon-Innenraum</div>
-        <div class="gallery-tile">Foto: Arbeitsplatz</div>
-        <div class="gallery-tile">Foto: Ergebnis Beispiel 1</div>
-        <div class="gallery-tile">Foto: Ergebnis Beispiel 2</div>
-        <div class="gallery-tile">Foto: Empfangsbereich</div>
-        <div class="gallery-tile">Foto: Team bei der Arbeit</div>
+        <div class="gallery-tile"><img src="assets/img/salon-innenraum.jpg" alt="Innenraum von Salon Lindenblatt" loading="lazy" decoding="async"></div>
+        <div class="gallery-tile"><img src="assets/img/arbeitsplatz.jpg" alt="Arbeitsplatz mit Stuhl und Spiegel" loading="lazy" decoding="async"></div>
+        <div class="gallery-tile"><img src="assets/img/ergebnis-1.jpg" alt="Ergebnis: gestylte braune Haare" loading="lazy" decoding="async"></div>
+        <div class="gallery-tile"><img src="assets/img/ergebnis-2.jpg" alt="Ergebnis: gewellte braune Haare" loading="lazy" decoding="async"></div>
+        <div class="gallery-tile"><img src="assets/img/empfang.jpg" alt="Empfangsbereich des Salons" loading="lazy" decoding="async"></div>
+        <div class="gallery-tile"><img src="assets/img/team-bei-der-arbeit.jpg" alt="Stylistin schneidet Kundin die Haare" loading="lazy" decoding="async"></div>
       </div>
     </div>
   </section>

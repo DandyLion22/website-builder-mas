@@ -64,6 +64,33 @@ Repo: `DandyLion22/website-builder-mas`
   Für einen späteren Build-/DevOps-Agenten relevant: der braucht eine
   eigene, feste Commit-Identität, nicht die des Betreibers.
 
+## Bilder statt Platzhalter
+
+- Test: Platzhalter-Kacheln (Team, Galerie) durch echte Stock-Fotos
+  ersetzt, restliches Design (Farben, Typografie, Swatch-Signature-Element
+  im Hero) bewusst unverändert gelassen — Annahme war, dass fehlende echte
+  Fotos der größere "wirkt unfertig"-Faktor sind als CSS-Komplexität.
+  Bewertung nach Betrachtung: bestätigt sich, wirkt deutlich fertiger,
+  ohne dass Layout/Struktur angefasst werden mussten.
+- Bilder wurden **lokal heruntergeladen und eingebunden**
+  (`prototyp/assets/img/`), nicht extern von Pexels verlinkt — aus
+  demselben Grund wie bei den Fonts (7.1/8.1): Hotlinking würde bei jedem
+  Seitenaufruf eine Anfrage an einen Drittanbieter auslösen.
+  → Möglicher Schluss: Die Bild-Komponente der Bibliothek sollte
+  grundsätzlich nur selbst gehostete Bilder zulassen, kein
+  Drittanbieter-Hotlinking.
+- Bildquelle/Lizenz wurde in `assets/img/CREDITS.md` dokumentiert (Pexels,
+  lizenzfrei, aber Foto-ID pro Datei nachvollziehbar gehalten).
+  → Möglicher Schluss: Ein Credits-/Lizenznachweis pro Website könnte
+  sich lohnen, sobald mit echten Kundenfotos oder bezahlten Stock-Lizenzen
+  gearbeitet wird (Nachweispflicht bei manchen Lizenzen).
+- Bilder wurden bereits komprimiert/verkleinert heruntergeladen (Team-Fotos
+  ~600px, Galerie ~900px, 28–208 KB pro Datei) statt Originalauflösung.
+  → Bestätigt die Anforderung aus 8.2 (Bildkompression), aber zeigt auch:
+  die richtige Zielgröße hängt vom Anzeigekontext ab (Kachel vs. große
+  Hero-Fläche) — der Build-Agent müsste das je Komponente unterschiedlich
+  handhaben, nicht mit einer einzigen Kompressionsregel für alle Bilder.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
