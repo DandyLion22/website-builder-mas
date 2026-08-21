@@ -19,7 +19,7 @@
 <meta property="og:description" content="Schnitt, Farbe und Styling mit Zeit für persönliche Beratung.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://dandylion22.github.io/website-builder-mas/assets/img/salon-innenraum.jpg">
-<link rel="icon" href="data:,">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232B3B2E'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-weight='700' fill='%23F7F8F3'%3ESL%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -123,12 +123,16 @@
     padding:1.1rem 0;
   }
   .logo{
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
     font-family:Georgia, serif;
     font-size:1.3rem;
     font-weight:700;
     letter-spacing:0.02em;
     text-decoration:none;
   }
+  .logo-mark{width:2rem; height:2rem; flex-shrink:0;}
   .nav-links{
     display:flex;
     gap:2rem;
@@ -223,6 +227,89 @@
     color:var(--ink);
   }
 
+  /* ---------- Ambiente Hintergrundformen (Hero) ---------- */
+  .hero-shell{position:relative; overflow:hidden;}
+  .ambient-blob{position:absolute; border-radius:50%; filter:blur(70px); pointer-events:none; z-index:0;}
+  .ambient-blob.a{width:340px; height:340px; background:var(--brass); opacity:0.16; top:-90px; right:-70px;}
+  .ambient-blob.b{width:260px; height:260px; background:var(--pine); opacity:0.12; bottom:-110px; left:-70px;}
+  .wrap.hero{position:relative; z-index:1;}
+
+  /* ---------- Trenner-Ornament zwischen Sections ---------- */
+  .section-divider{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 clamp(1.25rem, 4vw, 3rem);
+    display:flex;
+    align-items:center;
+    gap:1rem;
+  }
+  .section-divider::before, .section-divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+  .section-divider .diamond{
+    width:8px; height:8px;
+    background:var(--brass);
+    transform:rotate(45deg);
+    flex-shrink:0;
+  }
+
+  /* ---------- Stats-Leiste ---------- */
+  .stats-strip{
+    background:var(--paper);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:0 !important;
+  }
+  .stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(160px,1fr));
+  }
+  .stat{
+    position:relative;
+    padding:2.75rem 1.5rem 2rem;
+    text-align:center;
+    border-left:1px solid var(--line);
+  }
+  .stat:first-child{border-left:none;}
+  @media (max-width:640px){
+    .stat{border-left:none; border-top:1px solid var(--line);}
+    .stat:first-child{border-top:none;}
+  }
+  .stat::before{
+    content:"";
+    position:absolute;
+    top:1.1rem; left:50%;
+    transform:translateX(-50%);
+    width:2.25rem; height:3px;
+    border-radius:2px;
+    background:var(--pine);
+  }
+  .stat:nth-child(2)::before{background:var(--brass);}
+  .stat:nth-child(3)::before{background:#7C8A6F;}
+  .stat:nth-child(4)::before{background:#C7B48C;}
+  .stat .num{
+    font-family:Georgia,serif;
+    font-size:clamp(1.8rem,4vw,2.5rem);
+    color:var(--pine);
+    font-weight:700;
+    line-height:1;
+  }
+  .stat .label{
+    margin-top:0.5rem;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- Sterne-Bewertung ---------- */
+  .rating{display:inline-flex; align-items:center; gap:0.5rem; margin-top:0.9rem;}
+  .rating .stars{display:flex; gap:2px; color:var(--brass);}
+  .rating .stars svg{width:16px; height:16px;}
+  .rating .score{font-family:Georgia,serif; font-weight:700; font-size:1.05rem;}
+  .rating .count{font-size:0.82rem; color:var(--ink-soft);}
+
   /* swatch strip signature element */
   .swatch-panel{
     position:relative;
@@ -256,8 +343,20 @@
   /* ---------- Section shell ---------- */
   section{padding:clamp(3rem,7vw,5.5rem) 0;}
   .section-head{
+    position:relative;
     max-width:56ch;
     margin-bottom:2.5rem;
+  }
+  .testimonial-mark{
+    position:absolute;
+    top:-2.2rem; left:-0.2rem;
+    font-family:Georgia,serif;
+    font-size:7rem;
+    line-height:1;
+    color:var(--brass);
+    opacity:0.18;
+    pointer-events:none;
+    user-select:none;
   }
   .section-head h2{font-size:clamp(1.8rem,4vw,2.6rem);}
   .section-head p{color:var(--ink-soft); font-size:1.05rem;}
@@ -270,16 +369,11 @@
     align-items:center;
     gap:0.6rem;
   }
-  .service-group h3::before{
-    content:"";
-    width:0.9rem; height:0.9rem;
-    border-radius:2px;
-    display:inline-block;
-  }
-  .service-group.cut h3::before{background:var(--pine);}
-  .service-group.color h3::before{background:var(--brass);}
-  .service-group.style h3::before{background:#7C8A6F;}
-  .service-group.care h3::before{background:#8C8577;}
+  .service-group h3 svg{width:1.2rem; height:1.2rem; flex-shrink:0;}
+  .service-group.cut h3 svg{color:var(--pine);}
+  .service-group.color h3 svg{color:var(--brass);}
+  .service-group.style h3 svg{color:#7C8A6F;}
+  .service-group.care h3 svg{color:#8C8577;}
 
   .service-row{
     display:flex;
@@ -302,6 +396,7 @@
   }
   .team-card{background:var(--paper); border-radius:var(--radius); overflow:hidden;}
   .team-photo{
+    position:relative;
     aspect-ratio:1/1;
     background:
       linear-gradient(135deg, var(--bg-alt), var(--line));
@@ -311,6 +406,18 @@
     text-align:center;
     padding:1rem;
     overflow:hidden;
+  }
+  .team-badge{
+    position:absolute;
+    top:0.6rem; right:0.6rem;
+    background:var(--paper);
+    color:var(--pine);
+    font-size:0.7rem;
+    font-weight:600;
+    padding:0.25rem 0.6rem;
+    border-radius:999px;
+    box-shadow:0 4px 10px rgba(28,31,27,0.18);
+    z-index:1;
   }
   .team-photo img{width:100%; height:100%; object-fit:cover;}
   .team-info{padding:1rem 1.2rem 1.4rem;}
@@ -333,8 +440,23 @@
     text-align:center;
     padding:0.8rem;
     overflow:hidden;
+    position:relative;
   }
   .gallery-tile img{width:100%; height:100%; object-fit:cover;}
+  .gallery-tile .caption{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding:0.6rem 0.75rem;
+    background:linear-gradient(to top, rgba(28,31,27,0.8), rgba(28,31,27,0));
+    color:var(--paper);
+    font-size:0.78rem;
+    text-align:left;
+    transform:translateY(100%);
+    transition:transform .25s ease;
+  }
+  .gallery-tile:hover .caption,
+  .gallery-tile:focus-visible .caption{transform:translateY(0);}
+  .gallery-tile:focus-visible{outline:2px solid var(--pine); outline-offset:3px;}
 
   /* ---------- Testimonials ---------- */
   .quote-grid{
@@ -432,7 +554,13 @@
 
 <header>
   <nav class="wrap nav">
-    <a class="logo" href="#top">Salon Lindenblatt</a>
+    <a class="logo" href="#top">
+      <svg class="logo-mark" viewBox="0 0 32 32" role="img" aria-label="Monogramm Salon Lindenblatt" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="16" fill="var(--pine)"/>
+        <text x="16" y="21" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="700" fill="var(--paper)">SL</text>
+      </svg>
+      Salon Lindenblatt
+    </a>
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
     <label for="menu-toggle" class="menu-label" aria-label="Menü öffnen">☰</label>
     <ul class="nav-links">
@@ -448,24 +576,54 @@
 <main id="top">
 
   <!-- ---------- Hero ---------- -->
-  <div class="wrap hero">
-    <div>
-      <p class="eyebrow">Friseur &amp; Salon · Kaiserslautern</p>
-      <h1>Präzise geschnitten,<br>ruhig gestaltet.</h1>
-      <p>Salon Lindenblatt steht für klare Schnitte, natürliche Farben und Beratung, die sich Zeit nimmt.</p>
-      <div class="hero-ctas">
-        <a class="cta" href="#kontakt">Termin anfragen</a>
-        <a class="cta-ghost" href="#leistungen">Leistungen ansehen</a>
+  <div class="hero-shell">
+    <span class="ambient-blob a" aria-hidden="true"></span>
+    <span class="ambient-blob b" aria-hidden="true"></span>
+    <div class="wrap hero">
+      <div>
+        <p class="eyebrow">Friseur &amp; Salon · Kaiserslautern</p>
+        <h1>Präzise geschnitten,<br>ruhig gestaltet.</h1>
+        <p>Salon Lindenblatt steht für klare Schnitte, natürliche Farben und Beratung, die sich Zeit nimmt.</p>
+        <div class="hero-ctas">
+          <a class="cta" href="#kontakt">Termin anfragen</a>
+          <a class="cta-ghost" href="#leistungen">Leistungen ansehen</a>
+        </div>
       </div>
-    </div>
-    <div class="swatch-panel" role="img" aria-label="Farbmuster-Streifen als gestalterisches Element">
-      <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-      <div class="ticket">
-        <p class="eyebrow">Nächster freier Termin</p>
-        <p>Diese Woche noch verfügbar</p>
+      <div class="swatch-panel" role="img" aria-label="Farbmuster-Streifen als gestalterisches Element">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <div class="ticket">
+          <p class="eyebrow">Nächster freier Termin</p>
+          <p>Diese Woche noch verfügbar</p>
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="section-divider" aria-hidden="true"><span class="diamond"></span></div>
+
+  <!-- ---------- Salon in Zahlen ---------- -->
+  <section class="stats-strip">
+    <div class="wrap">
+      <div class="stats-grid reveal">
+        <div class="stat">
+          <div class="num" data-count-to="12" data-suffix="+">0</div>
+          <div class="label">Jahre Erfahrung</div>
+        </div>
+        <div class="stat">
+          <div class="num" data-count-to="3">0</div>
+          <div class="label">Stylist:innen im Team</div>
+        </div>
+        <div class="stat">
+          <div class="num" data-count-to="500" data-suffix="+">0</div>
+          <div class="label">zufriedene Kund:innen</div>
+        </div>
+        <div class="stat">
+          <div class="num" data-count-to="4.9" data-decimals="1">0</div>
+          <div class="label">Ø Bewertung</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ---------- Leistungen ---------- -->
   <section id="leistungen">
@@ -477,7 +635,7 @@
       </div>
 
       <div class="service-group cut">
-        <h3>Schnitt</h3>
+        <h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="5.5" cy="15" r="2"/><circle cx="14.5" cy="15" r="2"/><path d="M6.8 13.5 L16 4"/><path d="M13.2 13.5 L4 4"/></svg>Schnitt</h3>
         <div class="service-row">
           <div><div class="name">Damenschnitt</div><div class="desc">inkl. Waschen &amp; Föhnen</div></div>
           <div class="price">ab 45 €</div>
@@ -493,7 +651,7 @@
       </div>
 
       <div class="service-group color">
-        <h3>Farbe</h3>
+        <h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2.5 C10 2.5 4.5 9.5 4.5 13.5 a5.5 5.5 0 0 0 11 0 C15.5 9.5 10 2.5 10 2.5 Z"/></svg>Farbe</h3>
         <div class="service-row">
           <div><div class="name">Ansatzfarbe</div><div class="desc">einfarbig, inkl. Beratung</div></div>
           <div class="price">ab 55 €</div>
@@ -505,7 +663,7 @@
       </div>
 
       <div class="service-group style">
-        <h3>Styling</h3>
+        <h3><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2 L11.3 8.2 L17.5 10 L11.3 11.8 L10 18 L8.7 11.8 L2.5 10 L8.7 8.2 Z"/></svg>Styling</h3>
         <div class="service-row">
           <div><div class="name">Festliches Styling</div><div class="desc">für besondere Anlässe</div></div>
           <div class="price">ab 40 €</div>
@@ -513,7 +671,7 @@
       </div>
 
       <div class="service-group care">
-        <h3>Pflege</h3>
+        <h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16.5 C4 8.5 10 3.5 17 3.5 C17 10.5 12 16.5 4 16.5 Z" fill="currentColor" fill-opacity="0.18"/><path d="M4.5 16 C7 12.5 10 10.5 13.5 8.5"/></svg>Pflege</h3>
         <div class="service-row">
           <div><div class="name">Intensivkur</div><div class="desc">auf Haartyp abgestimmt</div></div>
           <div class="price">ab 18 €</div>
@@ -531,21 +689,30 @@
       </div>
       <div class="team-grid">
         <div class="team-card reveal">
-          <div class="team-photo"><img src="assets/img/team-sabine-vogt.jpg" alt="Porträt von Sabine Vogt" loading="lazy" decoding="async"></div>
+          <div class="team-photo">
+            <img src="assets/img/team-sabine-vogt.jpg" alt="Porträt von Sabine Vogt" loading="lazy" decoding="async">
+            <span class="team-badge">seit 2014</span>
+          </div>
           <div class="team-info">
             <div>Sabine Vogt</div>
             <div class="role">Salonleitung, Coloristin</div>
           </div>
         </div>
         <div class="team-card reveal">
-          <div class="team-photo"><img src="assets/img/team-timo-reinhardt.jpg" alt="Porträt von Timo Reinhardt" loading="lazy" decoding="async"></div>
+          <div class="team-photo">
+            <img src="assets/img/team-timo-reinhardt.jpg" alt="Porträt von Timo Reinhardt" loading="lazy" decoding="async">
+            <span class="team-badge">seit 2019</span>
+          </div>
           <div class="team-info">
             <div>Timo Reinhardt</div>
             <div class="role">Stylist</div>
           </div>
         </div>
         <div class="team-card reveal">
-          <div class="team-photo"><img src="assets/img/team-lea-brandt.jpg" alt="Porträt von Lea Brandt" loading="lazy" decoding="async"></div>
+          <div class="team-photo">
+            <img src="assets/img/team-lea-brandt.jpg" alt="Porträt von Lea Brandt" loading="lazy" decoding="async">
+            <span class="team-badge">seit 2023</span>
+          </div>
           <div class="team-info">
             <div>Lea Brandt</div>
             <div class="role">Auszubildende</div>
@@ -563,22 +730,36 @@
         <h2>Eindrücke aus dem Salon</h2>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-tile reveal"><img src="assets/img/salon-innenraum.jpg" alt="Innenraum von Salon Lindenblatt" loading="lazy" decoding="async"></div>
-        <div class="gallery-tile reveal"><img src="assets/img/arbeitsplatz.jpg" alt="Arbeitsplatz mit Stuhl und Spiegel" loading="lazy" decoding="async"></div>
-        <div class="gallery-tile reveal"><img src="assets/img/ergebnis-1.jpg" alt="Ergebnis: gestylte braune Haare" loading="lazy" decoding="async"></div>
-        <div class="gallery-tile reveal"><img src="assets/img/ergebnis-2.jpg" alt="Ergebnis: gewellte braune Haare" loading="lazy" decoding="async"></div>
-        <div class="gallery-tile reveal"><img src="assets/img/empfang.jpg" alt="Empfangsbereich des Salons" loading="lazy" decoding="async"></div>
-        <div class="gallery-tile reveal"><img src="assets/img/team-bei-der-arbeit.jpg" alt="Stylistin schneidet Kundin die Haare" loading="lazy" decoding="async"></div>
+        <div class="gallery-tile reveal" tabindex="0"><img src="assets/img/salon-innenraum.jpg" alt="Innenraum von Salon Lindenblatt" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Salon-Innenraum</span></div>
+        <div class="gallery-tile reveal" tabindex="0"><img src="assets/img/arbeitsplatz.jpg" alt="Arbeitsplatz mit Stuhl und Spiegel" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Arbeitsplatz</span></div>
+        <div class="gallery-tile reveal" tabindex="0"><img src="assets/img/ergebnis-1.jpg" alt="Ergebnis: gestylte braune Haare" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Ergebnis: Styling</span></div>
+        <div class="gallery-tile reveal" tabindex="0"><img src="assets/img/ergebnis-2.jpg" alt="Ergebnis: gewellte braune Haare" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Ergebnis: Wellen</span></div>
+        <div class="gallery-tile reveal" tabindex="0"><img src="assets/img/empfang.jpg" alt="Empfangsbereich des Salons" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Empfang</span></div>
+        <div class="gallery-tile reveal" tabindex="0"><img src="assets/img/team-bei-der-arbeit.jpg" alt="Stylistin schneidet Kundin die Haare" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Bei der Arbeit</span></div>
       </div>
     </div>
   </section>
+
+  <div class="section-divider" aria-hidden="true"><span class="diamond"></span></div>
 
   <!-- ---------- Testimonials ---------- -->
   <section style="background:var(--bg-alt);">
     <div class="wrap">
       <div class="section-head reveal">
+        <span class="testimonial-mark" aria-hidden="true">&ldquo;</span>
         <p class="eyebrow">Stimmen</p>
         <h2>Was Kund:innen sagen</h2>
+        <div class="rating">
+          <span class="stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
+          </span>
+          <span class="score">4.9</span>
+          <span class="count">· 120+ Bewertungen</span>
+        </div>
       </div>
       <div class="quote-grid">
         <div class="quote reveal">
@@ -671,15 +852,42 @@
 <script>
 (function(){
   document.body.classList.add('js-enabled');
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animateCount(el){
+    var target = parseFloat(el.dataset.countTo);
+    var decimals = el.dataset.decimals ? parseInt(el.dataset.decimals, 10) : 0;
+    var suffix = el.dataset.suffix || '';
+    if(isNaN(target)) return;
+    if(reduceMotion){
+      el.textContent = target.toFixed(decimals) + suffix;
+      return;
+    }
+    var duration = 1100, start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      el.textContent = (target * progress).toFixed(decimals) + suffix;
+      if(progress < 1){ requestAnimationFrame(step); }
+    }
+    requestAnimationFrame(step);
+  }
+
+  function reveal(el){
+    el.classList.add('is-visible');
+    el.querySelectorAll('[data-count-to]').forEach(animateCount);
+  }
+
   var els = document.querySelectorAll('.reveal');
   if(!('IntersectionObserver' in window)){
-    els.forEach(function(el){ el.classList.add('is-visible'); });
+    els.forEach(reveal);
     return;
   }
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if(entry.isIntersecting){
-        entry.target.classList.add('is-visible');
+        reveal(entry.target);
         io.unobserve(entry.target);
       }
     });
