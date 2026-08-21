@@ -351,6 +351,26 @@
   .quote p{margin:0 0 0.8rem; font-size:1.02rem;}
   .quote cite{font-style:normal; font-size:0.88rem; color:var(--ink-soft);}
 
+  /* ---------- Eigene Illustration (statt Stock/unDraw) ---------- */
+  .appointment-illustration{
+    width:100%;
+    max-width:180px;
+    height:auto;
+    margin-bottom:1.5rem;
+  }
+
+  /* ---------- Scroll-Einblendung (progressive enhancement) ---------- */
+  .reveal{transition:opacity .5s ease, transform .5s ease;}
+  body.js-enabled .reveal{opacity:0; transform:translateY(16px);}
+  body.js-enabled .reveal.is-visible{opacity:1; transform:translateY(0);}
+
+  /* ---------- Hover-Lift auf Karten ---------- */
+  .team-card, .gallery-tile, .quote{transition:transform .2s ease, box-shadow .2s ease;}
+  .team-card:hover, .gallery-tile:hover, .quote:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 24px rgba(28,31,27,0.12);
+  }
+
   /* ---------- Contact / Hours ---------- */
   .contact{
     display:grid;
@@ -450,7 +470,7 @@
   <!-- ---------- Leistungen ---------- -->
   <section id="leistungen">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <p class="eyebrow">Leistungen</p>
         <h2>Was wir für dich tun</h2>
         <p>Alle Preise sind Richtwerte und abhängig von Haarlänge und -dichte.</p>
@@ -505,26 +525,26 @@
   <!-- ---------- Team ---------- -->
   <section id="team" style="background:var(--bg-alt);">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <p class="eyebrow">Team</p>
         <h2>Wer dich schneidet</h2>
       </div>
       <div class="team-grid">
-        <div class="team-card">
+        <div class="team-card reveal">
           <div class="team-photo"><img src="assets/img/team-sabine-vogt.jpg" alt="Porträt von Sabine Vogt" loading="lazy" decoding="async"></div>
           <div class="team-info">
             <div>Sabine Vogt</div>
             <div class="role">Salonleitung, Coloristin</div>
           </div>
         </div>
-        <div class="team-card">
+        <div class="team-card reveal">
           <div class="team-photo"><img src="assets/img/team-timo-reinhardt.jpg" alt="Porträt von Timo Reinhardt" loading="lazy" decoding="async"></div>
           <div class="team-info">
             <div>Timo Reinhardt</div>
             <div class="role">Stylist</div>
           </div>
         </div>
-        <div class="team-card">
+        <div class="team-card reveal">
           <div class="team-photo"><img src="assets/img/team-lea-brandt.jpg" alt="Porträt von Lea Brandt" loading="lazy" decoding="async"></div>
           <div class="team-info">
             <div>Lea Brandt</div>
@@ -538,17 +558,17 @@
   <!-- ---------- Galerie ---------- -->
   <section id="galerie">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <p class="eyebrow">Galerie</p>
         <h2>Eindrücke aus dem Salon</h2>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-tile"><img src="assets/img/salon-innenraum.jpg" alt="Innenraum von Salon Lindenblatt" loading="lazy" decoding="async"></div>
-        <div class="gallery-tile"><img src="assets/img/arbeitsplatz.jpg" alt="Arbeitsplatz mit Stuhl und Spiegel" loading="lazy" decoding="async"></div>
-        <div class="gallery-tile"><img src="assets/img/ergebnis-1.jpg" alt="Ergebnis: gestylte braune Haare" loading="lazy" decoding="async"></div>
-        <div class="gallery-tile"><img src="assets/img/ergebnis-2.jpg" alt="Ergebnis: gewellte braune Haare" loading="lazy" decoding="async"></div>
-        <div class="gallery-tile"><img src="assets/img/empfang.jpg" alt="Empfangsbereich des Salons" loading="lazy" decoding="async"></div>
-        <div class="gallery-tile"><img src="assets/img/team-bei-der-arbeit.jpg" alt="Stylistin schneidet Kundin die Haare" loading="lazy" decoding="async"></div>
+        <div class="gallery-tile reveal"><img src="assets/img/salon-innenraum.jpg" alt="Innenraum von Salon Lindenblatt" loading="lazy" decoding="async"></div>
+        <div class="gallery-tile reveal"><img src="assets/img/arbeitsplatz.jpg" alt="Arbeitsplatz mit Stuhl und Spiegel" loading="lazy" decoding="async"></div>
+        <div class="gallery-tile reveal"><img src="assets/img/ergebnis-1.jpg" alt="Ergebnis: gestylte braune Haare" loading="lazy" decoding="async"></div>
+        <div class="gallery-tile reveal"><img src="assets/img/ergebnis-2.jpg" alt="Ergebnis: gewellte braune Haare" loading="lazy" decoding="async"></div>
+        <div class="gallery-tile reveal"><img src="assets/img/empfang.jpg" alt="Empfangsbereich des Salons" loading="lazy" decoding="async"></div>
+        <div class="gallery-tile reveal"><img src="assets/img/team-bei-der-arbeit.jpg" alt="Stylistin schneidet Kundin die Haare" loading="lazy" decoding="async"></div>
       </div>
     </div>
   </section>
@@ -556,20 +576,20 @@
   <!-- ---------- Testimonials ---------- -->
   <section style="background:var(--bg-alt);">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <p class="eyebrow">Stimmen</p>
         <h2>Was Kund:innen sagen</h2>
       </div>
       <div class="quote-grid">
-        <div class="quote">
+        <div class="quote reveal">
           <p>„Endlich ein Salon, der sich Zeit für Beratung nimmt statt nur schnell zu schneiden."</p>
           <cite>— M. Weber</cite>
         </div>
-        <div class="quote">
+        <div class="quote reveal">
           <p>„Die Farbberatung war ehrlich und das Ergebnis genau das, was ich wollte."</p>
           <cite>— S. Klein</cite>
         </div>
-        <div class="quote">
+        <div class="quote reveal">
           <p>„Ruhige Atmosphäre, klares Ergebnis. Komme seit zwei Jahren nur noch hierher."</p>
           <cite>— J. Fischer</cite>
         </div>
@@ -581,6 +601,23 @@
   <section id="kontakt">
     <div class="wrap contact">
       <div>
+        <svg class="appointment-illustration" viewBox="0 0 220 200" role="img" aria-label="Illustration: Terminkalender mit markiertem Termin" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="182" cy="46" r="34" fill="var(--brass)" opacity="0.14"/>
+          <circle cx="34" cy="168" r="26" fill="var(--pine)" opacity="0.10"/>
+          <rect x="64" y="14" width="10" height="30" rx="5" fill="var(--pine)"/>
+          <rect x="146" y="14" width="10" height="30" rx="5" fill="var(--pine)"/>
+          <rect x="26" y="34" width="168" height="150" rx="10" fill="var(--paper)"/>
+          <rect x="26" y="34" width="168" height="34" rx="10" fill="var(--pine)"/>
+          <rect x="26" y="50" width="168" height="18" fill="var(--pine)"/>
+          <rect x="26" y="34" width="168" height="150" rx="10" fill="none" stroke="var(--pine)" stroke-width="2"/>
+          <g fill="var(--ink-soft)" opacity="0.55">
+            <circle cx="54" cy="96" r="4"/><circle cx="88" cy="96" r="4"/><circle cx="122" cy="96" r="4"/><circle cx="156" cy="96" r="4"/>
+            <circle cx="54" cy="124" r="4"/><circle cx="122" cy="124" r="4"/><circle cx="156" cy="124" r="4"/>
+            <circle cx="54" cy="152" r="4"/><circle cx="88" cy="152" r="4"/><circle cx="122" cy="152" r="4"/><circle cx="156" cy="152" r="4"/>
+          </g>
+          <circle cx="88" cy="124" r="12" fill="var(--brass)"/>
+          <path d="M83 124.5 L87 128.5 L94.5 119.5" fill="none" stroke="var(--paper)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
         <p class="eyebrow">Öffnungszeiten &amp; Adresse</p>
         <ul class="hours-list">
           <li><span>Montag</span><span>geschlossen</span></li>
@@ -630,6 +667,26 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  document.body.classList.add('js-enabled');
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
 
 </body>
 </html>
