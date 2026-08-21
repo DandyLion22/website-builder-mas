@@ -69,6 +69,32 @@ Repo: `DandyLion22/website-builder-mas`
   JS bleibt alles regulär sichtbar. Sonst würden Besucher mit
   deaktiviertem JavaScript dauerhaft unsichtbare Inhalte sehen.
 
+## Größere Menge an Design-Elementen auf einmal
+
+- Auf Wunsch bewusst eine ganze Reihe zusätzlicher Elemente in einem
+  Durchgang gebaut (Monogramm/Favicon, Stats-Leiste mit Zähl-Animation,
+  eigene Kategorie-Icons, Trenner-Ornamente, ambiente Hintergrundformen,
+  Anführungszeichen-Ornament, Sterne-Bewertung, Galerie-Bildunterschriften,
+  Team-Badges) — alle nach demselben Muster wie die Kalender-Illustration:
+  selbst gebaut, Inline statt Datei, bestehende CSS-Variablen
+  wiederverwendet.
+  → Möglicher Schluss: Eine "Fülle" an Elementen wirkt nur zusammenhängend,
+  wenn alle auf dieselbe kleine Formensprache zurückgreifen (dieselben
+  Farbvariablen, derselbe Radius, dieselbe Serifenschrift für Zahlen/
+  Zitate) — sonst entsteht schnell ein Sammelsurium statt eines Systems.
+- Favicon als Inline-SVG-Data-URI umgesetzt statt als Datei — spart einen
+  HTTP-Request, kann aber keine CSS-Variablen nutzen (Farben mussten dort
+  hart codiert werden, einzige Ausnahme von der "immer var()"-Regel).
+- Für Tastaturzugänglichkeit der neuen Hover-Effekte (Galerie-Bildunter-
+  schriften) zusätzlich `tabindex="0"` und `:focus-visible` ergänzt, nicht
+  nur `:hover` — sonst wäre die neue Optik für Tastaturnutzer:innen
+  unsichtbar geblieben.
+- Zähl-Animation der Stats-Leiste prüft `prefers-reduced-motion` explizit
+  in JavaScript (nicht nur per CSS) und zeigt den Zielwert dann sofort an
+  — reine CSS-Transition-Regel hätte hier nicht gereicht, weil der
+  Zähleffekt über `requestAnimationFrame`-Textänderungen läuft, nicht über
+  eine CSS-Transition.
+
 ## Deployment
 
 - Kostenlose Veröffentlichung (GitHub Pages) liefert automatisches SSL
