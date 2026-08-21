@@ -154,6 +154,30 @@ Repo: `DandyLion22/website-builder-mas`
   nachrüsten" ist ein brauchbares Muster für alle Fälle, wo eine
   Integration von echten (noch nicht vorhandenen) Kundendaten abhängt.
 
+## Echten Instagram-Feed einbinden
+
+- Gleiches Muster wie bei Google-Bewertungen: Instagram/Meta Graph API
+  braucht einen echten Business-/Creator-Account, Verknüpfung mit einer
+  Facebook-Seite und Token-Handling, das nicht im Frontend liegen darf.
+  Fertige Embed-Widgets (SnapWidget u. Ä.) wären einfacher, laden aber bei
+  jedem Seitenaufruf ein Drittanbieter-Script nach — Konflikt mit der
+  bestehenden "keine externen Requests"-Linie (siehe Fonts/Bilder).
+  → Möglicher Schluss: Auch hier serverseitiger/periodischer Abruf +
+  selbst gehostete Auslieferung statt Live-Embed, sobald ein echter
+  Kunden-Account existiert.
+- Wichtig war hier zusätzlich, eine bereits getroffene Design-Entscheidung
+  nicht versehentlich zu überschreiben: Das Swatch-Panel im Hero ist laut
+  Planungsdatei (Abschnitt 10.2) bewusst branchen-/kundenübergreifend
+  konstant. Der ursprüngliche Wunsch zielte optisch auf genau diesen
+  Bereich — stattdessen wurde eine neue, eigenständige Section gebaut.
+  → Möglicher Schluss: Bevor ein neuer Wunsch in ein bestehendes
+  Signature-Element eingebaut wird, lohnt sich ein kurzer Abgleich mit
+  bereits dokumentierten "das bleibt konstant"-Entscheidungen.
+- Mock-Raster nutzt bewusst die bereits vorhandenen, lokal gehosteten
+  Fotos aus der Galerie wieder statt neuer Downloads — vermeidet
+  zusätzliche externe Requests und Lizenzfragen für eine Funktion, die
+  ohnehin nur Platzhalter ist.
+
 ## Deployment
 
 - Kostenlose Veröffentlichung (GitHub Pages) liefert automatisches SSL
