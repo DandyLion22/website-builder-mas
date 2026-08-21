@@ -12,6 +12,33 @@ Repo: `DandyLion22/website-builder-mas`
 
 ---
 
+## "Wirkt altmodisch" ist keine konkrete Anweisung
+
+- Rückmeldung "die Seite wirkt wie aus den Zweitausendern, ich brauche
+  aufwendigere Grafiken" kam auf, nachdem schon mehrere eigene
+  Design-Elemente eingebaut waren. Bei genauerem Hinsehen: die
+  Farb-/Typografie-Wahl (gedeckte Salbei/Messing-Palette, Serifen,
+  viel Weißraum) ist eigentlich ein aktueller "ruhiger Boutique"-Trend,
+  kein 2000er-Look (der eher Verläufe/Glanz-Buttons/Bevel bedeutet hätte).
+  → Möglicher Schluss: Bevor auf so ein Feedback hin umgebaut wird, lohnt
+  sich eine Rückfrage mit konkreten, vorzeigbaren Optionen statt sofort
+  "mehr"/"aufwendiger" zu bauen — sonst wird evtl. in eine Richtung
+  gebaut, die das eigentliche Problem nicht trifft oder es sogar
+  verschlimmert (z. B. Glanzeffekte hätten tatsächlich veralteter
+  gewirkt).
+- Konkret angefragt (per Auswahl aus vorgeschlagenen Optionen mit
+  Vorschau) und umgesetzt: Bento-Grid für die Galerie (unterschiedlich
+  große Kacheln statt uniformem Raster), Textur/Tiefe (Grain-Overlay +
+  Glasmorphismus-Panels + erweiterte Ambient-Formen), 3D-Tilt-Hover auf
+  Karten (reines CSS/Vanilla-JS, kein WebGL).
+  → Möglicher Schluss: Diese drei Techniken sind generisch genug, um
+  Teil der Komponenten-Bibliothek zu werden (nicht friseurspezifisch),
+  sollten also bei den nächsten Branchen-Prototypen wiederverwendet statt
+  neu erfunden werden.
+- Für den eigenen Verkaufsprozess relevant: "moderner"/"aufwendiger" als
+  Kundenwunsch ist erfahrungsgemäß vage — hier hat sich bewährt, mit 3-4
+  konkreten, benannten Stilrichtungen zurückzufragen statt zu raten.
+
 ## Rechtstexte
 
 - Sobald aus dem Platzhalter-Link „Impressum" ein echter Text wird, passt
