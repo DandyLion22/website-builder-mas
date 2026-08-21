@@ -46,6 +46,30 @@ Planungsdatei nicht verstehen — hier steht nur, was zu tun ist und warum.
 
 ---
 
+## Phase 3.1 — Erkenntnisse aus dem ersten kompletten Probelauf
+
+Die Friseur-Vorlage wurde einmal komplett mit erfundenen, aber realistischen
+Angaben durchgebaut und kostenlos veröffentlicht (Test-Adresse:
+`https://dandylion22.github.io/website-builder-mas/`). Dabei ist aufgefallen,
+was du bei den nächsten Vorlagen mitdenken solltest:
+
+- [ ] Impressum und Datenschutz brauchen eigene Unterseiten, nicht nur einen
+      Link ins Leere — das gehört ab jetzt zu jeder Vorlage dazu
+- [ ] Beim Kunden-Erstgespräch künftig auch die **Rechtsform** erfragen
+      (Einzelunternehmen, GmbH, …) — das Impressum sieht je nachdem anders
+      aus
+- [ ] Kontaktformulare bekommen serienmäßig einen einfachen Spam-Schutz
+      (Honeypot) — nicht erst nachträglich pro Kunde einbauen
+- [ ] Jede veröffentlichte Website braucht zusätzlich zwei technische
+      Dateien (`robots.txt`, `sitemap.xml`) — fällt nur auf, wenn man wirklich
+      einmal komplett veröffentlicht, nicht beim bloßen Anschauen der Seite
+- [ ] Kostenlose Test-Veröffentlichung (GitHub Pages) hat gezeigt: SSL
+      funktioniert automatisch und es geht schnell — der später geplante
+      Hetzner/INWX/Cloudflare-Weg (siehe Phase 1) muss aber trotzdem einmal
+      separat ausprobiert werden, sobald die Konten dafür stehen
+
+---
+
 ## Phase 4 — Mit Claude Code das System bauen
 
 - [ ] Die Planungsdatei an Claude Code übergeben
