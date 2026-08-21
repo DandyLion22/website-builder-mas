@@ -227,12 +227,42 @@
     color:var(--ink);
   }
 
-  /* ---------- Ambiente Hintergrundformen (Hero) ---------- */
-  .hero-shell{position:relative; overflow:hidden;}
+  /* ---------- Ambiente Hintergrundformen (Textur & Tiefe) ---------- */
+  .ambient-shell{position:relative; overflow:hidden;}
   .ambient-blob{position:absolute; border-radius:50%; filter:blur(70px); pointer-events:none; z-index:0;}
   .ambient-blob.a{width:340px; height:340px; background:var(--brass); opacity:0.16; top:-90px; right:-70px;}
   .ambient-blob.b{width:260px; height:260px; background:var(--pine); opacity:0.12; bottom:-110px; left:-70px;}
+  .ambient-blob.c{width:220px; height:220px; background:#7C8A6F; opacity:0.14; top:40%; left:38%;}
   .wrap.hero{position:relative; z-index:1;}
+
+  /* ---------- Grain-Textur (feiner Rausch-Overlay über der ganzen Seite) ---------- */
+  .grain{
+    position:fixed;
+    inset:0;
+    z-index:200;
+    pointer-events:none;
+    opacity:0.035;
+    mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- Glas-/Blur-Panels ---------- */
+  .glass{
+    background:rgba(247,248,243,0.62);
+    -webkit-backdrop-filter:blur(14px);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.5);
+  }
+  .ticket.glass{background:rgba(247,248,243,0.68);}
+  .kontakt-panel.glass{
+    padding:1.75rem clamp(1.25rem,3vw,2.25rem);
+    border-radius:var(--radius);
+    position:relative;
+    z-index:1;
+  }
+
+  /* ---------- 3D-Tilt bei Interaktion ---------- */
+  .tilt{transform-style:preserve-3d; will-change:transform;}
 
   /* ---------- Trenner-Ornament zwischen Sections ---------- */
   .section-divider{
@@ -423,15 +453,24 @@
   .team-info{padding:1rem 1.2rem 1.4rem;}
   .team-info .role{color:var(--ink-soft); font-size:0.88rem;}
 
-  /* ---------- Gallery ---------- */
+  /* ---------- Gallery: Bento-Grid ---------- */
   .gallery-grid{
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
+    grid-template-columns:repeat(4, 1fr);
+    grid-auto-rows:140px;
     gap:0.9rem;
   }
-  @media (max-width:640px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+  .gallery-tile:nth-child(1){grid-column:1 / 3; grid-row:1 / 3;}
+  .gallery-tile:nth-child(2){grid-column:3 / 5; grid-row:1 / 2;}
+  .gallery-tile:nth-child(3){grid-column:3 / 4; grid-row:2 / 3;}
+  .gallery-tile:nth-child(4){grid-column:4 / 5; grid-row:2 / 3;}
+  .gallery-tile:nth-child(5){grid-column:1 / 3; grid-row:3 / 4;}
+  .gallery-tile:nth-child(6){grid-column:3 / 5; grid-row:3 / 4;}
+  @media (max-width:640px){
+    .gallery-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:170px;}
+    .gallery-tile:nth-child(n){grid-column:auto; grid-row:auto;}
+  }
   .gallery-tile{
-    aspect-ratio:1/1;
     background:var(--bg-alt);
     border-radius:var(--radius);
     display:flex; align-items:center; justify-content:center;
@@ -552,6 +591,8 @@
 </head>
 <body>
 
+<div class="grain" aria-hidden="true"></div>
+
 <header>
   <nav class="wrap nav">
     <a class="logo" href="#top">
@@ -576,9 +617,10 @@
 <main id="top">
 
   <!-- ---------- Hero ---------- -->
-  <div class="hero-shell">
+  <div class="ambient-shell">
     <span class="ambient-blob a" aria-hidden="true"></span>
     <span class="ambient-blob b" aria-hidden="true"></span>
+    <span class="ambient-blob c" aria-hidden="true"></span>
     <div class="wrap hero">
       <div>
         <p class="eyebrow">Friseur &amp; Salon · Kaiserslautern</p>
@@ -591,7 +633,7 @@
       </div>
       <div class="swatch-panel" role="img" aria-label="Farbmuster-Streifen als gestalterisches Element">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-        <div class="ticket">
+        <div class="ticket glass">
           <p class="eyebrow">Nächster freier Termin</p>
           <p>Diese Woche noch verfügbar</p>
         </div>
@@ -688,7 +730,7 @@
         <h2>Wer dich schneidet</h2>
       </div>
       <div class="team-grid">
-        <div class="team-card reveal">
+        <div class="team-card reveal tilt">
           <div class="team-photo">
             <img src="assets/img/team-sabine-vogt.jpg" alt="Porträt von Sabine Vogt" loading="lazy" decoding="async">
             <span class="team-badge">seit 2014</span>
@@ -698,7 +740,7 @@
             <div class="role">Salonleitung, Coloristin</div>
           </div>
         </div>
-        <div class="team-card reveal">
+        <div class="team-card reveal tilt">
           <div class="team-photo">
             <img src="assets/img/team-timo-reinhardt.jpg" alt="Porträt von Timo Reinhardt" loading="lazy" decoding="async">
             <span class="team-badge">seit 2019</span>
@@ -708,7 +750,7 @@
             <div class="role">Stylist</div>
           </div>
         </div>
-        <div class="team-card reveal">
+        <div class="team-card reveal tilt">
           <div class="team-photo">
             <img src="assets/img/team-lea-brandt.jpg" alt="Porträt von Lea Brandt" loading="lazy" decoding="async">
             <span class="team-badge">seit 2023</span>
@@ -730,12 +772,12 @@
         <h2>Eindrücke aus dem Salon</h2>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-tile reveal" tabindex="0"><img src="assets/img/salon-innenraum.jpg" alt="Innenraum von Salon Lindenblatt" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Salon-Innenraum</span></div>
-        <div class="gallery-tile reveal" tabindex="0"><img src="assets/img/arbeitsplatz.jpg" alt="Arbeitsplatz mit Stuhl und Spiegel" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Arbeitsplatz</span></div>
-        <div class="gallery-tile reveal" tabindex="0"><img src="assets/img/ergebnis-1.jpg" alt="Ergebnis: gestylte braune Haare" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Ergebnis: Styling</span></div>
-        <div class="gallery-tile reveal" tabindex="0"><img src="assets/img/ergebnis-2.jpg" alt="Ergebnis: gewellte braune Haare" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Ergebnis: Wellen</span></div>
-        <div class="gallery-tile reveal" tabindex="0"><img src="assets/img/empfang.jpg" alt="Empfangsbereich des Salons" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Empfang</span></div>
-        <div class="gallery-tile reveal" tabindex="0"><img src="assets/img/team-bei-der-arbeit.jpg" alt="Stylistin schneidet Kundin die Haare" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Bei der Arbeit</span></div>
+        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/salon-innenraum.jpg" alt="Innenraum von Salon Lindenblatt" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Salon-Innenraum</span></div>
+        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/arbeitsplatz.jpg" alt="Arbeitsplatz mit Stuhl und Spiegel" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Arbeitsplatz</span></div>
+        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/ergebnis-1.jpg" alt="Ergebnis: gestylte braune Haare" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Ergebnis: Styling</span></div>
+        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/ergebnis-2.jpg" alt="Ergebnis: gewellte braune Haare" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Ergebnis: Wellen</span></div>
+        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/empfang.jpg" alt="Empfangsbereich des Salons" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Empfang</span></div>
+        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/team-bei-der-arbeit.jpg" alt="Stylistin schneidet Kundin die Haare" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Bei der Arbeit</span></div>
       </div>
     </div>
   </section>
@@ -779,9 +821,11 @@
   </section>
 
   <!-- ---------- Kontakt / Öffnungszeiten ---------- -->
-  <section id="kontakt">
-    <div class="wrap contact">
-      <div>
+  <section id="kontakt" class="ambient-shell">
+    <span class="ambient-blob a" aria-hidden="true" style="top:auto; bottom:-100px; right:-60px;"></span>
+    <span class="ambient-blob b" aria-hidden="true" style="top:-80px; left:-80px; bottom:auto;"></span>
+    <div class="wrap contact" style="position:relative; z-index:1;">
+      <div class="kontakt-panel glass">
         <svg class="appointment-illustration" viewBox="0 0 220 200" role="img" aria-label="Illustration: Terminkalender mit markiertem Termin" xmlns="http://www.w3.org/2000/svg">
           <circle cx="182" cy="46" r="34" fill="var(--brass)" opacity="0.14"/>
           <circle cx="34" cy="168" r="26" fill="var(--pine)" opacity="0.10"/>
@@ -812,7 +856,7 @@
           <a href="mailto:info@salon-lindenblatt-beispiel.de">info@salon-lindenblatt-beispiel.de</a>
         </p>
       </div>
-      <div>
+      <div class="kontakt-panel glass">
         <p class="eyebrow">Termin anfragen</p>
         <form action="#" method="post">
           <div>
@@ -882,17 +926,41 @@
   var els = document.querySelectorAll('.reveal');
   if(!('IntersectionObserver' in window)){
     els.forEach(reveal);
-    return;
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          reveal(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
   }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        reveal(entry.target);
-        io.unobserve(entry.target);
-      }
+
+  var canTilt = !reduceMotion && window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if(canTilt){
+    document.querySelectorAll('.tilt').forEach(function(card){
+      var maxTilt = 7;
+      card.addEventListener('mouseenter', function(){
+        card.style.transition = 'none';
+        card.style.zIndex = '2';
+      });
+      card.addEventListener('mousemove', function(e){
+        var rect = card.getBoundingClientRect();
+        var px = (e.clientX - rect.left) / rect.width;
+        var py = (e.clientY - rect.top) / rect.height;
+        var rotY = (px - 0.5) * maxTilt * 2;
+        var rotX = (0.5 - py) * maxTilt * 2;
+        card.style.transform = 'perspective(700px) translateY(-4px) rotateX(' + rotX.toFixed(2) + 'deg) rotateY(' + rotY.toFixed(2) + 'deg) scale(1.015)';
+      });
+      card.addEventListener('mouseleave', function(){
+        card.style.transition = 'transform .5s cubic-bezier(.22,1,.36,1), box-shadow .2s ease';
+        card.style.transform = '';
+        card.style.zIndex = '';
+      });
     });
-  }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
-  els.forEach(function(el){ io.observe(el); });
+  }
 })();
 </script>
 
