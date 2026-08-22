@@ -454,6 +454,44 @@ Demozwecken, keine echten Anforderungen für Salon Lindenblatt.
   bei größeren Teams schnell wertvoller (mehr Platz für Spezialisierung,
   eigener Buchungslink pro Person).
 
+**Update:** Die bewusste Teilübersetzung beim Sprachumschalter wurde auf
+Nutzer-Feedback hin ("es fehlen noch einige Schriftzüge") zur
+Vollübersetzung ausgebaut — alle sichtbaren Texte sind jetzt zweisprachig,
+nur aria-labels/Alt-Texte/Eigennamen/Meta-Tags bleiben deutsch. Zusätzlich
+ein Formatierungs-Bug behoben: das Instagram-Icon in den Team-Karten hatte
+keine CSS-Größenangabe und wurde dadurch überdimensioniert dargestellt.
+→ Möglicher Schluss: Bei jedem neu hinzugefügten Icon/Link-Element sofort
+prüfen, ob eine CSS-Regel die Größe tatsächlich greift — ein vergessener
+Selektor fällt optisch sofort auf, aber im Code-Review leicht zu übersehen.
+
+## Online-Buchungsstrecke statt Fresha-Embed
+
+**Entscheidung:** Fresha (oder jedes andere echte Buchungstool) lässt
+sich nur einbetten, wenn ein echtes, registriertes Geschäftskonto dort
+existiert. Für die fiktive Salon Lindenblatt gibt es das nicht — ein
+iframe-Embed hätte nur einen Fehler oder eine leere Seite gezeigt.
+Stattdessen eine vollständig selbst gebaute, 5-stufige Buchungsstrecke
+(Leistung → Mitarbeiter:in → Termin → Kontakt → Zusammenfassung).
+
+- Der letzte Schritt öffnet einen vorausgefüllten `mailto:`-Entwurf statt
+  eine vorgetäuschte "Anfrage erfolgreich gesendet"-Meldung zu zeigen —
+  es gibt keinen Server, der etwas speichern könnte, und das sollte auch
+  so kommuniziert werden. → Möglicher Schluss: Bei jedem Formular ohne
+  echtes Backend ehrlich sagen, was technisch tatsächlich passiert
+  (E-Mail-Entwurf öffnen), nicht so tun, als sei Daten irgendwo
+  angekommen.
+- Termin-Datumsauswahl wird dynamisch generiert (nächste 6 Öffnungstage
+  ab heute, Montag/Sonntag übersprungen) statt fest codierter Daten —
+  damit die Demo nicht in ein paar Wochen mit sichtbar veralteten Daten
+  dasteht.
+  → Möglicher Schluss: Jedes Datum, das in einer Demo auftaucht, sollte
+  relativ zum Aufrufzeitpunkt berechnet werden, nicht hart codiert sein.
+- Haupt-CTAs ("Termin anfragen") zeigen jetzt auf die Buchungsstrecke
+  statt auf das einfache Kontaktformular — beide Kanäle bleiben
+  nebeneinander bestehen (Buchungsstrecke für konkrete Termine, Formular
+  für allgemeine Anfragen), genau die zwei Ausbaustufen aus Modul-
+  Kategorie D im Katalog.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
