@@ -243,6 +243,73 @@ Token-Handling, kein DSGVO-Thema für diese Funktion.
   Hero-Fläche) — der Build-Agent müsste das je Komponente unterschiedlich
   handhaben, nicht mit einer einzigen Kompressionsregel für alle Bilder.
 
+## Modul-Katalog (erste Kategorisierung für Kunden-Konfiguration)
+
+Status: Erster Versuch, die Bausteine der Website in Kategorien zu
+sortieren, aus denen ein Kunde später auswählen könnte ("Baukasten"-
+Gedanke, damit er sich seine Website aus fertigen Modulen
+zusammenstellt statt alles einzeln zu verhandeln). Basiert auf dem, was
+am Salon-Lindenblatt-Prototyp bereits gebaut wurde, plus offensichtlichen
+Lücken. Gehört inhaltlich zu Abschnitt 3.8 der Planungsdatei
+(Template-&-Asset-Bibliothek), ist dort aber noch nicht eingearbeitet,
+da diese Kategorisierung selbst noch ein Entwurf ist und erst an
+weiteren Branchen-Prototypen geprüft werden sollte, bevor sie als
+verbindliche Modul-Liste gilt.
+
+### A. Immer dabei — keine Kundenauswahl, sondern Pflicht-Checkliste
+- Header/Navigation (inkl. mobilem Menü)
+- Footer mit Impressum-/Datenschutz-Links
+- Rechtstexte: Impressum, Datenschutzerklärung (eigene Unterseiten)
+- SEO-Grundausstattung: `robots.txt`, `sitemap.xml`, `schema.org`-Daten,
+  Meta-/OG-Tags
+- Formular-Spam-Schutz (Honeypot), sobald irgendein Formular existiert
+
+### B. Kern-Inhalts-Module — wählbar, meist mehrere gleichzeitig
+- Hero/Einstieg (inkl. Signature-Element — Farben/Typografie/Grid
+  bleiben laut 10.2 konstant, der *Inhalt* drumherum ist das Modul)
+- Leistungen/Angebot (Kategorien + Preise)
+- Team (Personen mit Foto, Rolle, "seit Jahr")
+- Galerie (Fotos — im Prototyp als Bento-Grid)
+- Zahlen-/Stats-Leiste (Vertrauens-Kennzahlen)
+- Kontakt & Öffnungszeiten (Adresse, Telefon, Zeiten)
+
+### C. Social-Proof-Module — wählbar
+- Bewertungen (im Prototyp im Google-Stil; Datenquelle: manuell gepflegt,
+  keine Live-API — siehe Entscheidung oben)
+- Social-Media-Raster (im Prototyp Instagram; ebenfalls manuell gepflegt)
+- *Noch nicht gebaut, aber naheliegend:* Marken-/Partner-Logo-Leiste —
+  beim Wettbewerber `haarstudio-light.de` gesehen (Paul Mitchell u. Ä.
+  als Vertrauenssignal)
+
+### D. Kontaktaufnahme-/Conversion-Module — wählbar, sehr unterschiedlicher Aufwand
+- Einfaches Kontaktformular (aktuell im Prototyp, mit Honeypot)
+- Echte Online-Terminbuchung (externes Buchungstool wie Salonized/Fresha
+  eingebettet) — die offene Entscheidung aus Abschnitt 10.3 der Planung.
+  Technisch ein Bruch mit der "kein Drittanbieter-Embed"-Linie, weil
+  echte Buchungssysteme praktisch immer über ein fremdes iframe/Widget
+  laufen — anders als bei Bewertungen/Social-Media lässt sich das nicht
+  einfach "manuell nachbauen".
+- *Noch nicht gebaut:* Anfahrtskarte/Karten-Einbettung — hat dasselbe
+  Drittanbieter-Problem (Google Maps lädt extern nach)
+
+### E. Betriebs-Modell pro Modul (wichtig für spätere Angebotskalkulation)
+Jedes Modul mit externer Datenquelle hat im Kern drei mögliche
+Betriebsarten, die sich im Preis/Aufwand stark unterscheiden:
+1. **Statisch/manuell gepflegt** (aktuell: Bewertungen, Social-Media) —
+   technisch kein Zusatzaufwand, aber laufender Pflegeaufwand beim
+   Betreiber
+2. **Automatisiert über offizielle API, server-/build-seitig** (bewusst
+   verworfen für Bewertungen/Instagram, siehe oben) — einmaliger
+   Einrichtungsaufwand plus laufende Wartung (Token-Erneuerung usw.)
+3. **Eingebettetes Drittanbieter-Widget** (z. B. echte Terminbuchung,
+   Kartenembed) — am wenigsten Aufwand für den Betreiber, aber Kompromiss
+   bei der "keine externen Requests"-Linie; muss im Einzelfall abgewogen
+   werden (ggf. Cookie-Hinweis je nach Anbieter nötig)
+
+→ Möglicher Schluss: Ein Kunden-Konfigurator müsste nicht nur "welche
+Module", sondern auch "mit welchem Betriebsmodell" abfragen — das
+beeinflusst Preis, Datenschutzerklärung und Wartungsaufwand direkt.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
