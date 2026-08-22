@@ -268,21 +268,45 @@ verbindliche Modul-Liste gilt.
 - Hero/Einstieg (inkl. Signature-Element — Farben/Typografie/Grid
   bleiben laut 10.2 konstant, der *Inhalt* drumherum ist das Modul)
 - Leistungen/Angebot (Kategorien + Preise)
+  - *Ausbaustufe:* Dauer je Leistung zusätzlich zum Preis (wichtig für
+    Terminplanung, fehlt im Prototyp bisher)
+  - *Ausbaustufe:* "Online buchen"-Button direkt neben jeder einzelnen
+    Leistung, sobald es ein echtes Buchungstool gibt (Modul D)
 - Team (Personen mit Foto, Rolle, "seit Jahr")
+  - *Ausbaustufe:* eigene Profilseite je Person (Spezialisierung, eigener
+    Buchungslink) — lohnt sich erst ab größeren Teams
+  - *Ausbaustufe:* Social-Media-Link pro Teammitglied
 - Galerie (Fotos — im Prototyp als Bento-Grid)
+  - *Ausbaustufe:* Vorher/Nachher-Vergleichsslider — in der Beauty-Branche
+    praktisch Standard, passt zu den "Ergebnis"-Fotos, die schon jetzt in
+    der Galerie sind
 - Zahlen-/Stats-Leiste (Vertrauens-Kennzahlen)
 - Kontakt & Öffnungszeiten (Adresse, Telefon, Zeiten)
+  - *Ausbaustufe:* Anfahrtsbeschreibung als Text (ÖPNV/Parkplätze) statt
+    Karten-Embed — vermeidet das Drittanbieter-Problem, das eine echte
+    Google-Maps-Karte hätte (siehe Betriebsmodell 3 unten)
+  - *Ausbaustufe, nur für Filialbetriebe:* mehrere Standorte mit
+    Standort-Auswahl
 
 ### C. Social-Proof-Module — wählbar
 - Bewertungen (im Prototyp im Google-Stil; Datenquelle: manuell gepflegt,
   keine Live-API — siehe Entscheidung oben)
+  - *Ausbaustufe:* mehrere Quellen parallel (Google + Facebook)
+  - *Ausbaustufe:* sichtbare Antwort des Betreibers auf eine Bewertung
+    (zeigt Reaktionsfähigkeit, ohne echte API auszukommen — einfach als
+    weiteres Textfeld in der manuell gepflegten Karte)
 - Social-Media-Raster (im Prototyp Instagram; ebenfalls manuell gepflegt)
+  - *Ausbaustufe:* weitere Plattform (TikTok wird für diese Zielgruppe
+    zunehmend wichtiger als Instagram)
 - *Noch nicht gebaut, aber naheliegend:* Marken-/Partner-Logo-Leiste —
   beim Wettbewerber `haarstudio-light.de` gesehen (Paul Mitchell u. Ä.
   als Vertrauenssignal)
 
 ### D. Kontaktaufnahme-/Conversion-Module — wählbar, sehr unterschiedlicher Aufwand
 - Einfaches Kontaktformular (aktuell im Prototyp, mit Honeypot)
+  - *Ausbaustufe:* Datei-Upload (z. B. Referenzfoto der Wunschfrisur)
+  - *Ausbaustufe:* mehrstufiges Formular (erst Leistung wählen, dann
+    Zeitwunsch, dann Kontaktdaten) statt einem Freitextfeld
 - Echte Online-Terminbuchung (externes Buchungstool wie Salonized/Fresha
   eingebettet) — die offene Entscheidung aus Abschnitt 10.3 der Planung.
   Technisch ein Bruch mit der "kein Drittanbieter-Embed"-Linie, weil
@@ -309,6 +333,36 @@ Betriebsarten, die sich im Preis/Aufwand stark unterscheiden:
 → Möglicher Schluss: Ein Kunden-Konfigurator müsste nicht nur "welche
 Module", sondern auch "mit welchem Betriebsmodell" abfragen — das
 beeinflusst Preis, Datenschutzerklärung und Wartungsaufwand direkt.
+
+### F. Weitere Module mit belegter Nachfrage (noch nicht gebaut)
+- **Gutschein-Verkauf** — bei Friseuren/Beauty praktisch Standard, vor
+  allem saisonal (Weihnachten, Muttertag). Einfachste Stufe: Kontakt-
+  formular "Gutschein anfragen" (Betriebsmodell 1). Aufwendigste Stufe:
+  echter Online-Verkauf mit Zahlungsanbieter — gehört dann eigentlich zum
+  Billing-&-Reporting-Agenten aus Abschnitt 3.7 der Planung, nicht zur
+  reinen Website.
+- **FAQ-Sektion** — auf Dienstleister-Websites praktisch universell,
+  senkt Rückfragen vor dem ersten Besuch (Parken, Zahlungsarten,
+  Stornobedingungen).
+- **Click-to-Call-/WhatsApp-Button** — technisch nur ein `tel:`- bzw.
+  `wa.me`-Link, also Betriebsmodell 1 (kein Zusatzaufwand), aber hohe
+  Wirkung gerade bei mobilen Besucher:innen.
+- **Ankündigungsleiste** — schmaler Hinweisstreifen über dem Header für
+  kurzfristige Meldungen ("heute krankheitsbedingt geschlossen",
+  Betriebsferien). Passt zum bereits etablierten "manuell pflegen"-Modell
+  und ist technisch trivial.
+- **Karriere/Ausbildung** — Hinweis auf offene Stellen/Ausbildungsplätze.
+  Angesichts Fachkräftemangel im Handwerk real nachgefragt, passt auch
+  zum bereits vorhandenen "Auszubildende"-Profil im Team.
+- **Mehrsprachigkeit** — war in der Planung (3.2, Content-Agent) schon als
+  Aufgabe vorgesehen, aber nie als sichtbares UI-Modul (Sprachumschalter)
+  gefasst. Nur dort sinnvoll, wo tatsächlich Bedarf besteht
+  (grenznah/touristisch), nicht als Standardmodul für jede Website.
+
+→ Möglicher Schluss: Bei den nächsten Branchen-Prototypen prüfen, welche
+dieser Module branchenspezifisch sind (Gutschein/Vorher-Nachher eher
+Beauty-typisch) und welche generisch für alle Branchen aus 7.3 gelten
+(FAQ, Click-to-Call, Ankündigungsleiste, Karriere wirken universeller).
 
 ## Offene Fragen, noch nicht entschieden
 
