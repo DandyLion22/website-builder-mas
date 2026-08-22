@@ -583,7 +583,18 @@
     gap:0.5rem;
     margin-top:0.6rem;
   }
-  .team-profile-link{font-size:0.8rem; color:var(--pine); text-decoration:none; font-weight:600;}
+  .team-social .icon-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:1.8rem; height:1.8rem;
+    flex-shrink:0;
+    border-radius:50%;
+    background:var(--bg-alt);
+    color:var(--pine);
+  }
+  .team-social .icon-link svg{width:0.95rem; height:0.95rem;}
+  .team-profile-link{display:inline-flex; align-items:center; font-size:0.8rem; color:var(--pine); text-decoration:none; font-weight:600;}
   .team-profile-link:hover{text-decoration:underline;}
   .team-social a{
     display:inline-flex;
@@ -965,7 +976,10 @@
 <!-- MOCK-DATEN: Ankündigungsleiste, manuell gepflegt, für kurzfristige Hinweise (Feiertage, Betriebsferien). -->
 <div class="announce-bar" id="announceBar">
   <div class="announce-inner">
-    <span>Hinweis: Am 24.12. und 31.12. geschlossen — reguläre Öffnungszeiten sonst wie gewohnt.</span>
+    <span>
+      <span data-i18n="de">Hinweis: Am 24.12. und 31.12. geschlossen — reguläre Öffnungszeiten sonst wie gewohnt.</span>
+      <span data-i18n="en">Notice: Closed on Dec 24 &amp; 31 — regular hours apply otherwise.</span>
+    </span>
     <button type="button" class="announce-close" id="announceClose" aria-label="Hinweis schließen">×</button>
   </div>
 </div>
@@ -1032,8 +1046,8 @@
       <div class="swatch-panel" role="img" aria-label="Farbmuster-Streifen als gestalterisches Element">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
         <div class="ticket glass">
-          <p class="eyebrow">Nächster freier Termin</p>
-          <p>Diese Woche noch verfügbar</p>
+          <p class="eyebrow"><span data-i18n="de">Nächster freier Termin</span><span data-i18n="en">Next available slot</span></p>
+          <p><span data-i18n="de">Diese Woche noch verfügbar</span><span data-i18n="en">Available this week</span></p>
         </div>
       </div>
     </div>
@@ -1071,50 +1085,50 @@
       <div class="section-head reveal">
         <p class="eyebrow"><span data-i18n="de">Leistungen</span><span data-i18n="en">Services</span></p>
         <h2><span data-i18n="de">Was wir für dich tun</span><span data-i18n="en">What we do for you</span></h2>
-        <p>Alle Preise sind Richtwerte und abhängig von Haarlänge und -dichte.</p>
+        <p><span data-i18n="de">Alle Preise sind Richtwerte und abhängig von Haarlänge und -dichte.</span><span data-i18n="en">All prices are estimates and depend on hair length and density.</span></p>
       </div>
 
       <div class="service-group cut">
-        <h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="5.5" cy="15" r="2"/><circle cx="14.5" cy="15" r="2"/><path d="M6.8 13.5 L16 4"/><path d="M13.2 13.5 L4 4"/></svg>Schnitt</h3>
+        <h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="5.5" cy="15" r="2"/><circle cx="14.5" cy="15" r="2"/><path d="M6.8 13.5 L16 4"/><path d="M13.2 13.5 L4 4"/></svg><span data-i18n="de">Schnitt</span><span data-i18n="en">Cut</span></h3>
         <div class="service-row">
-          <div><div class="name">Damenschnitt</div><div class="desc">inkl. Waschen &amp; Föhnen · ca. 45 Min.</div></div>
-          <div class="price">ab 45 €</div>
+          <div><div class="name"><span data-i18n="de">Damenschnitt</span><span data-i18n="en">Women's cut</span></div><div class="desc"><span data-i18n="de">inkl. Waschen &amp; Föhnen · ca. 45 Min.</span><span data-i18n="en">incl. wash &amp; blow-dry · approx. 45 min.</span></div></div>
+          <div class="price"><span data-i18n="de">ab</span><span data-i18n="en">from</span> 45 €</div>
         </div>
         <div class="service-row">
-          <div><div class="name">Herrenschnitt</div><div class="desc">inkl. Waschen &amp; Styling · ca. 30 Min.</div></div>
-          <div class="price">ab 32 €</div>
+          <div><div class="name"><span data-i18n="de">Herrenschnitt</span><span data-i18n="en">Men's cut</span></div><div class="desc"><span data-i18n="de">inkl. Waschen &amp; Styling · ca. 30 Min.</span><span data-i18n="en">incl. wash &amp; styling · approx. 30 min.</span></div></div>
+          <div class="price"><span data-i18n="de">ab</span><span data-i18n="en">from</span> 32 €</div>
         </div>
         <div class="service-row">
-          <div><div class="name">Kinderschnitt</div><div class="desc">bis 12 Jahre · ca. 20 Min.</div></div>
-          <div class="price">ab 22 €</div>
+          <div><div class="name"><span data-i18n="de">Kinderschnitt</span><span data-i18n="en">Children's cut</span></div><div class="desc"><span data-i18n="de">bis 12 Jahre · ca. 20 Min.</span><span data-i18n="en">up to age 12 · approx. 20 min.</span></div></div>
+          <div class="price"><span data-i18n="de">ab</span><span data-i18n="en">from</span> 22 €</div>
         </div>
       </div>
 
       <div class="service-group color">
-        <h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2.5 C10 2.5 4.5 9.5 4.5 13.5 a5.5 5.5 0 0 0 11 0 C15.5 9.5 10 2.5 10 2.5 Z"/></svg>Farbe</h3>
+        <h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2.5 C10 2.5 4.5 9.5 4.5 13.5 a5.5 5.5 0 0 0 11 0 C15.5 9.5 10 2.5 10 2.5 Z"/></svg><span data-i18n="de">Farbe</span><span data-i18n="en">Colour</span></h3>
         <div class="service-row">
-          <div><div class="name">Ansatzfarbe</div><div class="desc">einfarbig, inkl. Beratung · ca. 60 Min.</div></div>
-          <div class="price">ab 55 €</div>
+          <div><div class="name"><span data-i18n="de">Ansatzfarbe</span><span data-i18n="en">Root touch-up</span></div><div class="desc"><span data-i18n="de">einfarbig, inkl. Beratung · ca. 60 Min.</span><span data-i18n="en">single colour, incl. consultation · approx. 60 min.</span></div></div>
+          <div class="price"><span data-i18n="de">ab</span><span data-i18n="en">from</span> 55 €</div>
         </div>
         <div class="service-row">
-          <div><div class="name">Balayage</div><div class="desc">freihändige Strähnentechnik · ca. 120 Min.</div></div>
-          <div class="price">ab 95 €</div>
+          <div><div class="name">Balayage</div><div class="desc"><span data-i18n="de">freihändige Strähnentechnik · ca. 120 Min.</span><span data-i18n="en">freehand highlighting technique · approx. 120 min.</span></div></div>
+          <div class="price"><span data-i18n="de">ab</span><span data-i18n="en">from</span> 95 €</div>
         </div>
       </div>
 
       <div class="service-group style">
-        <h3><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2 L11.3 8.2 L17.5 10 L11.3 11.8 L10 18 L8.7 11.8 L2.5 10 L8.7 8.2 Z"/></svg>Styling</h3>
+        <h3><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2 L11.3 8.2 L17.5 10 L11.3 11.8 L10 18 L8.7 11.8 L2.5 10 L8.7 8.2 Z"/></svg><span data-i18n="de">Styling</span><span data-i18n="en">Styling</span></h3>
         <div class="service-row">
-          <div><div class="name">Festliches Styling</div><div class="desc">für besondere Anlässe · ca. 40 Min.</div></div>
-          <div class="price">ab 40 €</div>
+          <div><div class="name"><span data-i18n="de">Festliches Styling</span><span data-i18n="en">Occasion styling</span></div><div class="desc"><span data-i18n="de">für besondere Anlässe · ca. 40 Min.</span><span data-i18n="en">for special occasions · approx. 40 min.</span></div></div>
+          <div class="price"><span data-i18n="de">ab</span><span data-i18n="en">from</span> 40 €</div>
         </div>
       </div>
 
       <div class="service-group care">
-        <h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16.5 C4 8.5 10 3.5 17 3.5 C17 10.5 12 16.5 4 16.5 Z" fill="currentColor" fill-opacity="0.18"/><path d="M4.5 16 C7 12.5 10 10.5 13.5 8.5"/></svg>Pflege</h3>
+        <h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16.5 C4 8.5 10 3.5 17 3.5 C17 10.5 12 16.5 4 16.5 Z" fill="currentColor" fill-opacity="0.18"/><path d="M4.5 16 C7 12.5 10 10.5 13.5 8.5"/></svg><span data-i18n="de">Pflege</span><span data-i18n="en">Care</span></h3>
         <div class="service-row">
-          <div><div class="name">Intensivkur</div><div class="desc">auf Haartyp abgestimmt · ca. 20 Min.</div></div>
-          <div class="price">ab 18 €</div>
+          <div><div class="name"><span data-i18n="de">Intensivkur</span><span data-i18n="en">Deep treatment</span></div><div class="desc"><span data-i18n="de">auf Haartyp abgestimmt · ca. 20 Min.</span><span data-i18n="en">tailored to hair type · approx. 20 min.</span></div></div>
+          <div class="price"><span data-i18n="de">ab</span><span data-i18n="en">from</span> 18 €</div>
         </div>
       </div>
     </div>
@@ -1123,7 +1137,7 @@
   <!-- MOCK-DATEN: Partner-/Markenname sind erfunden (fiktiver Salon, keine echten Markenrechte betroffen). -->
   <section class="brand-strip">
     <div class="wrap">
-      <p class="eyebrow">Wir arbeiten mit</p>
+      <p class="eyebrow"><span data-i18n="de">Wir arbeiten mit</span><span data-i18n="en">We work with</span></p>
       <div class="brand-row">
         <span>Lindera Cosmetics</span>
         <span>Nordwerk Haircare</span>
@@ -1144,56 +1158,60 @@
         <div class="team-card reveal tilt">
           <div class="team-photo">
             <img src="assets/img/team-sabine-vogt.jpg" alt="Porträt von Sabine Vogt" loading="lazy" decoding="async">
-            <span class="team-badge">seit 2014</span>
+            <span class="team-badge"><span data-i18n="de">seit 2014</span><span data-i18n="en">since 2014</span></span>
           </div>
           <div class="team-info">
             <div>Sabine Vogt</div>
-            <div class="role">Salonleitung, Coloristin</div>
+            <div class="role"><span data-i18n="de">Salonleitung, Coloristin</span><span data-i18n="en">Salon Manager, Colourist</span></div>
             <div class="team-social">
-              <a href="#" target="_blank" rel="noopener" aria-label="Sabine Vogt auf Instagram">
+              <a class="icon-link" href="#" target="_blank" rel="noopener" aria-label="Sabine Vogt auf Instagram">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
               </a>
-              <a class="team-profile-link" href="team-sabine-vogt.html">Profil ansehen →</a>
+              <a class="team-profile-link" href="team-sabine-vogt.html"><span data-i18n="de">Profil ansehen →</span><span data-i18n="en">View profile →</span></a>
             </div>
           </div>
         </div>
         <div class="team-card reveal tilt">
           <div class="team-photo">
             <img src="assets/img/team-timo-reinhardt.jpg" alt="Porträt von Timo Reinhardt" loading="lazy" decoding="async">
-            <span class="team-badge">seit 2019</span>
+            <span class="team-badge"><span data-i18n="de">seit 2019</span><span data-i18n="en">since 2019</span></span>
           </div>
           <div class="team-info">
             <div>Timo Reinhardt</div>
-            <div class="role">Stylist</div>
+            <div class="role"><span data-i18n="de">Stylist</span><span data-i18n="en">Hairstylist</span></div>
             <div class="team-social">
-              <a href="#" target="_blank" rel="noopener" aria-label="Timo Reinhardt auf Instagram">
+              <a class="icon-link" href="#" target="_blank" rel="noopener" aria-label="Timo Reinhardt auf Instagram">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
               </a>
-              <a class="team-profile-link" href="team-timo-reinhardt.html">Profil ansehen →</a>
+              <a class="team-profile-link" href="team-timo-reinhardt.html"><span data-i18n="de">Profil ansehen →</span><span data-i18n="en">View profile →</span></a>
             </div>
           </div>
         </div>
         <div class="team-card reveal tilt">
           <div class="team-photo">
             <img src="assets/img/team-lea-brandt.jpg" alt="Porträt von Lea Brandt" loading="lazy" decoding="async">
-            <span class="team-badge">seit 2023</span>
+            <span class="team-badge"><span data-i18n="de">seit 2023</span><span data-i18n="en">since 2023</span></span>
           </div>
           <div class="team-info">
             <div>Lea Brandt</div>
-            <div class="role">Auszubildende</div>
+            <div class="role"><span data-i18n="de">Auszubildende</span><span data-i18n="en">Apprentice</span></div>
             <div class="team-social">
-              <a href="#" target="_blank" rel="noopener" aria-label="Lea Brandt auf Instagram">
+              <a class="icon-link" href="#" target="_blank" rel="noopener" aria-label="Lea Brandt auf Instagram">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
               </a>
-              <a class="team-profile-link" href="team-lea-brandt.html">Profil ansehen →</a>
+              <a class="team-profile-link" href="team-lea-brandt.html"><span data-i18n="de">Profil ansehen →</span><span data-i18n="en">View profile →</span></a>
             </div>
           </div>
         </div>
       </div>
 
       <div class="career-strip reveal" style="margin-top:2.5rem;">
-        <p><strong>Werde Teil des Teams</strong>Wir suchen laufend Verstärkung — auch Ausbildungsplätze.</p>
-        <a class="cta-ghost" href="mailto:info@salon-lindenblatt-beispiel.de?subject=Initiativbewerbung">Initiativbewerbung senden</a>
+        <p>
+          <strong><span data-i18n="de">Werde Teil des Teams</span><span data-i18n="en">Join the team</span></strong>
+          <span data-i18n="de">Wir suchen laufend Verstärkung — auch Ausbildungsplätze.</span>
+          <span data-i18n="en">We're always looking for new talent — apprenticeships included.</span>
+        </p>
+        <a class="cta-ghost" href="mailto:info@salon-lindenblatt-beispiel.de?subject=Initiativbewerbung"><span data-i18n="de">Initiativbewerbung senden</span><span data-i18n="en">Send a speculative application</span></a>
       </div>
     </div>
   </section>
@@ -1206,12 +1224,12 @@
         <h2><span data-i18n="de">Eindrücke aus dem Salon</span><span data-i18n="en">A look inside the salon</span></h2>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/salon-innenraum.jpg" alt="Innenraum von Salon Lindenblatt" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Salon-Innenraum</span></div>
-        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/arbeitsplatz.jpg" alt="Arbeitsplatz mit Stuhl und Spiegel" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Arbeitsplatz</span></div>
-        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/ergebnis-1.jpg" alt="Ergebnis: gestylte braune Haare" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Ergebnis: Styling</span></div>
-        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/ergebnis-2.jpg" alt="Ergebnis: gewellte braune Haare" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Ergebnis: Wellen</span></div>
-        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/empfang.jpg" alt="Empfangsbereich des Salons" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Empfang</span></div>
-        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/team-bei-der-arbeit.jpg" alt="Stylistin schneidet Kundin die Haare" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Bei der Arbeit</span></div>
+        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/salon-innenraum.jpg" alt="Innenraum von Salon Lindenblatt" loading="lazy" decoding="async"><span class="caption" aria-hidden="true"><span data-i18n="de">Salon-Innenraum</span><span data-i18n="en">Salon interior</span></span></div>
+        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/arbeitsplatz.jpg" alt="Arbeitsplatz mit Stuhl und Spiegel" loading="lazy" decoding="async"><span class="caption" aria-hidden="true"><span data-i18n="de">Arbeitsplatz</span><span data-i18n="en">Work station</span></span></div>
+        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/ergebnis-1.jpg" alt="Ergebnis: gestylte braune Haare" loading="lazy" decoding="async"><span class="caption" aria-hidden="true"><span data-i18n="de">Ergebnis: Styling</span><span data-i18n="en">Result: Styling</span></span></div>
+        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/ergebnis-2.jpg" alt="Ergebnis: gewellte braune Haare" loading="lazy" decoding="async"><span class="caption" aria-hidden="true"><span data-i18n="de">Ergebnis: Wellen</span><span data-i18n="en">Result: Waves</span></span></div>
+        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/empfang.jpg" alt="Empfangsbereich des Salons" loading="lazy" decoding="async"><span class="caption" aria-hidden="true"><span data-i18n="de">Empfang</span><span data-i18n="en">Reception</span></span></div>
+        <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/team-bei-der-arbeit.jpg" alt="Stylistin schneidet Kundin die Haare" loading="lazy" decoding="async"><span class="caption" aria-hidden="true"><span data-i18n="de">Bei der Arbeit</span><span data-i18n="en">At work</span></span></div>
       </div>
     </div>
   </section>
@@ -1232,12 +1250,15 @@
       <div class="compare-slider reveal" id="compareSlider" style="--pos:50%;">
         <img class="compare-before" src="assets/img/ergebnis-1.jpg" alt="Vorher (Beispielfoto)">
         <img class="compare-after" src="assets/img/ergebnis-1.jpg" alt="Nachher (Beispielfoto)">
-        <span class="compare-tag before" aria-hidden="true">Vorher</span>
-        <span class="compare-tag after" aria-hidden="true">Nachher</span>
+        <span class="compare-tag before" aria-hidden="true"><span data-i18n="de">Vorher</span><span data-i18n="en">Before</span></span>
+        <span class="compare-tag after" aria-hidden="true"><span data-i18n="de">Nachher</span><span data-i18n="en">After</span></span>
         <div class="compare-handle" aria-hidden="true"></div>
         <input type="range" class="compare-range" id="compareRange" min="0" max="100" value="50" aria-label="Vorher/Nachher-Regler">
       </div>
-      <p class="compare-caption">Demo-Mechanik mit einem Beispielfoto — bei echten Kund:innen mit echten, freigegebenen Vorher/Nachher-Aufnahmen.</p>
+      <p class="compare-caption">
+        <span data-i18n="de">Demo-Mechanik mit einem Beispielfoto — bei echten Kund:innen mit echten, freigegebenen Vorher/Nachher-Aufnahmen.</span>
+        <span data-i18n="en">Demo mechanic with a sample photo — real client photos would be used with their consent.</span>
+      </p>
     </div>
   </section>
 
@@ -1257,12 +1278,15 @@
       <div class="section-head reveal">
         <p class="eyebrow">Social</p>
         <h2><span data-i18n="de">Folgt uns auf Instagram</span><span data-i18n="en">Follow us on Instagram</span></h2>
-        <p>Aktuelle Ergebnisse und Einblicke in den Salon —
+        <p>
+          <span data-i18n="de">Aktuelle Ergebnisse und Einblicke in den Salon —</span>
+          <span data-i18n="en">Recent results and behind-the-scenes looks —</span>
           <a class="ig-link" href="#" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
             @salon.lindenblatt
           </a>
-          · auch auf
+          <span data-i18n="de">· auch auf</span>
+          <span data-i18n="en">· also on</span>
           <a class="ig-link" href="#" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.4 2.2 1.9 3.7 4.1 4v3c-1.5 0-2.9-.5-4.1-1.3v6.6a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v3.1a2.7 2.7 0 1 0 1.9 2.6V3h2.9z"/></svg>
             TikTok
@@ -1345,10 +1369,10 @@
             <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
           </span>
           <span class="score">4.9</span>
-          <span class="count">· 120+ Bewertungen</span>
+          <span class="count"><span data-i18n="de">· 120+ Bewertungen</span><span data-i18n="en">· 120+ reviews</span></span>
           <span class="google-badge">
             <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.11-7.45 2.11-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.19c-.44-1.32-.69-2.72-.69-4.19s.25-2.87.69-4.19v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.89l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.11l7.35 5.7c1.73-5.2 6.58-9.06 12.31-9.06z"/></svg>
-            <span>auf Google</span>
+            <span><span data-i18n="de">auf Google</span><span data-i18n="en">on Google</span></span>
           </span>
         </div>
       </div>
@@ -1358,7 +1382,7 @@
             <span class="quote-avatar" style="background:var(--pine);">M</span>
             <div class="quote-meta">
               <div class="name">M. Weber</div>
-              <div class="when">vor 3 Wochen</div>
+              <div class="when"><span data-i18n="de">vor 3 Wochen</span><span data-i18n="en">3 weeks ago</span></div>
             </div>
             <svg class="quote-source" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.11-7.45 2.11-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.19c-.44-1.32-.69-2.72-.69-4.19s.25-2.87.69-4.19v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.89l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.11l7.35 5.7c1.73-5.2 6.58-9.06 12.31-9.06z"/></svg>
           </div>
@@ -1369,10 +1393,14 @@
             <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
             <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
           </div>
-          <p>„Endlich ein Salon, der sich Zeit für Beratung nimmt statt nur schnell zu schneiden."</p>
+          <p>
+            <span data-i18n="de">„Endlich ein Salon, der sich Zeit für Beratung nimmt statt nur schnell zu schneiden."</span>
+            <span data-i18n="en">"Finally a salon that takes time for real advice instead of just a quick cut."</span>
+          </p>
           <div class="quote-reply">
-            <strong>Antwort von Salon Lindenblatt</strong>
-            Vielen Dank für die schönen Worte, Frau Weber! Wir freuen uns auf den nächsten Termin.
+            <strong><span data-i18n="de">Antwort von Salon Lindenblatt</span><span data-i18n="en">Reply from Salon Lindenblatt</span></strong>
+            <span data-i18n="de">Vielen Dank für die schönen Worte, Frau Weber! Wir freuen uns auf den nächsten Termin.</span>
+            <span data-i18n="en">Thank you so much, Ms. Weber! We're looking forward to your next visit.</span>
           </div>
         </div>
         <div class="quote reveal">
@@ -1380,7 +1408,7 @@
             <span class="quote-avatar" style="background:var(--brass);">S</span>
             <div class="quote-meta">
               <div class="name">S. Klein</div>
-              <div class="when">vor 1 Monat</div>
+              <div class="when"><span data-i18n="de">vor 1 Monat</span><span data-i18n="en">1 month ago</span></div>
             </div>
             <svg class="quote-source" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.11-7.45 2.11-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.19c-.44-1.32-.69-2.72-.69-4.19s.25-2.87.69-4.19v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.89l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.11l7.35 5.7c1.73-5.2 6.58-9.06 12.31-9.06z"/></svg>
           </div>
@@ -1391,14 +1419,17 @@
             <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
             <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
           </div>
-          <p>„Die Farbberatung war ehrlich und das Ergebnis genau das, was ich wollte."</p>
+          <p>
+            <span data-i18n="de">„Die Farbberatung war ehrlich und das Ergebnis genau das, was ich wollte."</span>
+            <span data-i18n="en">"The colour consultation was honest and the result was exactly what I wanted."</span>
+          </p>
         </div>
         <div class="quote reveal">
           <div class="quote-header">
             <span class="quote-avatar" style="background:#7C8A6F;">J</span>
             <div class="quote-meta">
               <div class="name">J. Fischer</div>
-              <div class="when">vor 2 Monaten</div>
+              <div class="when"><span data-i18n="de">vor 2 Monaten</span><span data-i18n="en">2 months ago</span></div>
             </div>
             <svg class="quote-source" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.11-7.45 2.11-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.19c-.44-1.32-.69-2.72-.69-4.19s.25-2.87.69-4.19v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.89l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.11l7.35 5.7c1.73-5.2 6.58-9.06 12.31-9.06z"/></svg>
           </div>
@@ -1409,14 +1440,17 @@
             <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
             <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
           </div>
-          <p>„Ruhige Atmosphäre, klares Ergebnis. Komme seit zwei Jahren nur noch hierher."</p>
+          <p>
+            <span data-i18n="de">„Ruhige Atmosphäre, klares Ergebnis. Komme seit zwei Jahren nur noch hierher."</span>
+            <span data-i18n="en">"Calm atmosphere, great results. I've been coming here exclusively for two years."</span>
+          </p>
         </div>
         <div class="quote reveal">
           <div class="quote-header">
             <span class="quote-avatar" style="background:var(--brass);">T</span>
             <div class="quote-meta">
               <div class="name">T. Nguyen</div>
-              <div class="when">vor 5 Tagen</div>
+              <div class="when"><span data-i18n="de">vor 5 Tagen</span><span data-i18n="en">5 days ago</span></div>
             </div>
             <svg class="quote-source" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#1877F2"/><path fill="#F7F8F3" d="M20.5 16.5h-3v10h-4v-10h-2v-3.5h2V11c0-2 1-3.5 3.7-3.5H20v3.4h-1.8c-.8 0-1.2.4-1.2 1.2v1.4h3l-.5 3.5z"/></svg>
           </div>
@@ -1427,7 +1461,10 @@
             <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
             <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
           </div>
-          <p>„Habe zum ersten Mal Balayage machen lassen — bin begeistert vom Ergebnis."</p>
+          <p>
+            <span data-i18n="de">„Habe zum ersten Mal Balayage machen lassen — bin begeistert vom Ergebnis."</span>
+            <span data-i18n="en">"Had balayage done for the first time — thrilled with the result."</span>
+          </p>
         </div>
       </div>
     </div>
@@ -1438,10 +1475,13 @@
     <div class="wrap">
       <div class="voucher-panel reveal">
         <div>
-          <h3>Gutscheine verschenken</h3>
-          <p>Ob Geburtstag oder einfach so — Gutscheine für Salon Lindenblatt gibt es in jedem Wert.</p>
+          <h3><span data-i18n="de">Gutscheine verschenken</span><span data-i18n="en">Give the gift of a voucher</span></h3>
+          <p>
+            <span data-i18n="de">Ob Geburtstag oder einfach so — Gutscheine für Salon Lindenblatt gibt es in jedem Wert.</span>
+            <span data-i18n="en">Whether for a birthday or just because — Salon Lindenblatt vouchers are available in any amount.</span>
+          </p>
         </div>
-        <a class="cta" href="mailto:info@salon-lindenblatt-beispiel.de?subject=Gutschein-Anfrage">Gutschein anfragen</a>
+        <a class="cta" href="mailto:info@salon-lindenblatt-beispiel.de?subject=Gutschein-Anfrage"><span data-i18n="de">Gutschein anfragen</span><span data-i18n="en">Request a voucher</span></a>
       </div>
     </div>
   </section>
@@ -1452,28 +1492,57 @@
       <div class="section-head reveal">
         <p class="eyebrow"><span data-i18n="de">Häufige Fragen</span><span data-i18n="en">FAQ</span></p>
         <h2><span data-i18n="de">Gut zu wissen</span><span data-i18n="en">Good to know</span></h2>
-        <p style="font-size:0.85rem; color:var(--ink-soft);" data-i18n="en">The answers below are currently only available in German — full translation follows once real customer content exists.</p>
       </div>
       <div class="faq-list reveal">
         <details class="faq-item">
-          <summary>Gibt es Parkplätze in der Nähe?<span class="plus" aria-hidden="true"></span></summary>
-          <p>Direkt vor dem Salon stehen Kundenparkplätze zur Verfügung. Alternativ ist das Parkhaus Fackelstraße fußläufig in etwa 5 Minuten erreichbar.</p>
+          <summary>
+            <span><span data-i18n="de">Gibt es Parkplätze in der Nähe?</span><span data-i18n="en">Is there parking nearby?</span></span>
+            <span class="plus" aria-hidden="true"></span>
+          </summary>
+          <p>
+            <span data-i18n="de">Direkt vor dem Salon stehen Kundenparkplätze zur Verfügung. Alternativ ist das Parkhaus Fackelstraße fußläufig in etwa 5 Minuten erreichbar.</span>
+            <span data-i18n="en">Customer parking is available directly in front of the salon. Alternatively, the Fackelstraße car park is about a 5-minute walk away.</span>
+          </p>
         </details>
         <details class="faq-item">
-          <summary>Bekomme ich auch kurzfristig einen Termin?<span class="plus" aria-hidden="true"></span></summary>
-          <p>Bei akutem Bedarf einfach anrufen oder per WhatsApp schreiben — häufig lässt sich noch am selben Tag etwas einrichten.</p>
+          <summary>
+            <span><span data-i18n="de">Bekomme ich auch kurzfristig einen Termin?</span><span data-i18n="en">Can I get a short-notice appointment?</span></span>
+            <span class="plus" aria-hidden="true"></span>
+          </summary>
+          <p>
+            <span data-i18n="de">Bei akutem Bedarf einfach anrufen oder per WhatsApp schreiben — häufig lässt sich noch am selben Tag etwas einrichten.</span>
+            <span data-i18n="en">Just call or message us on WhatsApp — we can often fit you in on the same day.</span>
+          </p>
         </details>
         <details class="faq-item">
-          <summary>Welche Zahlungsarten werden akzeptiert?<span class="plus" aria-hidden="true"></span></summary>
-          <p>Bar, EC-Karte und die gängigen kontaktlosen Bezahlmethoden.</p>
+          <summary>
+            <span><span data-i18n="de">Welche Zahlungsarten werden akzeptiert?</span><span data-i18n="en">Which payment methods do you accept?</span></span>
+            <span class="plus" aria-hidden="true"></span>
+          </summary>
+          <p>
+            <span data-i18n="de">Bar, EC-Karte und die gängigen kontaktlosen Bezahlmethoden.</span>
+            <span data-i18n="en">Cash, debit card and common contactless payment methods.</span>
+          </p>
         </details>
         <details class="faq-item">
-          <summary>Was passiert, wenn ich einen Termin nicht wahrnehmen kann?<span class="plus" aria-hidden="true"></span></summary>
-          <p>Bitte so früh wie möglich absagen oder verschieben — am einfachsten per Telefon oder WhatsApp, spätestens 24 Stunden vorher.</p>
+          <summary>
+            <span><span data-i18n="de">Was passiert, wenn ich einen Termin nicht wahrnehmen kann?</span><span data-i18n="en">What happens if I can't make my appointment?</span></span>
+            <span class="plus" aria-hidden="true"></span>
+          </summary>
+          <p>
+            <span data-i18n="de">Bitte so früh wie möglich absagen oder verschieben — am einfachsten per Telefon oder WhatsApp, spätestens 24 Stunden vorher.</span>
+            <span data-i18n="en">Please cancel or reschedule as early as possible — easiest by phone or WhatsApp, at least 24 hours in advance.</span>
+          </p>
         </details>
         <details class="faq-item">
-          <summary>Gibt es Gutscheine?<span class="plus" aria-hidden="true"></span></summary>
-          <p>Ja, in jedem Wert — einfach über das Kontaktformular oder direkt im Salon anfragen.</p>
+          <summary>
+            <span><span data-i18n="de">Gibt es Gutscheine?</span><span data-i18n="en">Do you offer gift vouchers?</span></span>
+            <span class="plus" aria-hidden="true"></span>
+          </summary>
+          <p>
+            <span data-i18n="de">Ja, in jedem Wert — einfach über das Kontaktformular oder direkt im Salon anfragen.</span>
+            <span data-i18n="en">Yes, in any amount — just ask via the contact form or directly at the salon.</span>
+          </p>
         </details>
       </div>
     </div>
@@ -1515,10 +1584,10 @@
 
         <div class="location-panel" data-location-panel="hauptstrasse">
           <ul class="hours-list">
-            <li><span>Montag</span><span>geschlossen</span></li>
-            <li><span>Dienstag – Freitag</span><span>9:00 – 18:30</span></li>
-            <li><span>Samstag</span><span>9:00 – 14:00</span></li>
-            <li><span>Sonntag</span><span>geschlossen</span></li>
+            <li><span><span data-i18n="de">Montag</span><span data-i18n="en">Monday</span></span><span><span data-i18n="de">geschlossen</span><span data-i18n="en">closed</span></span></li>
+            <li><span><span data-i18n="de">Dienstag – Freitag</span><span data-i18n="en">Tuesday – Friday</span></span><span>9:00 – 18:30</span></li>
+            <li><span><span data-i18n="de">Samstag</span><span data-i18n="en">Saturday</span></span><span>9:00 – 14:00</span></li>
+            <li><span><span data-i18n="de">Sonntag</span><span data-i18n="en">Sunday</span></span><span><span data-i18n="de">geschlossen</span><span data-i18n="en">closed</span></span></li>
           </ul>
           <p style="margin-top:1.6rem;">
             Hauptstraße 24, 67655 Kaiserslautern<br>
@@ -1526,8 +1595,8 @@
             <a href="mailto:info@salon-lindenblatt-beispiel.de">info@salon-lindenblatt-beispiel.de</a>
           </p>
           <p style="margin-top:1rem; font-size:0.9rem; color:var(--ink-soft);">
-            Kundenparkplätze direkt vor dem Salon. Haltestelle „Rathaus"
-            (Linie 2/4) ist 3 Gehminuten entfernt.
+            <span data-i18n="de">Kundenparkplätze direkt vor dem Salon. Haltestelle „Rathaus" (Linie 2/4) ist 3 Gehminuten entfernt.</span>
+            <span data-i18n="en">Customer parking directly at the salon. "Rathaus" stop (lines 2/4) is a 3-minute walk away.</span>
           </p>
 
           <!--
@@ -1542,18 +1611,18 @@
           <div class="map-embed" data-map-query="Hauptstra%C3%9Fe+24%2C+67655+Kaiserslautern">
             <button type="button" class="map-load-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
-              Karte laden
-              <span class="map-hint">Lädt Inhalte von Google Maps — dabei wird eine Verbindung zu Google hergestellt.</span>
+              <span data-i18n="de">Karte laden</span><span data-i18n="en">Load map</span>
+              <span class="map-hint"><span data-i18n="de">Lädt Inhalte von Google Maps — dabei wird eine Verbindung zu Google hergestellt.</span><span data-i18n="en">Loads content from Google Maps — this connects to Google.</span></span>
             </button>
           </div>
         </div>
 
         <div class="location-panel" data-location-panel="filiale" hidden>
           <ul class="hours-list">
-            <li><span>Montag</span><span>geschlossen</span></li>
-            <li><span>Dienstag – Freitag</span><span>10:00 – 19:00</span></li>
-            <li><span>Samstag</span><span>9:00 – 13:00</span></li>
-            <li><span>Sonntag</span><span>geschlossen</span></li>
+            <li><span><span data-i18n="de">Montag</span><span data-i18n="en">Monday</span></span><span><span data-i18n="de">geschlossen</span><span data-i18n="en">closed</span></span></li>
+            <li><span><span data-i18n="de">Dienstag – Freitag</span><span data-i18n="en">Tuesday – Friday</span></span><span>10:00 – 19:00</span></li>
+            <li><span><span data-i18n="de">Samstag</span><span data-i18n="en">Saturday</span></span><span>9:00 – 13:00</span></li>
+            <li><span><span data-i18n="de">Sonntag</span><span data-i18n="en">Sunday</span></span><span><span data-i18n="de">geschlossen</span><span data-i18n="en">closed</span></span></li>
           </ul>
           <p style="margin-top:1.6rem;">
             Merkurstraße 5, 67663 Kaiserslautern<br>
@@ -1561,36 +1630,35 @@
             <a href="mailto:filiale@salon-lindenblatt-beispiel.de">filiale@salon-lindenblatt-beispiel.de</a>
           </p>
           <p style="margin-top:1rem; font-size:0.9rem; color:var(--ink-soft);">
-            Kostenlose Parkplätze auf dem Hofgelände. Bushaltestelle
-            „Betzenberg" (Linie 7) ist 5 Gehminuten entfernt.
+            <span data-i18n="de">Kostenlose Parkplätze auf dem Hofgelände. Bushaltestelle „Betzenberg" (Linie 7) ist 5 Gehminuten entfernt.</span>
+            <span data-i18n="en">Free parking on the courtyard. "Betzenberg" bus stop (line 7) is a 5-minute walk away.</span>
           </p>
           <div class="map-embed" data-map-query="Merkurstra%C3%9Fe+5%2C+67663+Kaiserslautern">
             <button type="button" class="map-load-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
-              Karte laden
-              <span class="map-hint">Lädt Inhalte von Google Maps — dabei wird eine Verbindung zu Google hergestellt.</span>
+              <span data-i18n="de">Karte laden</span><span data-i18n="en">Load map</span>
+              <span class="map-hint"><span data-i18n="de">Lädt Inhalte von Google Maps — dabei wird eine Verbindung zu Google hergestellt.</span><span data-i18n="en">Loads content from Google Maps — this connects to Google.</span></span>
             </button>
           </div>
         </div>
       </div>
       <div class="kontakt-panel glass">
         <p class="eyebrow"><span data-i18n="de">Termin anfragen</span><span data-i18n="en">Request an appointment</span></p>
-        <p style="font-size:0.85rem; color:var(--ink-soft); margin-top:-0.5rem;" data-i18n="en">Form labels below are still German-only in this demo.</p>
         <form action="#" method="post">
           <div>
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
           </div>
           <div>
-            <label for="phone">Telefon oder E-Mail</label>
+            <label for="phone"><span data-i18n="de">Telefon oder E-Mail</span><span data-i18n="en">Phone or email</span></label>
             <input type="text" id="phone" name="phone" required>
           </div>
           <div>
-            <label for="message">Wunsch (z. B. Leistung, bevorzugter Termin)</label>
+            <label for="message"><span data-i18n="de">Wunsch (z. B. Leistung, bevorzugter Termin)</span><span data-i18n="en">Request (e.g. service, preferred time)</span></label>
             <textarea id="message" name="message"></textarea>
           </div>
           <div>
-            <label for="reference-photo">Referenzfoto (optional)</label>
+            <label for="reference-photo"><span data-i18n="de">Referenzfoto (optional)</span><span data-i18n="en">Reference photo (optional)</span></label>
             <div class="file-field">
               <input type="file" id="reference-photo" name="reference-photo" accept="image/*">
             </div>
@@ -1599,7 +1667,7 @@
             <label for="website">Bitte freilassen</label>
             <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
           </div>
-          <button class="submit-btn" type="submit">Anfrage senden</button>
+          <button class="submit-btn" type="submit"><span data-i18n="de">Anfrage senden</span><span data-i18n="en">Send request</span></button>
         </form>
       </div>
     </div>
@@ -1611,8 +1679,8 @@
   <div class="wrap footer-row">
     <span>© 2026 Salon Lindenblatt</span>
     <div>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
+      <a href="impressum.html"><span data-i18n="de">Impressum</span><span data-i18n="en">Legal Notice</span></a>
+      <a href="datenschutz.html"><span data-i18n="de">Datenschutz</span><span data-i18n="en">Privacy Policy</span></a>
     </div>
   </div>
 </footer>
