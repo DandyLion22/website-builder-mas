@@ -395,6 +395,32 @@ Fremdentscheidung auskommen" — der Katalog selbst liefert schon die
 Kriterien dafür (Kategorie E: Betriebsmodell; Team-/Standort-Module:
 Unternehmensgröße als Schwelle).
 
+## Nachtrag: Karten-Embed doch gebaut — für Vorführzwecke
+
+Direkt im Anschluss kam die Klarstellung: Das "passt nicht zu diesem
+Kunden"-Argument gilt nicht, wenn der Zweck nicht der reale
+Salon-Lindenblatt-Betrieb ist, sondern eine **Vorführung gegenüber
+zukünftigen Kunden** — dann will man möglichst viele Module einmal
+gebaut und vorzeigbar haben, unabhängig davon, ob dieser eine Prototyp
+sie "braucht".
+
+- Karten-Embed umgesetzt, aber mit der **Zwei-Klick-Lösung**: Die Karte
+  lädt nicht automatisch, sondern erst nach Klick auf "Karte laden" —
+  das ist die in Deutschland gängige, DSGVO-konforme Lösung für genau
+  dieses Drittanbieter-Problem. Passende Klausel in `datenschutz.html`
+  ergänzt (Rechtsgrundlage: Einwilligung durch den Klick).
+  → Möglicher Schluss: Betriebsmodell 3 (Drittanbieter-Widget) aus
+  Kategorie E lässt sich also doch mit vertretbarem Aufwand
+  DSGVO-konform bauen, wenn man das Zwei-Klick-Muster als Standard für
+  alle Drittanbieter-Embeds in der Komponenten-Bibliothek festlegt
+  (gilt später vermutlich auch für eine echte Terminbuchung).
+- Wichtige Unterscheidung für die Planung: **"Baut das der Kunde in
+  Produktion?"** und **"Zeige ich das als Verkaufsdemo?"** sind zwei
+  verschiedene Fragen mit unterschiedlichen Antworten. Ein
+  Demo-/Vorführ-Modus der Website-Vorlagen (alle Module einmal aktiv,
+  losgelöst vom Bedarf eines einzelnen Kunden) könnte sich lohnen, um
+  im Verkaufsgespräch zu zeigen, was grundsätzlich möglich ist.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
