@@ -577,6 +577,39 @@
   }
   .team-social svg{width:0.95rem; height:0.95rem;}
 
+  /* ---------- Karten-Embed (Zwei-Klick-Lösung) ---------- */
+  .map-embed{
+    margin-top:1.5rem;
+    aspect-ratio:16/10;
+    border-radius:var(--radius);
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:var(--bg-alt);
+  }
+  .map-load-btn{
+    width:100%; height:100%;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:0.6rem;
+    background:var(--bg-alt);
+    border:none;
+    cursor:pointer;
+    color:var(--ink);
+    font:inherit;
+    font-weight:600;
+    padding:1.5rem;
+    text-align:center;
+    transition:background .15s ease;
+  }
+  .map-load-btn:hover{background:var(--line);}
+  .map-load-btn svg{width:1.8rem; height:1.8rem; color:var(--pine);}
+  .map-load-btn .map-hint{
+    font-weight:400;
+    font-size:0.76rem;
+    color:var(--ink-soft);
+    max-width:30ch;
+  }
+  .map-embed iframe{width:100%; height:100%; border:0; display:block;}
+
   /* ---------- Datei-Upload im Formular ---------- */
   .file-field{
     border:1px dashed var(--line);
@@ -1348,6 +1381,23 @@
           Kundenparkplätze direkt vor dem Salon. Haltestelle „Rathaus"
           (Linie 2/4) ist 3 Gehminuten entfernt.
         </p>
+
+        <!--
+          DRITTANBIETER-EMBED, bewusst mit Zwei-Klick-Lösung:
+          Betriebsmodell 3 aus prototyp/erkenntnisse.md (Kategorie E).
+          Die Karte lädt NICHT automatisch beim Seitenaufruf — erst nach
+          Klick auf "Karte laden" wird eine Verbindung zu Google
+          hergestellt. Siehe datenschutz.html für die zugehörige
+          Datenschutz-Klausel. Nur zu Vorführzwecken im Prototyp aktiv,
+          keine echte Geschäftsentscheidung für Salon Lindenblatt.
+        -->
+        <div class="map-embed" id="mapEmbed">
+          <button type="button" class="map-load-btn" id="mapLoadBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+            Karte laden
+            <span class="map-hint">Lädt Inhalte von Google Maps — dabei wird eine Verbindung zu Google hergestellt.</span>
+          </button>
+        </div>
       </div>
       <div class="kontakt-panel glass">
         <p class="eyebrow">Termin anfragen</p>
@@ -1409,6 +1459,20 @@
       });
     }
   } catch(e) { /* sessionStorage evtl. nicht verfügbar (private mode) — Leiste bleibt dann einfach sichtbar */ }
+
+  var mapBtn = document.getElementById('mapLoadBtn');
+  if(mapBtn){
+    mapBtn.addEventListener('click', function(){
+      var mapEmbed = document.getElementById('mapEmbed');
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://maps.google.com/maps?q=Hauptstra%C3%9Fe+24%2C+67655+Kaiserslautern&t=&z=15&ie=UTF8&iwloc=&output=embed';
+      iframe.title = 'Karte: Salon Lindenblatt, Hauptstraße 24, 67655 Kaiserslautern';
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      mapEmbed.innerHTML = '';
+      mapEmbed.appendChild(iframe);
+    });
+  }
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
