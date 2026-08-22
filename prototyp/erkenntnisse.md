@@ -364,6 +364,37 @@ dieser Module branchenspezifisch sind (Gutschein/Vorher-Nachher eher
 Beauty-typisch) und welche generisch für alle Branchen aus 7.3 gelten
 (FAQ, Click-to-Call, Ankündigungsleiste, Karriere wirken universeller).
 
+## Umsetzungsrunde: Module gebaut (2026-08-22)
+
+**Gebaut:** Ankündigungsleiste (dismissible), WhatsApp-Kontaktbutton,
+Dauer je Leistung, Partner-/Marken-Leiste (fiktive Namen), Social-Media-
+Link pro Teammitglied, Karriere-/Ausbildungs-Strip, TikTok-Ergänzung,
+FAQ-Sektion (natives `<details>`, kein JS nötig), Gutschein-Panel
+(Anfrage-Stufe), zweite Bewertungsquelle (Facebook) + sichtbare
+Betreiber-Antwort, Anfahrtsbeschreibung als Text, Datei-Upload im
+Kontaktformular.
+
+**Bewusst nicht gebaut**, mit Begründung aus dem eigenen Katalog:
+- Team-Profilseiten — "lohnt sich erst ab größeren Teams" (Salon
+  Lindenblatt hat 3 Personen)
+- Mehrere Standorte — nur für Filialbetriebe relevant
+- Echte Terminbuchung / Karten-Embed — weiterhin offene Entscheidung,
+  bräuchte einen echten Drittanbieter-Entscheid und würde die
+  "kein Drittanbieter-Embed"-Linie brechen; nicht einfach "mitgebaut"
+- Mehrstufiges Kontaktformular — Scope-Sprung; der Datei-Upload deckt
+  den naheliegendsten Einzelfall (Referenzfoto) schon ab
+- Vorher/Nachher-Slider — fehlende echte, gepaarte Vorher/Nachher-Fotos;
+  die vorhandenen Stock-Fotos zeigen unterschiedliche Personen, ein Mock
+  hier wäre inhaltlich irreführend statt nur illustrativ
+- Mehrsprachigkeit — laut eigenem Katalog nur bei echtem Bedarf sinnvoll,
+  für Kaiserslautern nicht begründet
+
+→ Möglicher Schluss: "Alle fehlenden Module bauen" ist in der Praxis
+"alle bauen, die zum konkreten Kunden passen und ohne offene
+Fremdentscheidung auskommen" — der Katalog selbst liefert schon die
+Kriterien dafür (Kategorie E: Betriebsmodell; Team-/Standort-Module:
+Unternehmensgröße als Schwelle).
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
