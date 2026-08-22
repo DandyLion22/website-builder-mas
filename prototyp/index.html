@@ -107,6 +107,56 @@
     font-weight:600;
   }
 
+  /* ---------- Ankündigungsleiste ---------- */
+  .announce-bar{
+    background:var(--pine);
+    color:var(--paper);
+  }
+  .announce-inner{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:1rem;
+    padding:0.55rem clamp(1.25rem, 4vw, 3rem);
+    font-size:0.82rem;
+    text-align:center;
+    position:relative;
+  }
+  .announce-close{
+    position:absolute;
+    right:clamp(0.5rem, 2vw, 1.5rem);
+    top:50%;
+    transform:translateY(-50%);
+    background:none;
+    border:none;
+    color:var(--paper);
+    font-size:1.1rem;
+    line-height:1;
+    cursor:pointer;
+    padding:0.25rem 0.4rem;
+    opacity:0.85;
+  }
+  .announce-close:hover{opacity:1;}
+
+  /* ---------- WhatsApp-Kontaktbutton (fixiert) ---------- */
+  .whatsapp-fab{
+    position:fixed;
+    right:1.25rem;
+    bottom:1.25rem;
+    z-index:100;
+    width:3.2rem;
+    height:3.2rem;
+    border-radius:50%;
+    background:#25D366;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 20px rgba(28,31,27,0.25);
+    transition:transform .15s ease;
+  }
+  .whatsapp-fab:hover{transform:scale(1.06);}
+  .whatsapp-fab svg{width:1.7rem; height:1.7rem;}
+
   /* ---------- Header ---------- */
   header{
     position:sticky;
@@ -418,6 +468,137 @@
   .service-row .desc{color:var(--ink-soft); font-size:0.92rem; margin-top:0.2rem;}
   .service-row .price{white-space:nowrap; font-family:Georgia,serif; font-size:1.05rem;}
 
+  /* ---------- Partner-/Marken-Leiste ---------- */
+  .brand-strip{
+    background:var(--paper);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:2.25rem 0 !important;
+  }
+  .brand-strip .eyebrow{display:block; text-align:center; margin-bottom:1.4rem;}
+  .brand-row{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    gap:clamp(1.75rem, 5vw, 3.5rem);
+  }
+  .brand-row span{
+    font-family:Georgia,serif;
+    font-size:1.1rem;
+    letter-spacing:0.03em;
+    color:var(--ink-soft);
+    opacity:0.75;
+    white-space:nowrap;
+  }
+
+  /* ---------- Karriere-Strip ---------- */
+  .career-strip{
+    padding:1.75rem clamp(1.25rem,4vw,3rem) !important;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+  }
+  .career-strip p{margin:0; color:var(--ink-soft);}
+  .career-strip strong{display:block; color:var(--ink); font-family:Georgia,serif; font-size:1.1rem; margin-bottom:0.2rem;}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{max-width:70ch;}
+  .faq-item{
+    border-top:1px solid var(--line);
+  }
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-item summary{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    padding:1.1rem 0;
+    cursor:pointer;
+    font-weight:600;
+    list-style:none;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary .plus{
+    flex-shrink:0;
+    width:1.2rem; height:1.2rem;
+    position:relative;
+  }
+  .faq-item summary .plus::before,
+  .faq-item summary .plus::after{
+    content:"";
+    position:absolute;
+    top:50%; left:50%;
+    background:var(--pine);
+    transform:translate(-50%,-50%);
+    transition:transform .2s ease, opacity .2s ease;
+  }
+  .faq-item summary .plus::before{width:1.2rem; height:2px;}
+  .faq-item summary .plus::after{width:2px; height:1.2rem;}
+  .faq-item[open] summary .plus::after{transform:translate(-50%,-50%) rotate(90deg); opacity:0;}
+  .faq-item p{margin:0 0 1.2rem; color:var(--ink-soft); max-width:60ch;}
+
+  /* ---------- Gutschein-Panel ---------- */
+  .voucher-panel{
+    background:var(--pine);
+    color:var(--paper);
+    border-radius:var(--radius);
+    padding:clamp(1.75rem,4vw,2.5rem);
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:1.5rem;
+  }
+  .voucher-panel h3{color:var(--paper); margin-bottom:0.4rem;}
+  .voucher-panel p{margin:0; color:rgba(247,248,243,0.8); max-width:42ch;}
+  .voucher-panel .cta{background:var(--brass); flex-shrink:0;}
+  .voucher-panel .cta:hover{background:#C7A876;}
+
+  /* ---------- Team-Social-Links ---------- */
+  .team-social{
+    display:flex;
+    gap:0.5rem;
+    margin-top:0.6rem;
+  }
+  .team-social a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:1.8rem; height:1.8rem;
+    border-radius:50%;
+    background:var(--bg-alt);
+    color:var(--pine);
+  }
+  .team-social svg{width:0.95rem; height:0.95rem;}
+
+  /* ---------- Datei-Upload im Formular ---------- */
+  .file-field{
+    border:1px dashed var(--line);
+    border-radius:var(--radius);
+    padding:0.6rem 0.85rem;
+    background:var(--paper);
+    font-size:0.85rem;
+    color:var(--ink-soft);
+  }
+  .file-field input{border:none; padding:0.3rem 0; background:transparent;}
+
+  /* ---------- Bewertungs-Antwort (Betreiber) ---------- */
+  .quote-reply{
+    margin-top:0.9rem;
+    padding:0.75rem 0.9rem;
+    background:var(--bg-alt);
+    border-radius:var(--radius);
+    font-size:0.88rem;
+    color:var(--ink-soft);
+  }
+  .quote-reply strong{color:var(--ink); display:block; margin-bottom:0.2rem; font-size:0.85rem;}
+
   /* ---------- Team ---------- */
   .team-grid{
     display:grid;
@@ -655,6 +836,18 @@
 
 <div class="grain" aria-hidden="true"></div>
 
+<!-- MOCK-DATEN: Ankündigungsleiste, manuell gepflegt, für kurzfristige Hinweise (Feiertage, Betriebsferien). -->
+<div class="announce-bar" id="announceBar">
+  <div class="announce-inner">
+    <span>Hinweis: Am 24.12. und 31.12. geschlossen — reguläre Öffnungszeiten sonst wie gewohnt.</span>
+    <button type="button" class="announce-close" id="announceClose" aria-label="Hinweis schließen">×</button>
+  </div>
+</div>
+
+<a class="whatsapp-fab" href="https://wa.me/496313456789" target="_blank" rel="noopener" aria-label="Per WhatsApp schreiben">
+  <svg viewBox="0 0 32 32" fill="#F7F8F3" aria-hidden="true"><path d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.3.64 4.45 1.75 6.29L4 29l7.86-1.7a11.98 11.98 0 0 0 4.16.74C22.64 28.04 28 22.64 28 16.02 28 9.4 22.64 3 16.02 3zm0 21.6c-1.5 0-2.94-.4-4.2-1.14l-.3-.18-4.66 1.01 1-4.55-.2-.32a9.55 9.55 0 0 1-1.5-5.4c0-5.3 4.32-9.6 9.6-9.6 2.56 0 4.97.99 6.78 2.8a9.53 9.53 0 0 1 2.82 6.8c0 5.3-4.31 9.58-9.34 9.58zm5.26-7.18c-.29-.14-1.7-.84-1.96-.93-.26-.1-.46-.14-.65.14-.19.29-.75.93-.92 1.12-.17.19-.34.22-.63.07-.29-.14-1.2-.44-2.29-1.41-.85-.75-1.42-1.68-1.59-1.97-.17-.29-.02-.44.13-.58.13-.13.29-.34.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.65-1.57-.89-2.15-.23-.56-.47-.48-.65-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.39s1.02 2.77 1.17 2.96c.14.19 2 3.05 4.85 4.28.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34z"/></svg>
+</a>
+
 <header>
   <nav class="wrap nav">
     <a class="logo" href="#top">
@@ -671,6 +864,7 @@
       <li><a href="#team">Team</a></li>
       <li><a href="#galerie">Galerie</a></li>
       <li><a href="#instagram">Instagram</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
     </ul>
     <a class="cta" href="#kontakt">Termin anfragen</a>
@@ -742,15 +936,15 @@
       <div class="service-group cut">
         <h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="5.5" cy="15" r="2"/><circle cx="14.5" cy="15" r="2"/><path d="M6.8 13.5 L16 4"/><path d="M13.2 13.5 L4 4"/></svg>Schnitt</h3>
         <div class="service-row">
-          <div><div class="name">Damenschnitt</div><div class="desc">inkl. Waschen &amp; Föhnen</div></div>
+          <div><div class="name">Damenschnitt</div><div class="desc">inkl. Waschen &amp; Föhnen · ca. 45 Min.</div></div>
           <div class="price">ab 45 €</div>
         </div>
         <div class="service-row">
-          <div><div class="name">Herrenschnitt</div><div class="desc">inkl. Waschen &amp; Styling</div></div>
+          <div><div class="name">Herrenschnitt</div><div class="desc">inkl. Waschen &amp; Styling · ca. 30 Min.</div></div>
           <div class="price">ab 32 €</div>
         </div>
         <div class="service-row">
-          <div><div class="name">Kinderschnitt</div><div class="desc">bis 12 Jahre</div></div>
+          <div><div class="name">Kinderschnitt</div><div class="desc">bis 12 Jahre · ca. 20 Min.</div></div>
           <div class="price">ab 22 €</div>
         </div>
       </div>
@@ -758,11 +952,11 @@
       <div class="service-group color">
         <h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2.5 C10 2.5 4.5 9.5 4.5 13.5 a5.5 5.5 0 0 0 11 0 C15.5 9.5 10 2.5 10 2.5 Z"/></svg>Farbe</h3>
         <div class="service-row">
-          <div><div class="name">Ansatzfarbe</div><div class="desc">einfarbig, inkl. Beratung</div></div>
+          <div><div class="name">Ansatzfarbe</div><div class="desc">einfarbig, inkl. Beratung · ca. 60 Min.</div></div>
           <div class="price">ab 55 €</div>
         </div>
         <div class="service-row">
-          <div><div class="name">Balayage</div><div class="desc">freihändige Strähnentechnik</div></div>
+          <div><div class="name">Balayage</div><div class="desc">freihändige Strähnentechnik · ca. 120 Min.</div></div>
           <div class="price">ab 95 €</div>
         </div>
       </div>
@@ -770,7 +964,7 @@
       <div class="service-group style">
         <h3><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2 L11.3 8.2 L17.5 10 L11.3 11.8 L10 18 L8.7 11.8 L2.5 10 L8.7 8.2 Z"/></svg>Styling</h3>
         <div class="service-row">
-          <div><div class="name">Festliches Styling</div><div class="desc">für besondere Anlässe</div></div>
+          <div><div class="name">Festliches Styling</div><div class="desc">für besondere Anlässe · ca. 40 Min.</div></div>
           <div class="price">ab 40 €</div>
         </div>
       </div>
@@ -778,9 +972,22 @@
       <div class="service-group care">
         <h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16.5 C4 8.5 10 3.5 17 3.5 C17 10.5 12 16.5 4 16.5 Z" fill="currentColor" fill-opacity="0.18"/><path d="M4.5 16 C7 12.5 10 10.5 13.5 8.5"/></svg>Pflege</h3>
         <div class="service-row">
-          <div><div class="name">Intensivkur</div><div class="desc">auf Haartyp abgestimmt</div></div>
+          <div><div class="name">Intensivkur</div><div class="desc">auf Haartyp abgestimmt · ca. 20 Min.</div></div>
           <div class="price">ab 18 €</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOCK-DATEN: Partner-/Markenname sind erfunden (fiktiver Salon, keine echten Markenrechte betroffen). -->
+  <section class="brand-strip">
+    <div class="wrap">
+      <p class="eyebrow">Wir arbeiten mit</p>
+      <div class="brand-row">
+        <span>Lindera Cosmetics</span>
+        <span>Nordwerk Haircare</span>
+        <span>Studio Blanc</span>
+        <span>Verde Botanicals</span>
       </div>
     </div>
   </section>
@@ -801,6 +1008,11 @@
           <div class="team-info">
             <div>Sabine Vogt</div>
             <div class="role">Salonleitung, Coloristin</div>
+            <div class="team-social">
+              <a href="#" target="_blank" rel="noopener" aria-label="Sabine Vogt auf Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+              </a>
+            </div>
           </div>
         </div>
         <div class="team-card reveal tilt">
@@ -811,6 +1023,11 @@
           <div class="team-info">
             <div>Timo Reinhardt</div>
             <div class="role">Stylist</div>
+            <div class="team-social">
+              <a href="#" target="_blank" rel="noopener" aria-label="Timo Reinhardt auf Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+              </a>
+            </div>
           </div>
         </div>
         <div class="team-card reveal tilt">
@@ -821,8 +1038,18 @@
           <div class="team-info">
             <div>Lea Brandt</div>
             <div class="role">Auszubildende</div>
+            <div class="team-social">
+              <a href="#" target="_blank" rel="noopener" aria-label="Lea Brandt auf Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+              </a>
+            </div>
           </div>
         </div>
+      </div>
+
+      <div class="career-strip reveal" style="margin-top:2.5rem;">
+        <p><strong>Werde Teil des Teams</strong>Wir suchen laufend Verstärkung — auch Ausbildungsplätze.</p>
+        <a class="cta-ghost" href="mailto:info@salon-lindenblatt-beispiel.de?subject=Initiativbewerbung">Initiativbewerbung senden</a>
       </div>
     </div>
   </section>
@@ -865,6 +1092,11 @@
           <a class="ig-link" href="#" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
             @salon.lindenblatt
+          </a>
+          · auch auf
+          <a class="ig-link" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.4 2.2 1.9 3.7 4.1 4v3c-1.5 0-2.9-.5-4.1-1.3v6.6a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v3.1a2.7 2.7 0 1 0 1.9 2.6V3h2.9z"/></svg>
+            TikTok
           </a>
         </p>
       </div>
@@ -969,6 +1201,10 @@
             <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
           </div>
           <p>„Endlich ein Salon, der sich Zeit für Beratung nimmt statt nur schnell zu schneiden."</p>
+          <div class="quote-reply">
+            <strong>Antwort von Salon Lindenblatt</strong>
+            Vielen Dank für die schönen Worte, Frau Weber! Wir freuen uns auf den nächsten Termin.
+          </div>
         </div>
         <div class="quote reveal">
           <div class="quote-header">
@@ -1006,6 +1242,69 @@
           </div>
           <p>„Ruhige Atmosphäre, klares Ergebnis. Komme seit zwei Jahren nur noch hierher."</p>
         </div>
+        <div class="quote reveal">
+          <div class="quote-header">
+            <span class="quote-avatar" style="background:var(--brass);">T</span>
+            <div class="quote-meta">
+              <div class="name">T. Nguyen</div>
+              <div class="when">vor 5 Tagen</div>
+            </div>
+            <svg class="quote-source" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#1877F2"/><path fill="#F7F8F3" d="M20.5 16.5h-3v10h-4v-10h-2v-3.5h2V11c0-2 1-3.5 3.7-3.5H20v3.4h-1.8c-.8 0-1.2.4-1.2 1.2v1.4h3l-.5 3.5z"/></svg>
+          </div>
+          <div class="quote-stars" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
+          </div>
+          <p>„Habe zum ersten Mal Balayage machen lassen — bin begeistert vom Ergebnis."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOCK-DATEN: Gutschein-Panel, einfachste Ausbaustufe (Anfrage statt Online-Kauf, siehe erkenntnisse.md Kategorie F). -->
+  <section>
+    <div class="wrap">
+      <div class="voucher-panel reveal">
+        <div>
+          <h3>Gutscheine verschenken</h3>
+          <p>Ob Geburtstag oder einfach so — Gutscheine für Salon Lindenblatt gibt es in jedem Wert.</p>
+        </div>
+        <a class="cta" href="mailto:info@salon-lindenblatt-beispiel.de?subject=Gutschein-Anfrage">Gutschein anfragen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- FAQ ---------- -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Häufige Fragen</p>
+        <h2>Gut zu wissen</h2>
+      </div>
+      <div class="faq-list reveal">
+        <details class="faq-item">
+          <summary>Gibt es Parkplätze in der Nähe?<span class="plus" aria-hidden="true"></span></summary>
+          <p>Direkt vor dem Salon stehen Kundenparkplätze zur Verfügung. Alternativ ist das Parkhaus Fackelstraße fußläufig in etwa 5 Minuten erreichbar.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Bekomme ich auch kurzfristig einen Termin?<span class="plus" aria-hidden="true"></span></summary>
+          <p>Bei akutem Bedarf einfach anrufen oder per WhatsApp schreiben — häufig lässt sich noch am selben Tag etwas einrichten.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Welche Zahlungsarten werden akzeptiert?<span class="plus" aria-hidden="true"></span></summary>
+          <p>Bar, EC-Karte und die gängigen kontaktlosen Bezahlmethoden.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Was passiert, wenn ich einen Termin nicht wahrnehmen kann?<span class="plus" aria-hidden="true"></span></summary>
+          <p>Bitte so früh wie möglich absagen oder verschieben — am einfachsten per Telefon oder WhatsApp, spätestens 24 Stunden vorher.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Gibt es Gutscheine?<span class="plus" aria-hidden="true"></span></summary>
+          <p>Ja, in jedem Wert — einfach über das Kontaktformular oder direkt im Salon anfragen.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -1045,6 +1344,10 @@
           Tel. <a href="tel:+496313456789">0631 3456789</a><br>
           <a href="mailto:info@salon-lindenblatt-beispiel.de">info@salon-lindenblatt-beispiel.de</a>
         </p>
+        <p style="margin-top:1rem; font-size:0.9rem; color:var(--ink-soft);">
+          Kundenparkplätze direkt vor dem Salon. Haltestelle „Rathaus"
+          (Linie 2/4) ist 3 Gehminuten entfernt.
+        </p>
       </div>
       <div class="kontakt-panel glass">
         <p class="eyebrow">Termin anfragen</p>
@@ -1060,6 +1363,12 @@
           <div>
             <label for="message">Wunsch (z. B. Leistung, bevorzugter Termin)</label>
             <textarea id="message" name="message"></textarea>
+          </div>
+          <div>
+            <label for="reference-photo">Referenzfoto (optional)</label>
+            <div class="file-field">
+              <input type="file" id="reference-photo" name="reference-photo" accept="image/*">
+            </div>
           </div>
           <div class="hp-field" aria-hidden="true">
             <label for="website">Bitte freilassen</label>
@@ -1086,6 +1395,20 @@
 <script>
 (function(){
   document.body.classList.add('js-enabled');
+
+  try {
+    var bar = document.getElementById('announceBar');
+    var closeBtn = document.getElementById('announceClose');
+    if(bar && closeBtn){
+      if(sessionStorage.getItem('announceDismissed') === '1'){
+        bar.style.display = 'none';
+      }
+      closeBtn.addEventListener('click', function(){
+        bar.style.display = 'none';
+        sessionStorage.setItem('announceDismissed', '1');
+      });
+    }
+  } catch(e) { /* sessionStorage evtl. nicht verfügbar (private mode) — Leiste bleibt dann einfach sichtbar */ }
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
