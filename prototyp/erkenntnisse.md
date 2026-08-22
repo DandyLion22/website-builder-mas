@@ -421,6 +421,39 @@ sie "braucht".
   losgelöst vom Bedarf eines einzelnen Kunden) könnte sich lohnen, um
   im Verkaufsgespräch zu zeigen, was grundsätzlich möglich ist.
 
+## Vier weitere Demo-Module gebaut (2026-08-22)
+
+Konsequent im "Vorführ-Modus" weitergebaut: Team-Profilseiten,
+Vorher/Nachher-Regler, zweiter Standort, Sprachumschalter. Alle rein zu
+Demozwecken, keine echten Anforderungen für Salon Lindenblatt.
+
+- **Vorher/Nachher-Regler**: Ehrlichkeits-Kompromiss, weil es keine
+  echten gepaarten Fotos gibt — dasselbe Foto wird zweimal gezeigt
+  (entsättigt vs. Original) statt zwei verschiedener Personen als
+  "Ergebnis" auszugeben. → Möglicher Schluss: Bei Demo-Inhalten ist die
+  Grenze "zeigt die Mechanik" vs. "behauptet ein falsches Ergebnis"
+  wichtiger als die Grenze "Mock-Daten ja/nein" — Mock-Daten sind okay,
+  irreführende Mock-Daten nicht.
+- **Zweiter Standort**: Karten-Logik musste dafür von "eine feste ID"
+  auf "beliebig viele, datengetrieben über `data-map-query`"
+  umgebaut werden. → Möglicher Schluss: Sobald ein Muster zweimal
+  vorkommt, lohnt sich die generische Version sofort — nicht erst beim
+  dritten Mal.
+- **Sprachumschalter**: Bewusst nur Nav/Hero/Section-Überschriften/
+  Stats/CTAs übersetzt, lange Inhalte (Leistungs-Details, Bewertungen,
+  FAQ-Antworten, Rechtstexte) bleiben deutsch mit sichtbarem Hinweis.
+  Rechtstext-Links (Impressum/Datenschutz) bewusst NICHT übersetzt, da
+  es keine englischen Rechtstext-Seiten gibt — ein übersetzter Link
+  hätte etwas Nichtexistierendes vorgetäuscht. → Möglicher Schluss: Eine
+  „echte" Mehrsprachigkeit ist in Wahrheit ein Content-Agent-Projekt
+  (jeder Text braucht eine geprüfte Übersetzung), kein reines
+  Frontend-Feature — das UI-Umschalten ist der leichte Teil.
+- **Team-Profilseiten**: technisch unproblematisch, aber bestätigt die
+  ursprüngliche Einschätzung aus dem Modul-Katalog — für 3 Personen ist
+  der Mehrwert gegenüber der bestehenden Team-Section gering, wird aber
+  bei größeren Teams schnell wertvoller (mehr Platz für Spezialisierung,
+  eigener Buchungslink pro Person).
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
