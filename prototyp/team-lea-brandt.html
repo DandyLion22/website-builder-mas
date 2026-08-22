@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- Team-Profilseite, Teil des Prototyps "Salon Lindenblatt". MOCK/DEMO — siehe team-sabine-vogt.html für Hintergrund. -->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Lea Brandt — Salon Lindenblatt</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232B3B2E'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Georgia,serif' font-size='13' font-weight='700' fill='%23F7F8F3'%3ESL%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg: #EEF0E9; --bg-alt: #E4E7DC; --ink: #1C1F1B; --ink-soft: #5B6156;
+    --pine: #2B3B2E; --pine-light: #3F5342; --brass: #AD8A54;
+    --line: #D3D6C8; --paper: #F7F8F3; --radius: 3px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    line-height:1.6;
+  }
+  h1,h2{font-family:Georgia,serif; font-weight:600; margin:0 0 0.4em;}
+  a{color:var(--pine);}
+  a:focus-visible{outline:2px solid var(--pine); outline-offset:3px;}
+  .wrap{max-width:760px; margin:0 auto; padding:3rem clamp(1.25rem,4vw,3rem) 5rem;}
+  .back{display:inline-block; margin-bottom:2rem; font-size:0.9rem; color:var(--ink-soft); text-decoration:none;}
+  .back:hover{color:var(--ink);}
+  .profile{display:grid; grid-template-columns:220px 1fr; gap:2rem; align-items:start;}
+  @media (max-width:560px){.profile{grid-template-columns:1fr;}}
+  .photo{position:relative; border-radius:var(--radius); overflow:hidden; aspect-ratio:1/1;}
+  .photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .badge{
+    position:absolute; top:0.6rem; right:0.6rem;
+    background:var(--paper); color:var(--pine); font-size:0.7rem; font-weight:600;
+    padding:0.25rem 0.6rem; border-radius:999px; box-shadow:0 4px 10px rgba(28,31,27,0.18);
+  }
+  .eyebrow{font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--pine); font-weight:600;}
+  .role{color:var(--ink-soft); margin:0.2rem 0 1rem;}
+  .tags{display:flex; flex-wrap:wrap; gap:0.5rem; margin:1rem 0 1.5rem;}
+  .tags span{background:var(--paper); border:1px solid var(--line); border-radius:999px; padding:0.3rem 0.8rem; font-size:0.82rem; color:var(--ink-soft);}
+  .cta{
+    display:inline-block; background:var(--pine); color:var(--paper); padding:0.7rem 1.4rem;
+    border-radius:var(--radius); text-decoration:none; font-size:0.9rem; font-weight:600;
+  }
+  .cta:hover{background:var(--pine-light);}
+  .social{display:inline-flex; align-items:center; justify-content:center; width:1.9rem; height:1.9rem; border-radius:50%; background:var(--bg-alt); margin-left:0.6rem; vertical-align:middle;}
+  .social svg{width:1rem; height:1rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html#team">← Zurück zum Team</a>
+
+  <div class="profile">
+    <div class="photo">
+      <img src="assets/img/team-lea-brandt.jpg" alt="Porträt von Lea Brandt">
+      <span class="badge">seit 2023</span>
+    </div>
+    <div>
+      <p class="eyebrow">Auszubildende</p>
+      <h1>Lea Brandt</h1>
+      <p class="role">
+        Lea befindet sich seit 2023 in der Ausbildung zur Friseurin und
+        unterstützt das Team bei Waschen, Föhnen und ersten eigenen
+        Schnitten unter Anleitung von Sabine und Timo.
+      </p>
+      <div class="tags">
+        <span>Waschen &amp; Föhnen</span>
+        <span>Kinderschnitt</span>
+      </div>
+      <a class="cta" href="index.html#kontakt">Termin bei Lea anfragen</a>
+      <a class="social" href="#" target="_blank" rel="noopener" aria-label="Lea Brandt auf Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

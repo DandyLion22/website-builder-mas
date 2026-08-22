@@ -157,6 +157,22 @@
   .whatsapp-fab:hover{transform:scale(1.06);}
   .whatsapp-fab svg{width:1.7rem; height:1.7rem;}
 
+  /* ---------- Sprachumschalter (Demo-Mechanik, siehe HTML-Kommentar) ---------- */
+  [data-i18n]{display:none;}
+  html[lang="de"] [data-i18n="de"]{display:inline;}
+  html[lang="en"] [data-i18n="en"]{display:inline;}
+  .lang-toggle{
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--ink-soft);
+    font:inherit; font-size:0.8rem; font-weight:600;
+    padding:0.35rem 0.7rem;
+    border-radius:999px;
+    cursor:pointer;
+  }
+  .lang-toggle:hover{color:var(--ink); border-color:var(--ink);}
+  .nav-actions{display:flex; align-items:center; gap:0.9rem;}
+
   /* ---------- Header ---------- */
   header{
     position:sticky;
@@ -563,9 +579,12 @@
   /* ---------- Team-Social-Links ---------- */
   .team-social{
     display:flex;
+    align-items:center;
     gap:0.5rem;
     margin-top:0.6rem;
   }
+  .team-profile-link{font-size:0.8rem; color:var(--pine); text-decoration:none; font-weight:600;}
+  .team-profile-link:hover{text-decoration:underline;}
   .team-social a{
     display:inline-flex;
     align-items:center;
@@ -711,6 +730,67 @@
   .gallery-tile:focus-visible .caption{transform:translateY(0);}
   .gallery-tile:focus-visible{outline:2px solid var(--pine); outline-offset:3px;}
 
+  /* ---------- Vorher/Nachher-Vergleichsregler ---------- */
+  .compare-slider{
+    position:relative;
+    max-width:520px;
+    margin:0 auto;
+    aspect-ratio:4/3;
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:0 14px 32px rgba(28,31,27,0.16);
+  }
+  .compare-slider img{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+    pointer-events:none;
+  }
+  .compare-slider .compare-before{filter:grayscale(1) brightness(0.82);}
+  .compare-slider .compare-after{clip-path:inset(0 calc(100% - var(--pos, 50%)) 0 0);}
+  .compare-tag{
+    position:absolute; top:0.7rem;
+    background:rgba(28,31,27,0.65);
+    color:var(--paper);
+    font-size:0.7rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+    padding:0.3rem 0.6rem;
+    border-radius:999px;
+    pointer-events:none;
+  }
+  .compare-tag.before{right:0.7rem;}
+  .compare-tag.after{left:0.7rem;}
+  .compare-handle{
+    position:absolute; top:0; bottom:0;
+    left:var(--pos, 50%);
+    width:3px;
+    background:var(--paper);
+    transform:translateX(-50%);
+    pointer-events:none;
+  }
+  .compare-handle::after{
+    content:"↔";
+    position:absolute; top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:2.2rem; height:2.2rem;
+    border-radius:50%;
+    background:var(--paper);
+    color:var(--pine);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1rem;
+    box-shadow:0 4px 10px rgba(28,31,27,0.25);
+  }
+  .compare-range{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    margin:0;
+    opacity:0;
+    cursor:ew-resize;
+    -webkit-appearance:none;
+    appearance:none;
+  }
+  .compare-caption{text-align:center; font-size:0.82rem; color:var(--ink-soft); margin-top:1rem;}
+
   /* ---------- Instagram-Raster (Mock-Daten, siehe HTML-Kommentar) ---------- */
   .ig-link{
     display:inline-flex;
@@ -808,6 +888,19 @@
     box-shadow:0 10px 24px rgba(28,31,27,0.12);
   }
 
+  /* ---------- Standort-Umschalter (mehrere Standorte) ---------- */
+  .location-tabs{display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.2rem;}
+  .location-tab{
+    padding:0.5rem 1rem;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:transparent;
+    color:var(--ink-soft);
+    font:inherit; font-size:0.85rem; font-weight:600;
+    cursor:pointer;
+  }
+  .location-tab.is-active{background:var(--pine); color:var(--paper); border-color:var(--pine);}
+
   /* ---------- Contact / Hours ---------- */
   .contact{
     display:grid;
@@ -893,14 +986,20 @@
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
     <label for="menu-toggle" class="menu-label" aria-label="Menü öffnen">☰</label>
     <ul class="nav-links">
-      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#leistungen"><span data-i18n="de">Leistungen</span><span data-i18n="en">Services</span></a></li>
       <li><a href="#team">Team</a></li>
-      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#galerie"><span data-i18n="de">Galerie</span><span data-i18n="en">Gallery</span></a></li>
       <li><a href="#instagram">Instagram</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="#kontakt"><span data-i18n="de">Kontakt</span><span data-i18n="en">Contact</span></a></li>
     </ul>
-    <a class="cta" href="#kontakt">Termin anfragen</a>
+    <div class="nav-actions">
+      <!-- DEMO-MECHANIK: Nur Nav/Hero/Section-Überschriften/Footer übersetzt, siehe erkenntnisse.md. -->
+      <button type="button" class="lang-toggle" id="langToggle" aria-label="Sprache wechseln / switch language">
+        <span data-i18n="de">EN</span><span data-i18n="en">DE</span>
+      </button>
+      <a class="cta" href="#kontakt"><span data-i18n="de">Termin anfragen</span><span data-i18n="en">Book now</span></a>
+    </div>
   </nav>
 </header>
 
@@ -913,12 +1012,21 @@
     <span class="ambient-blob c" aria-hidden="true"></span>
     <div class="wrap hero">
       <div>
-        <p class="eyebrow">Friseur &amp; Salon · Kaiserslautern</p>
-        <h1>Präzise geschnitten,<br>ruhig gestaltet.</h1>
-        <p>Salon Lindenblatt steht für klare Schnitte, natürliche Farben und Beratung, die sich Zeit nimmt.</p>
+        <p class="eyebrow">
+          <span data-i18n="de">Friseur &amp; Salon · Kaiserslautern</span>
+          <span data-i18n="en">Hair Salon · Kaiserslautern</span>
+        </p>
+        <h1>
+          <span data-i18n="de">Präzise geschnitten,<br>ruhig gestaltet.</span>
+          <span data-i18n="en">Precisely cut,<br>calmly designed.</span>
+        </h1>
+        <p>
+          <span data-i18n="de">Salon Lindenblatt steht für klare Schnitte, natürliche Farben und Beratung, die sich Zeit nimmt.</span>
+          <span data-i18n="en">Salon Lindenblatt stands for clean cuts, natural colour and advice that takes its time.</span>
+        </p>
         <div class="hero-ctas">
-          <a class="cta" href="#kontakt">Termin anfragen</a>
-          <a class="cta-ghost" href="#leistungen">Leistungen ansehen</a>
+          <a class="cta" href="#kontakt"><span data-i18n="de">Termin anfragen</span><span data-i18n="en">Book an appointment</span></a>
+          <a class="cta-ghost" href="#leistungen"><span data-i18n="de">Leistungen ansehen</span><span data-i18n="en">View services</span></a>
         </div>
       </div>
       <div class="swatch-panel" role="img" aria-label="Farbmuster-Streifen als gestalterisches Element">
@@ -939,19 +1047,19 @@
       <div class="stats-grid reveal">
         <div class="stat">
           <div class="num" data-count-to="12" data-suffix="+">0</div>
-          <div class="label">Jahre Erfahrung</div>
+          <div class="label"><span data-i18n="de">Jahre Erfahrung</span><span data-i18n="en">years of experience</span></div>
         </div>
         <div class="stat">
           <div class="num" data-count-to="3">0</div>
-          <div class="label">Stylist:innen im Team</div>
+          <div class="label"><span data-i18n="de">Stylist:innen im Team</span><span data-i18n="en">stylists on the team</span></div>
         </div>
         <div class="stat">
           <div class="num" data-count-to="500" data-suffix="+">0</div>
-          <div class="label">zufriedene Kund:innen</div>
+          <div class="label"><span data-i18n="de">zufriedene Kund:innen</span><span data-i18n="en">happy clients</span></div>
         </div>
         <div class="stat">
           <div class="num" data-count-to="4.9" data-decimals="1">0</div>
-          <div class="label">Ø Bewertung</div>
+          <div class="label"><span data-i18n="de">Ø Bewertung</span><span data-i18n="en">avg. rating</span></div>
         </div>
       </div>
     </div>
@@ -961,8 +1069,8 @@
   <section id="leistungen">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">Leistungen</p>
-        <h2>Was wir für dich tun</h2>
+        <p class="eyebrow"><span data-i18n="de">Leistungen</span><span data-i18n="en">Services</span></p>
+        <h2><span data-i18n="de">Was wir für dich tun</span><span data-i18n="en">What we do for you</span></h2>
         <p>Alle Preise sind Richtwerte und abhängig von Haarlänge und -dichte.</p>
       </div>
 
@@ -1030,7 +1138,7 @@
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Team</p>
-        <h2>Wer dich schneidet</h2>
+        <h2><span data-i18n="de">Wer dich schneidet</span><span data-i18n="en">Who's behind the scissors</span></h2>
       </div>
       <div class="team-grid">
         <div class="team-card reveal tilt">
@@ -1045,6 +1153,7 @@
               <a href="#" target="_blank" rel="noopener" aria-label="Sabine Vogt auf Instagram">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
               </a>
+              <a class="team-profile-link" href="team-sabine-vogt.html">Profil ansehen →</a>
             </div>
           </div>
         </div>
@@ -1060,6 +1169,7 @@
               <a href="#" target="_blank" rel="noopener" aria-label="Timo Reinhardt auf Instagram">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
               </a>
+              <a class="team-profile-link" href="team-timo-reinhardt.html">Profil ansehen →</a>
             </div>
           </div>
         </div>
@@ -1075,6 +1185,7 @@
               <a href="#" target="_blank" rel="noopener" aria-label="Lea Brandt auf Instagram">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
               </a>
+              <a class="team-profile-link" href="team-lea-brandt.html">Profil ansehen →</a>
             </div>
           </div>
         </div>
@@ -1091,8 +1202,8 @@
   <section id="galerie">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">Galerie</p>
-        <h2>Eindrücke aus dem Salon</h2>
+        <p class="eyebrow"><span data-i18n="de">Galerie</span><span data-i18n="en">Gallery</span></p>
+        <h2><span data-i18n="de">Eindrücke aus dem Salon</span><span data-i18n="en">A look inside the salon</span></h2>
       </div>
       <div class="gallery-grid">
         <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/salon-innenraum.jpg" alt="Innenraum von Salon Lindenblatt" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Salon-Innenraum</span></div>
@@ -1102,6 +1213,31 @@
         <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/empfang.jpg" alt="Empfangsbereich des Salons" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Empfang</span></div>
         <div class="gallery-tile reveal tilt" tabindex="0"><img src="assets/img/team-bei-der-arbeit.jpg" alt="Stylistin schneidet Kundin die Haare" loading="lazy" decoding="async"><span class="caption" aria-hidden="true">Bei der Arbeit</span></div>
       </div>
+    </div>
+  </section>
+
+  <!--
+    DEMO-MECHANIK, kein echtes Ergebnis: Es gibt keine echten, gepaarten
+    Vorher/Nachher-Fotos derselben Person (siehe erkenntnisse.md). Um
+    trotzdem nichts Irreführendes zu zeigen, nutzt der Regler zweimal
+    dasselbe Foto — "vorher" ist per CSS-Filter entsättigt/abgedunkelt.
+    Zeigt die Interaktions-Mechanik, nicht ein echtes Styling-Ergebnis.
+  -->
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span data-i18n="de">Ergebnisse</span><span data-i18n="en">Results</span></p>
+        <h2><span data-i18n="de">Vorher/Nachher im Vergleich</span><span data-i18n="en">Before &amp; after</span></h2>
+      </div>
+      <div class="compare-slider reveal" id="compareSlider" style="--pos:50%;">
+        <img class="compare-before" src="assets/img/ergebnis-1.jpg" alt="Vorher (Beispielfoto)">
+        <img class="compare-after" src="assets/img/ergebnis-1.jpg" alt="Nachher (Beispielfoto)">
+        <span class="compare-tag before" aria-hidden="true">Vorher</span>
+        <span class="compare-tag after" aria-hidden="true">Nachher</span>
+        <div class="compare-handle" aria-hidden="true"></div>
+        <input type="range" class="compare-range" id="compareRange" min="0" max="100" value="50" aria-label="Vorher/Nachher-Regler">
+      </div>
+      <p class="compare-caption">Demo-Mechanik mit einem Beispielfoto — bei echten Kund:innen mit echten, freigegebenen Vorher/Nachher-Aufnahmen.</p>
     </div>
   </section>
 
@@ -1120,7 +1256,7 @@
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Social</p>
-        <h2>Folgt uns auf Instagram</h2>
+        <h2><span data-i18n="de">Folgt uns auf Instagram</span><span data-i18n="en">Follow us on Instagram</span></h2>
         <p>Aktuelle Ergebnisse und Einblicke in den Salon —
           <a class="ig-link" href="#" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
@@ -1187,8 +1323,8 @@
     <div class="wrap">
       <div class="section-head reveal">
         <span class="testimonial-mark" aria-hidden="true">&ldquo;</span>
-        <p class="eyebrow">Stimmen</p>
-        <h2>Was Kund:innen sagen</h2>
+        <p class="eyebrow"><span data-i18n="de">Stimmen</span><span data-i18n="en">Reviews</span></p>
+        <h2><span data-i18n="de">Was Kund:innen sagen</span><span data-i18n="en">What our clients say</span></h2>
         <!--
           MOCK-DATEN — Betriebsmodell: manuell gepflegt, keine API.
           Entscheidung (siehe prototyp/erkenntnisse.md): Google Places
@@ -1314,8 +1450,9 @@
   <section id="faq">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">Häufige Fragen</p>
-        <h2>Gut zu wissen</h2>
+        <p class="eyebrow"><span data-i18n="de">Häufige Fragen</span><span data-i18n="en">FAQ</span></p>
+        <h2><span data-i18n="de">Gut zu wissen</span><span data-i18n="en">Good to know</span></h2>
+        <p style="font-size:0.85rem; color:var(--ink-soft);" data-i18n="en">The answers below are currently only available in German — full translation follows once real customer content exists.</p>
       </div>
       <div class="faq-list reveal">
         <details class="faq-item">
@@ -1365,42 +1502,80 @@
           <circle cx="88" cy="124" r="12" fill="var(--brass)"/>
           <path d="M83 124.5 L87 128.5 L94.5 119.5" fill="none" stroke="var(--paper)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <p class="eyebrow">Öffnungszeiten &amp; Adresse</p>
-        <ul class="hours-list">
-          <li><span>Montag</span><span>geschlossen</span></li>
-          <li><span>Dienstag – Freitag</span><span>9:00 – 18:30</span></li>
-          <li><span>Samstag</span><span>9:00 – 14:00</span></li>
-          <li><span>Sonntag</span><span>geschlossen</span></li>
-        </ul>
-        <p style="margin-top:1.6rem;">
-          Hauptstraße 24, 67655 Kaiserslautern<br>
-          Tel. <a href="tel:+496313456789">0631 3456789</a><br>
-          <a href="mailto:info@salon-lindenblatt-beispiel.de">info@salon-lindenblatt-beispiel.de</a>
-        </p>
-        <p style="margin-top:1rem; font-size:0.9rem; color:var(--ink-soft);">
-          Kundenparkplätze direkt vor dem Salon. Haltestelle „Rathaus"
-          (Linie 2/4) ist 3 Gehminuten entfernt.
+        <p class="eyebrow">
+          <span data-i18n="de">Öffnungszeiten &amp; Adresse</span>
+          <span data-i18n="en">Hours &amp; Address</span>
         </p>
 
-        <!--
-          DRITTANBIETER-EMBED, bewusst mit Zwei-Klick-Lösung:
-          Betriebsmodell 3 aus prototyp/erkenntnisse.md (Kategorie E).
-          Die Karte lädt NICHT automatisch beim Seitenaufruf — erst nach
-          Klick auf "Karte laden" wird eine Verbindung zu Google
-          hergestellt. Siehe datenschutz.html für die zugehörige
-          Datenschutz-Klausel. Nur zu Vorführzwecken im Prototyp aktiv,
-          keine echte Geschäftsentscheidung für Salon Lindenblatt.
-        -->
-        <div class="map-embed" id="mapEmbed">
-          <button type="button" class="map-load-btn" id="mapLoadBtn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
-            Karte laden
-            <span class="map-hint">Lädt Inhalte von Google Maps — dabei wird eine Verbindung zu Google hergestellt.</span>
-          </button>
+        <!-- MOCK-DATEN: zweiter Standort nur zu Vorführzwecken, siehe erkenntnisse.md. -->
+        <div class="location-tabs" role="tablist" aria-label="Standort wählen">
+          <button type="button" class="location-tab is-active" data-location="hauptstrasse" aria-selected="true">Hauptstraße</button>
+          <button type="button" class="location-tab" data-location="filiale" aria-selected="false">Filiale Betzenberg</button>
+        </div>
+
+        <div class="location-panel" data-location-panel="hauptstrasse">
+          <ul class="hours-list">
+            <li><span>Montag</span><span>geschlossen</span></li>
+            <li><span>Dienstag – Freitag</span><span>9:00 – 18:30</span></li>
+            <li><span>Samstag</span><span>9:00 – 14:00</span></li>
+            <li><span>Sonntag</span><span>geschlossen</span></li>
+          </ul>
+          <p style="margin-top:1.6rem;">
+            Hauptstraße 24, 67655 Kaiserslautern<br>
+            Tel. <a href="tel:+496313456789">0631 3456789</a><br>
+            <a href="mailto:info@salon-lindenblatt-beispiel.de">info@salon-lindenblatt-beispiel.de</a>
+          </p>
+          <p style="margin-top:1rem; font-size:0.9rem; color:var(--ink-soft);">
+            Kundenparkplätze direkt vor dem Salon. Haltestelle „Rathaus"
+            (Linie 2/4) ist 3 Gehminuten entfernt.
+          </p>
+
+          <!--
+            DRITTANBIETER-EMBED, bewusst mit Zwei-Klick-Lösung:
+            Betriebsmodell 3 aus prototyp/erkenntnisse.md (Kategorie E).
+            Die Karte lädt NICHT automatisch beim Seitenaufruf — erst nach
+            Klick auf "Karte laden" wird eine Verbindung zu Google
+            hergestellt. Siehe datenschutz.html für die zugehörige
+            Datenschutz-Klausel. Nur zu Vorführzwecken im Prototyp aktiv,
+            keine echte Geschäftsentscheidung für Salon Lindenblatt.
+          -->
+          <div class="map-embed" data-map-query="Hauptstra%C3%9Fe+24%2C+67655+Kaiserslautern">
+            <button type="button" class="map-load-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+              Karte laden
+              <span class="map-hint">Lädt Inhalte von Google Maps — dabei wird eine Verbindung zu Google hergestellt.</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="location-panel" data-location-panel="filiale" hidden>
+          <ul class="hours-list">
+            <li><span>Montag</span><span>geschlossen</span></li>
+            <li><span>Dienstag – Freitag</span><span>10:00 – 19:00</span></li>
+            <li><span>Samstag</span><span>9:00 – 13:00</span></li>
+            <li><span>Sonntag</span><span>geschlossen</span></li>
+          </ul>
+          <p style="margin-top:1.6rem;">
+            Merkurstraße 5, 67663 Kaiserslautern<br>
+            Tel. <a href="tel:+496313456791">0631 3456791</a><br>
+            <a href="mailto:filiale@salon-lindenblatt-beispiel.de">filiale@salon-lindenblatt-beispiel.de</a>
+          </p>
+          <p style="margin-top:1rem; font-size:0.9rem; color:var(--ink-soft);">
+            Kostenlose Parkplätze auf dem Hofgelände. Bushaltestelle
+            „Betzenberg" (Linie 7) ist 5 Gehminuten entfernt.
+          </p>
+          <div class="map-embed" data-map-query="Merkurstra%C3%9Fe+5%2C+67663+Kaiserslautern">
+            <button type="button" class="map-load-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+              Karte laden
+              <span class="map-hint">Lädt Inhalte von Google Maps — dabei wird eine Verbindung zu Google hergestellt.</span>
+            </button>
+          </div>
         </div>
       </div>
       <div class="kontakt-panel glass">
-        <p class="eyebrow">Termin anfragen</p>
+        <p class="eyebrow"><span data-i18n="de">Termin anfragen</span><span data-i18n="en">Request an appointment</span></p>
+        <p style="font-size:0.85rem; color:var(--ink-soft); margin-top:-0.5rem;" data-i18n="en">Form labels below are still German-only in this demo.</p>
         <form action="#" method="post">
           <div>
             <label for="name">Name</label>
@@ -1460,19 +1635,60 @@
     }
   } catch(e) { /* sessionStorage evtl. nicht verfügbar (private mode) — Leiste bleibt dann einfach sichtbar */ }
 
-  var mapBtn = document.getElementById('mapLoadBtn');
-  if(mapBtn){
-    mapBtn.addEventListener('click', function(){
-      var mapEmbed = document.getElementById('mapEmbed');
+  var langToggle = document.getElementById('langToggle');
+  if(langToggle){
+    try {
+      var savedLang = localStorage.getItem('salonLindenblattLang');
+      if(savedLang === 'en' || savedLang === 'de'){
+        document.documentElement.lang = savedLang;
+      }
+    } catch(e) { /* localStorage evtl. nicht verfügbar — Standard bleibt "de" */ }
+    langToggle.addEventListener('click', function(){
+      var next = document.documentElement.lang === 'de' ? 'en' : 'de';
+      document.documentElement.lang = next;
+      try { localStorage.setItem('salonLindenblattLang', next); } catch(e) { /* ignorieren */ }
+    });
+  }
+
+  var compareRange = document.getElementById('compareRange');
+  var compareSlider = document.getElementById('compareSlider');
+  if(compareRange && compareSlider){
+    compareRange.addEventListener('input', function(){
+      compareSlider.style.setProperty('--pos', compareRange.value + '%');
+    });
+  }
+
+  document.querySelectorAll('.map-load-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var mapEmbed = btn.closest('.map-embed');
+      var query = mapEmbed.dataset.mapQuery;
       var iframe = document.createElement('iframe');
-      iframe.src = 'https://maps.google.com/maps?q=Hauptstra%C3%9Fe+24%2C+67655+Kaiserslautern&t=&z=15&ie=UTF8&iwloc=&output=embed';
-      iframe.title = 'Karte: Salon Lindenblatt, Hauptstraße 24, 67655 Kaiserslautern';
+      iframe.src = 'https://maps.google.com/maps?q=' + query + '&t=&z=15&ie=UTF8&iwloc=&output=embed';
+      iframe.title = 'Standortkarte Salon Lindenblatt';
       iframe.loading = 'lazy';
       iframe.referrerPolicy = 'no-referrer-when-downgrade';
       mapEmbed.innerHTML = '';
       mapEmbed.appendChild(iframe);
     });
-  }
+  });
+
+  document.querySelectorAll('.location-tabs').forEach(function(tabs){
+    var panel = tabs.parentElement;
+    tabs.querySelectorAll('.location-tab').forEach(function(tab){
+      tab.addEventListener('click', function(){
+        tabs.querySelectorAll('.location-tab').forEach(function(t){
+          t.classList.remove('is-active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('is-active');
+        tab.setAttribute('aria-selected', 'true');
+        var loc = tab.dataset.location;
+        panel.querySelectorAll('.location-panel').forEach(function(p){
+          p.hidden = p.dataset.locationPanel !== loc;
+        });
+      });
+    });
+  });
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
