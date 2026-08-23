@@ -406,7 +406,13 @@
   .rating .score{font-family:Georgia,serif; font-weight:700; font-size:1.05rem;}
   .rating .count{font-size:0.82rem; color:var(--ink-soft);}
 
-  /* swatch strip signature element */
+  /*
+    Hero-Bildfläche. War ursprünglich ein abstraktes Farbmuster
+    (laut Planungsdatei Abschnitt 10.2 als branchenübergreifend
+    konstantes Signature-Element gedacht) — auf ausdrücklichen Wunsch
+    durch ein echtes Salon-Foto ersetzt. Bewusste Abweichung von der
+    dokumentierten Konstanz, siehe erkenntnisse.md.
+  */
   .swatch-panel{
     position:relative;
     aspect-ratio:4/5;
@@ -414,14 +420,7 @@
     overflow:hidden;
     display:flex;
   }
-  .swatch-panel span{flex:1;}
-  .swatch-panel span:nth-child(1){background:#2B3B2E;}
-  .swatch-panel span:nth-child(2){background:#3F5342;}
-  .swatch-panel span:nth-child(3){background:#7C8A6F;}
-  .swatch-panel span:nth-child(4){background:#AD8A54;}
-  .swatch-panel span:nth-child(5){background:#C7B48C;}
-  .swatch-panel span:nth-child(6){background:#D3D6C8;}
-  .swatch-panel span:nth-child(7){background:#E4E7DC;}
+  .swatch-panel img{width:100%; height:100%; object-fit:cover; display:block;}
 
   .ticket{
     position:absolute;
@@ -518,7 +517,10 @@
     justify-content:center;
     gap:clamp(1.75rem, 5vw, 3.5rem);
   }
-  .brand-row span{
+  .brand-row .brand{
+    display:inline-flex;
+    align-items:center;
+    gap:0.55rem;
     font-family:Georgia,serif;
     font-size:1.1rem;
     letter-spacing:0.03em;
@@ -526,6 +528,7 @@
     opacity:0.75;
     white-space:nowrap;
   }
+  .brand-row .brand svg{width:1.35rem; height:1.35rem; flex-shrink:0;}
 
   /* ---------- Karriere-Strip ---------- */
   .career-strip{
@@ -1104,8 +1107,8 @@
           <a class="cta-ghost magnetic" href="#leistungen"><span data-i18n="de">Leistungen ansehen</span><span data-i18n="en">View services</span></a>
         </div>
       </div>
-      <div class="swatch-panel" role="img" aria-label="Farbmuster-Streifen als gestalterisches Element">
-        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <div class="swatch-panel">
+        <img src="assets/img/team-bei-der-arbeit.jpg" alt="Stylistin bei der Arbeit im Salon Lindenblatt" loading="eager" decoding="async">
         <div class="ticket glass">
           <p class="eyebrow"><span data-i18n="de">Nächster freier Termin</span><span data-i18n="en">Next available slot</span></p>
           <p><span data-i18n="de">Diese Woche noch verfügbar</span><span data-i18n="en">Available this week</span></p>
@@ -1114,7 +1117,7 @@
     </div>
   </div>
 
-  <div class="section-divider" aria-hidden="true"><span class="diamond"></span></div>
+  <div class="section-divider" aria-hidden="true" style="margin-top:0.5rem; margin-bottom:3rem;"><span class="diamond"></span></div>
 
   <!-- ---------- Salon in Zahlen ---------- -->
   <section class="stats-strip">
@@ -1204,10 +1207,22 @@
     <div class="wrap">
       <p class="eyebrow"><span data-i18n="de">Wir arbeiten mit</span><span data-i18n="en">We work with</span></p>
       <div class="brand-row">
-        <span>Lindera Cosmetics</span>
-        <span>Nordwerk Haircare</span>
-        <span>Studio Blanc</span>
-        <span>Verde Botanicals</span>
+        <span class="brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c0 0-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11Z"/></svg>
+          Lindera Cosmetics
+        </span>
+        <span class="brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 18 L9 8 L13 14 L16 10 L21 18 Z"/></svg>
+          Nordwerk Haircare
+        </span>
+        <span class="brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="3.5" width="10" height="10" rx="1"/><circle cx="16.5" cy="16.5" r="5"/></svg>
+          Studio Blanc
+        </span>
+        <span class="brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V9"/><path d="M12 9c0-4 3-7 7-7 0 4-3 7-7 7Z"/><path d="M12 13c0-3-2.5-5-6-5 0 3 2.5 5 6 5Z"/></svg>
+          Verde Botanicals
+        </span>
       </div>
     </div>
   </section>
