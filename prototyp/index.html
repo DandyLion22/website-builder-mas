@@ -302,10 +302,10 @@
 
   /* ---------- Ambiente Hintergrundformen (Textur & Tiefe) ---------- */
   .ambient-shell{position:relative; overflow:hidden; contain:paint;}
-  .ambient-blob{position:absolute; border-radius:50%; filter:blur(70px); pointer-events:none; z-index:0;}
-  .ambient-blob.a{width:340px; height:340px; background:var(--brass); opacity:0.16; top:-90px; right:-70px;}
-  .ambient-blob.b{width:260px; height:260px; background:var(--pine); opacity:0.12; bottom:-60px; left:-20px;}
-  .ambient-blob.c{width:220px; height:220px; background:#7C8A6F; opacity:0.14; top:40%; left:38%;}
+  .ambient-blob{position:absolute; border-radius:50%; filter:blur(60px); pointer-events:none; z-index:0;}
+  .ambient-blob.a{width:380px; height:380px; background:var(--brass); opacity:0.38; top:-100px; right:-80px;}
+  .ambient-blob.b{width:320px; height:320px; background:var(--pine); opacity:0.32; bottom:-70px; left:-30px;}
+  .ambient-blob.c{width:280px; height:280px; background:#7C8A6F; opacity:0.34; top:40%; left:38%;}
   .wrap.hero{position:relative; z-index:1;}
 
   /* ---------- Grain-Textur (feiner Rausch-Overlay über der ganzen Seite) ---------- */
@@ -1085,6 +1085,10 @@
 
 <main id="top">
 
+  <div class="section-divider" aria-hidden="true" style="margin-top:2rem; margin-bottom:2rem;">
+    <svg class="leaf-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4C79 4 93 27 93 49C93 72 72 88 52 93C51.3 93.3 50.7 93.3 50 93C29 88 7 72 7 49C7 27 21 4 50 4Z" fill="currentColor"/><line x1="50" y1="93" x2="50" y2="99" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M50 84L50 22" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round"/></svg>
+  </div>
+
   <!-- ---------- Hero ---------- -->
   <div class="ambient-shell">
     <span class="ambient-blob a" aria-hidden="true"></span>
@@ -1119,13 +1123,11 @@
     </div>
   </div>
 
-  <div class="section-divider" aria-hidden="true" style="margin-top:0.5rem; margin-bottom:3rem;">
-    <svg class="leaf-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4C79 4 93 27 93 49C93 72 72 88 52 93C51.3 93.3 50.7 93.3 50 93C29 88 7 72 7 49C7 27 21 4 50 4Z" fill="currentColor"/><line x1="50" y1="93" x2="50" y2="99" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M50 84L50 22" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round"/></svg>
-  </div>
-
   <!-- ---------- Salon in Zahlen ---------- -->
-  <section class="stats-strip">
-    <div class="wrap">
+  <section class="stats-strip ambient-shell">
+    <span class="ambient-blob c" aria-hidden="true" style="top:-60px; left:8%; right:auto;"></span>
+    <span class="ambient-blob a" aria-hidden="true" style="top:auto; bottom:-90px; right:8%;"></span>
+    <div class="wrap" style="position:relative; z-index:1;">
       <div class="stats-grid reveal">
         <div class="stat">
           <svg class="stat-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10.5" r="7"/><path d="M10 7v3.5l2.5 1.5"/><path d="M7 2.5h6"/></svg>
@@ -1152,8 +1154,10 @@
   </section>
 
   <!-- ---------- Leistungen ---------- -->
-  <section id="leistungen">
-    <div class="wrap">
+  <section id="leistungen" class="ambient-shell">
+    <span class="ambient-blob b" aria-hidden="true" style="top:auto; bottom:-80px; right:-40px; left:auto;"></span>
+    <span class="ambient-blob c" aria-hidden="true" style="top:10%; left:-70px;"></span>
+    <div class="wrap" style="position:relative; z-index:1;">
       <div class="section-head reveal">
         <p class="eyebrow"><span data-i18n="de">Leistungen</span><span data-i18n="en">Services</span></p>
         <h2><span data-i18n="de">Was wir für dich tun</span><span data-i18n="en">What we do for you</span></h2>
@@ -1207,8 +1211,10 @@
   </section>
 
   <!-- MOCK-DATEN: Partner-/Markenname sind erfunden (fiktiver Salon, keine echten Markenrechte betroffen). -->
-  <section class="brand-strip">
-    <div class="wrap">
+  <section class="brand-strip ambient-shell">
+    <span class="ambient-blob a" aria-hidden="true" style="width:220px; height:220px; top:-120px; left:20%; right:auto;"></span>
+    <span class="ambient-blob b" aria-hidden="true" style="width:220px; height:220px; top:-120px; bottom:auto; right:20%; left:auto;"></span>
+    <div class="wrap" style="position:relative; z-index:1;">
       <p class="eyebrow"><span data-i18n="de">Wir arbeiten mit</span><span data-i18n="en">We work with</span></p>
       <div class="brand-row">
         <span class="brand">
@@ -1266,8 +1272,10 @@
   </section>
 
   <!-- ---------- Team ---------- -->
-  <section id="team" style="background:var(--bg-alt);">
-    <div class="wrap">
+  <section id="team" class="ambient-shell" style="background:var(--bg-alt);">
+    <span class="ambient-blob a" aria-hidden="true" style="top:-90px; right:-60px;"></span>
+    <span class="ambient-blob b" aria-hidden="true" style="top:auto; bottom:-100px; left:-40px;"></span>
+    <div class="wrap" style="position:relative; z-index:1;">
       <div class="section-head reveal">
         <p class="eyebrow">Team</p>
         <h2><span data-i18n="de">Wer dich schneidet</span><span data-i18n="en">Who's behind the scissors</span></h2>
@@ -1364,8 +1372,10 @@
     dasselbe Foto — "vorher" ist per CSS-Filter entsättigt/abgedunkelt.
     Zeigt die Interaktions-Mechanik, nicht ein echtes Styling-Ergebnis.
   -->
-  <section>
-    <div class="wrap">
+  <section class="ambient-shell">
+    <span class="ambient-blob c" aria-hidden="true" style="top:-70px; left:-70px; right:auto;"></span>
+    <span class="ambient-blob a" aria-hidden="true" style="top:auto; bottom:-90px; right:-70px;"></span>
+    <div class="wrap" style="position:relative; z-index:1;">
       <div class="section-head reveal">
         <p class="eyebrow"><span data-i18n="de">Ergebnisse</span><span data-i18n="en">Results</span></p>
         <h2><span data-i18n="de">Vorher/Nachher im Vergleich</span><span data-i18n="en">Before &amp; after</span></h2>
@@ -1396,8 +1406,10 @@
     die einzigen Stellen, die beim Aktualisieren angefasst werden müssen.
   -->
   <!-- ---------- Instagram ---------- -->
-  <section id="instagram" style="background:var(--bg-alt);">
-    <div class="wrap">
+  <section id="instagram" class="ambient-shell" style="background:var(--bg-alt);">
+    <span class="ambient-blob b" aria-hidden="true" style="top:-80px; bottom:auto; left:10%; right:auto;"></span>
+    <span class="ambient-blob c" aria-hidden="true" style="top:auto; bottom:-90px; right:10%; left:auto;"></span>
+    <div class="wrap" style="position:relative; z-index:1;">
       <div class="section-head reveal">
         <p class="eyebrow">Social</p>
         <h2><span data-i18n="de">Folgt uns auf Instagram</span><span data-i18n="en">Follow us on Instagram</span></h2>
@@ -1594,8 +1606,9 @@
   </section>
 
   <!-- MOCK-DATEN: Gutschein-Panel, einfachste Ausbaustufe (Anfrage statt Online-Kauf, siehe erkenntnisse.md Kategorie F). -->
-  <section>
-    <div class="wrap">
+  <section class="ambient-shell">
+    <span class="ambient-blob a" aria-hidden="true" style="top:-60px; left:-40px; bottom:auto; right:auto;"></span>
+    <div class="wrap" style="position:relative; z-index:1;">
       <div class="voucher-panel reveal">
         <div class="voucher-panel-text">
           <svg class="voucher-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="9" width="19" height="12" rx="1.5"/><path d="M2.5 13.5h19"/><path d="M12 9v12"/><path d="M12 9c-1.6 0-3.2-1-3.2-2.8S9.6 3.4 12 5.6c2.4-2.2 3.2-.4 3.2 0.6S13.6 9 12 9Z"/></svg>
@@ -1611,8 +1624,10 @@
   </section>
 
   <!-- ---------- FAQ ---------- -->
-  <section id="faq">
-    <div class="wrap">
+  <section id="faq" class="ambient-shell">
+    <span class="ambient-blob c" aria-hidden="true" style="top:-70px; right:-50px; bottom:auto; left:auto;"></span>
+    <span class="ambient-blob a" aria-hidden="true" style="top:auto; bottom:-90px; left:15%; right:auto;"></span>
+    <div class="wrap" style="position:relative; z-index:1;">
       <div class="section-head reveal">
         <p class="eyebrow"><span data-i18n="de">Häufige Fragen</span><span data-i18n="en">FAQ</span></p>
         <h2><span data-i18n="de">Gut zu wissen</span><span data-i18n="en">Good to know</span></h2>
