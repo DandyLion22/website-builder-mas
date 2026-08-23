@@ -661,6 +661,31 @@ Signature-Mikrointeraktion), drei davon gewählt und umgesetzt:
   und schwerer vorführbar ist als die anderen drei, eher konkreten
   Bausteine.
 
+## Swatch-Panel doch nicht konstant: bewusste Abweichung
+
+Direkt im Anschluss kamen drei Detail-Wünsche, darunter: das Hero-
+Farbmuster durch ein echtes Salon-Foto ersetzen. Das steht im direkten
+Widerspruch zur bisher dokumentierten Entscheidung (Abschnitt 10.2 der
+Planung, seitdem mehrfach bestätigt — zuletzt sogar explizit beim
+Instagram-Modul, wo das Swatch-Panel deshalb bewusst *nicht* angefasst
+wurde): Farbsystem/Typografie/**Swatch-Signature-Element** sollten
+branchen-/kundenübergreifend konstant bleiben.
+
+- Umgesetzt wie gewünscht (echtes Foto statt Farbmuster, Ticket-Overlay
+  bleibt), mit Code-Kommentar vor Ort, der auf die Abweichung
+  hinweist — nicht stillschweigend überschrieben.
+  → Möglicher Schluss: "Branchenübergreifend konstant" ist offenbar
+  keine unumstößliche Regel, sondern ein *Standard-Vorschlag*, den der
+  Betreiber im Einzelfall bewusst überstimmen kann — wichtig ist, dass
+  Abweichungen dokumentiert werden, nicht dass sie nie vorkommen. Für
+  die Komponenten-Bibliothek heißt das: Signature-Elemente sollten als
+  änderbare Voreinstellung modelliert werden, nicht als hart codierte
+  Konstante.
+- Nebenbei zwei weitere Punkte umgesetzt: eigene Wortmarken-Icons für
+  die "Wir arbeiten mit"-Leiste (bisher nur Text) und ein Abstands-Fix
+  beim Trenner-Ornament zwischen Hero und Stats-Leiste (kollidierte mit
+  dem folgenden Block).
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
