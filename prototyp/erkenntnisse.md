@@ -739,6 +739,36 @@ ist, statt so zu tun, als sei die Ursache sicher gefunden. Für einen
 echten Build-Agenten wäre ein automatisierter visueller Regressionstest
 (Screenshot-Vergleich) hier der eigentliche fehlende Baustein.
 
+## Trenner-Position und Glow-Effekte: "vorhanden" reicht nicht, "wahrnehmbar" ist das Ziel (2026-08-23)
+
+Zwei Rückmeldungen zur selben Änderung aus einer vorherigen Runde:
+
+1. Der obere Trenner (Lindenblatt-Ornament) saß zwischen Hero und
+   Stats-Leiste, sollte aber direkt unterhalb der Kopfleiste sitzen, mit
+   gleichmäßigem Abstand — also als optischer Abschluss der Navigation,
+   nicht als Trenner mitten im Content. Behoben, indem er als erstes
+   Element in `<main>` verschoben wurde (statt zwischen Hero/Stats).
+2. Die Glow-/Licht-Effekte (`.ambient-blob`) waren zwar im Code
+   vorhanden (Hero, Testimonials, Kontakt), aber laut Nutzer optisch
+   nicht wahrnehmbar — trotz vorheriger eigener Ankündigung, das Feature
+   umgesetzt zu haben.
+
+→ Möglicher Schluss: "Ein Feature ist im Code vorhanden" und "ein Feature
+ist für den Nutzer wahrnehmbar" sind zwei verschiedene Behauptungen, die
+ich nicht verwechseln darf. Die ursprünglichen Opacity-/Größen-Werte der
+Blobs (0.12–0.16, 220–340px, blur 70px) waren offenbar zu subtil, um auf
+einem realen Bildschirm aufzufallen — selbst wenn sie im Code technisch
+korrekt implementiert waren. Zwei Korrekturen kombiniert: (a) die
+Basiswerte deutlich angehoben (Opacity auf 0.32–0.38, Größe auf
+280–380px, blur auf 60px), und (b) das Muster mechanisch auf praktisch
+jede Section der Seite ausgeweitet (Stats-Strip, Leistungen,
+Marken-Strip, Team, Vorher/Nachher, Instagram, Gutschein-Panel, FAQ),
+statt nur auf drei ausgewählte Abschnitte. Wenn ein Nutzer meldet, ein
+bereits umgesetztes Feature sei "nicht sichtbar", ist die Antwort selten
+"das ist schon richtig implementiert" — meistens sind die konkreten
+Werte (Deckkraft, Größe, Kontrast) zu konservativ gewählt, gerade bei
+dezent gedachten Hintergrund-Effekten.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
