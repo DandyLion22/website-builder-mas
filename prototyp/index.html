@@ -353,10 +353,9 @@
     height:1px;
     background:var(--line);
   }
-  .section-divider .diamond{
-    width:8px; height:8px;
-    background:var(--brass);
-    transform:rotate(45deg);
+  .section-divider .leaf-mark{
+    width:18px; height:18px;
+    color:var(--brass);
     flex-shrink:0;
   }
 
@@ -1016,7 +1015,6 @@
 
   /* ---------- Footer ---------- */
   footer{
-    border-top:1px solid var(--line);
     padding:2.5rem 0;
     font-size:0.85rem;
     color:var(--ink-soft);
@@ -1121,7 +1119,9 @@
     </div>
   </div>
 
-  <div class="section-divider" aria-hidden="true" style="margin-top:0.5rem; margin-bottom:3rem;"><span class="diamond"></span></div>
+  <div class="section-divider" aria-hidden="true" style="margin-top:0.5rem; margin-bottom:3rem;">
+    <svg class="leaf-mark" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><path d="M50 4C79 4 93 27 93 49C93 72 72 88 52 93C51.3 93.3 50.7 93.3 50 93C29 88 7 72 7 49C7 27 21 4 50 4Z"/></svg>
+  </div>
 
   <!-- ---------- Salon in Zahlen ---------- -->
   <section class="stats-strip">
@@ -1461,8 +1461,6 @@
     </div>
   </section>
 
-  <div class="section-divider" aria-hidden="true"><span class="diamond"></span></div>
-
   <!-- ---------- Testimonials ---------- -->
   <section style="background:var(--bg-alt);">
     <div class="wrap">
@@ -1796,6 +1794,10 @@
   </section>
 
 </main>
+
+<div class="section-divider" aria-hidden="true" style="margin-top:2.5rem; margin-bottom:2.5rem;">
+  <svg class="leaf-mark" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><path d="M50 4C79 4 93 27 93 49C93 72 72 88 52 93C51.3 93.3 50.7 93.3 50 93C29 88 7 72 7 49C7 27 21 4 50 4Z"/></svg>
+</div>
 
 <footer>
   <div class="wrap footer-row">
