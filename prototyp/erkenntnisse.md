@@ -710,6 +710,35 @@ die Konsistenz zwischen Namen/Kontext und Bildmaterial ein eigener
 Prüfpunkt sein, nicht nur "professionell wirkendes Foto" — sonst wirkt
 eine sonst überzeugende Seite an genau dieser Stelle unglaubwürdig.
 
+## Visueller Artefakt ohne echten Browser diagnostiziert
+
+Nutzer meldete per Screenshot einen "seltsamen Strich" am linken
+Bildrand zwischen Hero und Stats-Leiste, sollte homogener Hintergrund
+sein. **Wichtige Einschränkung:** Ich habe keinen echten Browser zur
+Verfügung, um das visuell zu verifizieren — nur den Code lesen und
+plausible Ursachen einschätzen. Zwei Verdächtige identifiziert und
+beide defensiv behoben, ohne 100%ige Gewissheit, welcher tatsächlich
+verantwortlich war:
+
+1. Die Grain-Textur nutzte `mix-blend-mode:overlay` — dieser Blend-Mode
+   verstärkt lokale Kontraste und kann bei einer gekachelten
+   Rauschtextur (auch mit `stitchTiles="stitch"`) an den Kachel-Nähten
+   ein schwach sichtbares Muster erzeugen. Blend-Mode entfernt, Opacity
+   weiter gesenkt.
+2. `filter:blur()` auf absolut positionierten Elementen kann in manchen
+   Browser-Engines über das `overflow:hidden` des Elternelements hinaus
+   "bluten" (bekannter Rendering-Randfall). `contain:paint` ergänzt,
+   das genau das garantiert zuverlässig verhindert. Zusätzlich den
+   Bild-Überstand eines Ambient-Blobs am Rand reduziert.
+
+→ Möglicher Schluss: Bei rein codebasiertem visuellem Debugging (kein
+Browser-Zugriff) ist "mehrere plausible Ursachen defensiv gleichzeitig
+beheben" oft die einzig praktikable Strategie — dabei aber immer klar
+kommunizieren, dass es eine Vermutung und keine verifizierte Diagnose
+ist, statt so zu tun, als sei die Ursache sicher gefunden. Für einen
+echten Build-Agenten wäre ein automatisierter visueller Regressionstest
+(Screenshot-Vergleich) hier der eigentliche fehlende Baustein.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
