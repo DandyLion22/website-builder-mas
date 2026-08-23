@@ -72,6 +72,7 @@
     font-family:-apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
   /* Seitenübergang: ohne JS immer sichtbar (opacity:1 per Default) */
   body.js-enabled{opacity:0;}
@@ -134,13 +135,14 @@
     background:none;
     border:none;
     color:var(--paper);
-    font-size:1.1rem;
     line-height:1;
     cursor:pointer;
     padding:0.25rem 0.4rem;
     opacity:0.85;
+    display:flex;
   }
   .announce-close:hover{opacity:1;}
+  .announce-close svg{width:1rem; height:1rem;}
 
   /* ---------- WhatsApp-Kontaktbutton (fixiert) ---------- */
   .whatsapp-fab{
@@ -256,11 +258,12 @@
     .menu-label{
       display:block;
       cursor:pointer;
-      font-size:1.5rem;
       line-height:1;
       background:none;border:none;
       padding:0.25rem;
+      color:var(--ink);
     }
+    .menu-label svg{width:1.4rem; height:1.4rem;}
     .nav .cta{display:none;}
   }
 
@@ -333,6 +336,7 @@
 
   /* ---------- 3D-Tilt bei Interaktion ---------- */
   .tilt{transform-style:preserve-3d; will-change:transform;}
+  .magnetic{will-change:transform;}
 
   /* ---------- Trenner-Ornament zwischen Sections ---------- */
   .section-divider{
@@ -369,7 +373,7 @@
   }
   .stat{
     position:relative;
-    padding:2.75rem 1.5rem 2rem;
+    padding:1.75rem 1.5rem 2rem;
     text-align:center;
     border-left:1px solid var(--line);
   }
@@ -378,18 +382,10 @@
     .stat{border-left:none; border-top:1px solid var(--line);}
     .stat:first-child{border-top:none;}
   }
-  .stat::before{
-    content:"";
-    position:absolute;
-    top:1.1rem; left:50%;
-    transform:translateX(-50%);
-    width:2.25rem; height:3px;
-    border-radius:2px;
-    background:var(--pine);
-  }
-  .stat:nth-child(2)::before{background:var(--brass);}
-  .stat:nth-child(3)::before{background:#7C8A6F;}
-  .stat:nth-child(4)::before{background:#C7B48C;}
+  .stat-icon{width:1.6rem; height:1.6rem; margin:0 auto 0.7rem; display:block; color:var(--pine);}
+  .stat:nth-child(2) .stat-icon{color:var(--brass);}
+  .stat:nth-child(3) .stat-icon{color:#7C8A6F;}
+  .stat:nth-child(4) .stat-icon{color:#C7B48C;}
   .stat .num{
     font-family:Georgia,serif;
     font-size:clamp(1.8rem,4vw,2.5rem);
@@ -462,7 +458,26 @@
   .section-head p{color:var(--ink-soft); font-size:1.05rem;}
 
   /* ---------- Services (swatch-coded list) ---------- */
-  .service-group{margin-bottom:2.5rem;}
+  .service-group{margin-bottom:2.5rem; position:relative;}
+  .service-group::before{
+    content:attr(data-word);
+    position:absolute;
+    top:-0.6rem; right:0;
+    font-family:Georgia,serif;
+    font-weight:700;
+    font-size:clamp(3rem, 8vw, 5.5rem);
+    line-height:1;
+    letter-spacing:-0.02em;
+    opacity:0.055;
+    white-space:nowrap;
+    pointer-events:none;
+    user-select:none;
+    z-index:-1;
+  }
+  .service-group.cut::before{color:var(--pine);}
+  .service-group.color::before{color:var(--brass);}
+  .service-group.style::before{color:#7C8A6F;}
+  .service-group.care::before{color:#8C8577;}
   .service-group h3{
     font-size:1.15rem;
     display:flex;
@@ -524,6 +539,8 @@
     justify-content:space-between;
     gap:1rem;
   }
+  .career-strip-text{display:flex; align-items:center; gap:1rem;}
+  .career-icon{width:2rem; height:2rem; color:var(--pine); flex-shrink:0;}
   .career-strip p{margin:0; color:var(--ink-soft);}
   .career-strip strong{display:block; color:var(--ink); font-family:Georgia,serif; font-size:1.1rem; margin-bottom:0.2rem;}
 
@@ -575,6 +592,7 @@
     justify-content:space-between;
     gap:1.5rem;
   }
+  .voucher-icon{width:1.8rem; height:1.8rem; color:var(--brass); margin-bottom:0.6rem;}
   .voucher-panel h3{color:var(--paper); margin-bottom:0.4rem;}
   .voucher-panel p{margin:0; color:rgba(247,248,243,0.8); max-width:42ch;}
   .voucher-panel .cta{background:var(--brass); flex-shrink:0;}
@@ -696,6 +714,10 @@
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
     gap:1.5rem;
+  }
+  @media (min-width:700px){
+    .team-grid{align-items:start;}
+    .team-card:nth-child(2){margin-top:2.75rem;}
   }
   .team-card{background:var(--paper); border-radius:var(--radius); overflow:hidden;}
   .team-photo{
@@ -1014,7 +1036,9 @@
       <span data-i18n="de">Hinweis: Am 24.12. und 31.12. geschlossen — reguläre Öffnungszeiten sonst wie gewohnt.</span>
       <span data-i18n="en">Notice: Closed on Dec 24 &amp; 31 — regular hours apply otherwise.</span>
     </span>
-    <button type="button" class="announce-close" id="announceClose" aria-label="Hinweis schließen">×</button>
+    <button type="button" class="announce-close" id="announceClose" aria-label="Hinweis schließen">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+    </button>
   </div>
 </div>
 
@@ -1032,7 +1056,9 @@
       Salon Lindenblatt
     </a>
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="menu-label" aria-label="Menü öffnen">☰</label>
+    <label for="menu-toggle" class="menu-label" aria-label="Menü öffnen">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+    </label>
     <ul class="nav-links">
       <li><a href="#leistungen"><span data-i18n="de">Leistungen</span><span data-i18n="en">Services</span></a></li>
       <li><a href="#buchen"><span data-i18n="de">Buchen</span><span data-i18n="en">Book</span></a></li>
@@ -1047,7 +1073,7 @@
       <button type="button" class="lang-toggle" id="langToggle" aria-label="Sprache wechseln / switch language">
         <span data-i18n="de">EN</span><span data-i18n="en">DE</span>
       </button>
-      <a class="cta" href="#buchen"><span data-i18n="de">Termin anfragen</span><span data-i18n="en">Book now</span></a>
+      <a class="cta magnetic" href="#buchen"><span data-i18n="de">Termin anfragen</span><span data-i18n="en">Book now</span></a>
     </div>
   </nav>
 </header>
@@ -1074,8 +1100,8 @@
           <span data-i18n="en">Salon Lindenblatt stands for clean cuts, natural colour and advice that takes its time.</span>
         </p>
         <div class="hero-ctas">
-          <a class="cta" href="#buchen"><span data-i18n="de">Termin anfragen</span><span data-i18n="en">Book an appointment</span></a>
-          <a class="cta-ghost" href="#leistungen"><span data-i18n="de">Leistungen ansehen</span><span data-i18n="en">View services</span></a>
+          <a class="cta magnetic" href="#buchen"><span data-i18n="de">Termin anfragen</span><span data-i18n="en">Book an appointment</span></a>
+          <a class="cta-ghost magnetic" href="#leistungen"><span data-i18n="de">Leistungen ansehen</span><span data-i18n="en">View services</span></a>
         </div>
       </div>
       <div class="swatch-panel" role="img" aria-label="Farbmuster-Streifen als gestalterisches Element">
@@ -1095,18 +1121,22 @@
     <div class="wrap">
       <div class="stats-grid reveal">
         <div class="stat">
+          <svg class="stat-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10.5" r="7"/><path d="M10 7v3.5l2.5 1.5"/><path d="M7 2.5h6"/></svg>
           <div class="num" data-count-to="12" data-suffix="+">0</div>
           <div class="label"><span data-i18n="de">Jahre Erfahrung</span><span data-i18n="en">years of experience</span></div>
         </div>
         <div class="stat">
+          <svg class="stat-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.2" cy="7" r="2.4"/><circle cx="14" cy="8" r="2"/><path d="M2.3 17c0-3 2.1-5 4.9-5s4.9 2 4.9 5"/><path d="M12.8 12.4c2 .3 3.7 2 3.7 4.6"/></svg>
           <div class="num" data-count-to="3">0</div>
           <div class="label"><span data-i18n="de">Stylist:innen im Team</span><span data-i18n="en">stylists on the team</span></div>
         </div>
         <div class="stat">
+          <svg class="stat-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M7 9.2h.01M13 9.2h.01"/><path d="M6.6 12.3c1 1.2 2.1 1.8 3.4 1.8s2.4-.6 3.4-1.8"/></svg>
           <div class="num" data-count-to="500" data-suffix="+">0</div>
           <div class="label"><span data-i18n="de">zufriedene Kund:innen</span><span data-i18n="en">happy clients</span></div>
         </div>
         <div class="stat">
+          <svg class="stat-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
           <div class="num" data-count-to="4.9" data-decimals="1">0</div>
           <div class="label"><span data-i18n="de">Ø Bewertung</span><span data-i18n="en">avg. rating</span></div>
         </div>
@@ -1123,7 +1153,7 @@
         <p><span data-i18n="de">Alle Preise sind Richtwerte und abhängig von Haarlänge und -dichte.</span><span data-i18n="en">All prices are estimates and depend on hair length and density.</span></p>
       </div>
 
-      <div class="service-group cut">
+      <div class="service-group cut" data-word="Schnitt">
         <h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="5.5" cy="15" r="2"/><circle cx="14.5" cy="15" r="2"/><path d="M6.8 13.5 L16 4"/><path d="M13.2 13.5 L4 4"/></svg><span data-i18n="de">Schnitt</span><span data-i18n="en">Cut</span></h3>
         <div class="service-row">
           <div><div class="name"><span data-i18n="de">Damenschnitt</span><span data-i18n="en">Women's cut</span></div><div class="desc"><span data-i18n="de">inkl. Waschen &amp; Föhnen · ca. 45 Min.</span><span data-i18n="en">incl. wash &amp; blow-dry · approx. 45 min.</span></div></div>
@@ -1139,7 +1169,7 @@
         </div>
       </div>
 
-      <div class="service-group color">
+      <div class="service-group color" data-word="Farbe">
         <h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2.5 C10 2.5 4.5 9.5 4.5 13.5 a5.5 5.5 0 0 0 11 0 C15.5 9.5 10 2.5 10 2.5 Z"/></svg><span data-i18n="de">Farbe</span><span data-i18n="en">Colour</span></h3>
         <div class="service-row">
           <div><div class="name"><span data-i18n="de">Ansatzfarbe</span><span data-i18n="en">Root touch-up</span></div><div class="desc"><span data-i18n="de">einfarbig, inkl. Beratung · ca. 60 Min.</span><span data-i18n="en">single colour, incl. consultation · approx. 60 min.</span></div></div>
@@ -1151,7 +1181,7 @@
         </div>
       </div>
 
-      <div class="service-group style">
+      <div class="service-group style" data-word="Styling">
         <h3><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2 L11.3 8.2 L17.5 10 L11.3 11.8 L10 18 L8.7 11.8 L2.5 10 L8.7 8.2 Z"/></svg><span data-i18n="de">Styling</span><span data-i18n="en">Styling</span></h3>
         <div class="service-row">
           <div><div class="name"><span data-i18n="de">Festliches Styling</span><span data-i18n="en">Occasion styling</span></div><div class="desc"><span data-i18n="de">für besondere Anlässe · ca. 40 Min.</span><span data-i18n="en">for special occasions · approx. 40 min.</span></div></div>
@@ -1159,7 +1189,7 @@
         </div>
       </div>
 
-      <div class="service-group care">
+      <div class="service-group care" data-word="Pflege">
         <h3><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16.5 C4 8.5 10 3.5 17 3.5 C17 10.5 12 16.5 4 16.5 Z" fill="currentColor" fill-opacity="0.18"/><path d="M4.5 16 C7 12.5 10 10.5 13.5 8.5"/></svg><span data-i18n="de">Pflege</span><span data-i18n="en">Care</span></h3>
         <div class="service-row">
           <div><div class="name"><span data-i18n="de">Intensivkur</span><span data-i18n="en">Deep treatment</span></div><div class="desc"><span data-i18n="de">auf Haartyp abgestimmt · ca. 20 Min.</span><span data-i18n="en">tailored to hair type · approx. 20 min.</span></div></div>
@@ -1208,7 +1238,7 @@
       </div>
 
       <div class="external-demo reveal">
-        <a class="fresha-btn" href="https://www.fresha.com/book-now/salon-lindenblatt-demo-lap1mso4/services?lid=3180639&amp;share=true&amp;pId=3076667" target="_blank" rel="noopener">
+        <a class="fresha-btn magnetic" href="https://www.fresha.com/book-now/salon-lindenblatt-demo-lap1mso4/services?lid=3180639&amp;share=true&amp;pId=3076667" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18"/><path d="M8 2v4M16 2v4"/></svg>
           <span data-i18n="de">Mit Fresha buchen</span><span data-i18n="en">Book with Fresha</span>
         </a>
@@ -1275,12 +1305,15 @@
       </div>
 
       <div class="career-strip reveal" style="margin-top:2.5rem;">
-        <p>
-          <strong><span data-i18n="de">Werde Teil des Teams</span><span data-i18n="en">Join the team</span></strong>
-          <span data-i18n="de">Wir suchen laufend Verstärkung — auch Ausbildungsplätze.</span>
-          <span data-i18n="en">We're always looking for new talent — apprenticeships included.</span>
-        </p>
-        <a class="cta-ghost" href="mailto:info@salon-lindenblatt-beispiel.de?subject=Initiativbewerbung"><span data-i18n="de">Initiativbewerbung senden</span><span data-i18n="en">Send a speculative application</span></a>
+        <div class="career-strip-text">
+          <svg class="career-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7.5" width="19" height="12.5" rx="2"/><path d="M8.5 7.5V5.8a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2V7.5"/><path d="M2.5 13h19"/></svg>
+          <p>
+            <strong><span data-i18n="de">Werde Teil des Teams</span><span data-i18n="en">Join the team</span></strong>
+            <span data-i18n="de">Wir suchen laufend Verstärkung — auch Ausbildungsplätze.</span>
+            <span data-i18n="en">We're always looking for new talent — apprenticeships included.</span>
+          </p>
+        </div>
+        <a class="cta-ghost magnetic" href="mailto:info@salon-lindenblatt-beispiel.de?subject=Initiativbewerbung"><span data-i18n="de">Initiativbewerbung senden</span><span data-i18n="en">Send a speculative application</span></a>
       </div>
     </div>
   </section>
@@ -1543,14 +1576,15 @@
   <section>
     <div class="wrap">
       <div class="voucher-panel reveal">
-        <div>
+        <div class="voucher-panel-text">
+          <svg class="voucher-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="9" width="19" height="12" rx="1.5"/><path d="M2.5 13.5h19"/><path d="M12 9v12"/><path d="M12 9c-1.6 0-3.2-1-3.2-2.8S9.6 3.4 12 5.6c2.4-2.2 3.2-.4 3.2 0.6S13.6 9 12 9Z"/></svg>
           <h3><span data-i18n="de">Gutscheine verschenken</span><span data-i18n="en">Give the gift of a voucher</span></h3>
           <p>
             <span data-i18n="de">Ob Geburtstag oder einfach so — Gutscheine für Salon Lindenblatt gibt es in jedem Wert.</span>
             <span data-i18n="en">Whether for a birthday or just because — Salon Lindenblatt vouchers are available in any amount.</span>
           </p>
         </div>
-        <a class="cta" href="mailto:info@salon-lindenblatt-beispiel.de?subject=Gutschein-Anfrage"><span data-i18n="de">Gutschein anfragen</span><span data-i18n="en">Request a voucher</span></a>
+        <a class="cta magnetic" href="mailto:info@salon-lindenblatt-beispiel.de?subject=Gutschein-Anfrage"><span data-i18n="de">Gutschein anfragen</span><span data-i18n="en">Request a voucher</span></a>
       </div>
     </div>
   </section>
@@ -1917,6 +1951,25 @@
         card.style.transition = 'transform .5s cubic-bezier(.22,1,.36,1), box-shadow .2s ease';
         card.style.transform = '';
         card.style.zIndex = '';
+      });
+    });
+  }
+
+  if(canTilt){
+    document.querySelectorAll('.magnetic').forEach(function(btn){
+      var strength = 0.35;
+      btn.addEventListener('mouseenter', function(){
+        btn.style.transition = 'none';
+      });
+      btn.addEventListener('mousemove', function(e){
+        var rect = btn.getBoundingClientRect();
+        var dx = (e.clientX - (rect.left + rect.width / 2)) * strength;
+        var dy = (e.clientY - (rect.top + rect.height / 2)) * strength;
+        btn.style.transform = 'translate(' + dx.toFixed(1) + 'px, ' + dy.toFixed(1) + 'px)';
+      });
+      btn.addEventListener('mouseleave', function(){
+        btn.style.transition = 'transform .4s cubic-bezier(.22,1,.36,1)';
+        btn.style.transform = '';
       });
     });
   }
