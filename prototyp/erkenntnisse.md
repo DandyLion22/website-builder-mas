@@ -619,6 +619,48 @@ gezielten, risikoarmen Details erreichen (Staffelung, Kurven, Hover-
 Feinschliff) — die auffälligste/teuerste Technik (Scroll-Hijacking)
 ist nicht zwingend der Hebel mit dem besten Aufwand-Nutzen-Verhältnis.
 
+## Strukturelle statt dekorative Erkennungsmerkmale
+
+Nächster Schritt nach der Bewegungs-Feinjustierung: Wunsch nach etwas,
+das "komplett hervorstechen lässt". Wichtige Unterscheidung, die dabei
+getroffen wurde: nach Bento-Grid/Glas/Tilt/Staffelung ist "noch ein
+Effekt mehr" nicht mehr der wirksamste Hebel — eher ein **strukturelles
+Merkmal**, das eine Seite auch ganz ohne Animation als "eine von uns"
+erkennbar macht. Vier konkrete Optionen mit Vorschau zur Auswahl
+gestellt (Duotone-Fotoveredelung, Icon-System, Editorial-Layout,
+Signature-Mikrointeraktion), drei davon gewählt und umgesetzt:
+
+- **Icon-System vervollständigt statt nur punktuell:** Stats-Karten,
+  Gutschein-Panel und Karriere-Strip hatten bisher keine oder nur
+  abstrakte Icons (Farbbalken). Menü-/Schließen-Symbole liefen bisher
+  über Text-Zeichen (☰/×) statt echter Icons — Inkonsistenz, die erst
+  auffiel, als bewusst nach einem "System" statt Einzelstücken gefragt
+  wurde. → Möglicher Schluss: Ein Icon-"System" bedeutet nicht nur
+  gleiche Optik bei den vorhandenen Icons, sondern auch: an *jeder*
+  Stelle, wo eigentlich eines hingehört, tatsächlich eines zu setzen.
+- **Signature-Mikrointeraktion (Magnetic Buttons):** Alle primären
+  CTAs bekommen einen "magnetischen" Effekt (folgt dem Mauszeiger
+  dezent, federt zurück beim Verlassen). Technisch einfach dieselbe
+  `canTilt`-Prüfung wie beim bestehenden Tilt-Effekt wiederverwendet
+  (hover:hover/pointer:fine, respektiert reduced-motion) — kein neuer
+  Prüf-Code nötig, nur ein weiterer Verwendungszweck derselben Logik.
+- **Editorial-Layout, bewusst eng begrenzt:** Nicht die ganze Seite
+  umgebaut (das hätte ich vorher selbst als "größerer Eingriff"
+  eingeordnet), sondern zwei gezielte Stellen — leicht versetztes
+  Team-Raster (mittlere Karte tiefer) und große, sehr transparente
+  Hintergrund-Typografie hinter jeder Leistungs-Kategorie, die bewusst
+  den Rand touchiert. Dabei `body{overflow-x:hidden}` als Absicherung
+  ergänzt, weil absichtlich über den Rand laufende Elemente sonst leicht
+  einen ungewollten horizontalen Scrollbalken erzeugen.
+  → Möglicher Schluss: Ein "großer struktureller Umbau" lässt sich oft
+  auf 1-2 gezielte, klar abgegrenzte Stellen konzentrieren statt die
+  ganze Seite anzufassen — bringt einen Großteil der Wirkung bei einem
+  Bruchteil des Risikos.
+- **Bewusst nicht gewählt:** Foto-Farbveredelung (Duotone) — vermutlich,
+  weil die Wirkung stärker vom tatsächlichen Kundenfoto-Material abhängt
+  und schwerer vorführbar ist als die anderen drei, eher konkreten
+  Bausteine.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
