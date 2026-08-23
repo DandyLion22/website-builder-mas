@@ -533,6 +533,30 @@ zwangsläufig eine zweite Datenquelle neben der Website selbst — das ist
 ein wiederkehrendes Muster, kein Einzelfall, und sollte im Datenmodell
 (Abschnitt 5 der Planung) irgendwann mitgedacht werden.
 
+## Echter Fresha-Testaccount eingebunden
+
+Der Betreiber hat selbst (mit eigenen Daten) einen 7-Tage-Fresha-
+Testaccount samt Demo-Unternehmen angelegt und den über "Online Booking
+→ Link Builder → Link to services" erzeugten Buchungslink
+bereitgestellt. Der Mock-Button samt Vorschau-Overlay wurde durch einen
+echten Link ersetzt (öffnet in neuem Tab), totes Overlay-Markup/CSS/JS
+entfernt. Live-Check: sowohl die Website als auch der Fresha-Link
+antworten mit HTTP 200.
+
+- Bestätigt den in der Recherche gefundenen Ablauf 1:1 in der Praxis:
+  Konto anlegen → Grunddaten pflegen → Marketplace-Listing aktivieren →
+  Link Builder → Link kopieren → auf der Website verlinken. Kein
+  API-Key, kein OAuth, keine komplexe Integration nötig — reiner Link.
+  → Möglicher Schluss: Für den späteren Build-Agenten ist die
+  Fresha-Anbindung ein reiner "Link einfügen"-Schritt, kein
+  Entwicklungsaufwand — die eigentliche Arbeit liegt beim Kunden
+  (Kontoeinrichtung bei Fresha), nicht bei der Website selbst.
+- **Befristung im Hinterkopf behalten:** Der Link funktioniert nur für
+  die Dauer des Testaccounts (7 Tage). Danach vermutlich Fresha-
+  Fehlerseite. Muss entweder erneuert oder zurück auf die reine
+  Vorschau-Variante gebaut werden — Erinnerung steht auch als
+  Code-Kommentar direkt im HTML.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
