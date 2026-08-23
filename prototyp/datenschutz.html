@@ -22,6 +22,8 @@
     font-family:-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
     line-height:1.6;
   }
+  body.js-enabled{opacity:0;}
+  body.js-enabled.page-in{opacity:1; transition:opacity .35s cubic-bezier(.16,1,.3,1);}
   a{color:var(--pine);}
   a:focus-visible{outline:2px solid var(--pine); outline-offset:3px;}
   .wrap{max-width:720px; margin:0 auto; padding:3rem clamp(1.25rem,4vw,3rem) 5rem;}
@@ -96,5 +98,31 @@
     </p>
   </section>
 </div>
+<script>
+(function(){
+  document.body.classList.add('js-enabled');
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduceMotion){
+    document.body.classList.add('page-in');
+    return;
+  }
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){ document.body.classList.add('page-in'); });
+  });
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('a[href]');
+    if(!link || link.target === '_blank' || link.hasAttribute('download')) return;
+    var href = link.getAttribute('href');
+    if(!href || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) return;
+    var url;
+    try { url = new URL(href, window.location.href); } catch(err){ return; }
+    if(url.origin !== window.location.origin) return;
+    if(url.pathname === window.location.pathname && url.hash) return;
+    e.preventDefault();
+    document.body.classList.remove('page-in');
+    setTimeout(function(){ window.location.href = href; }, 320);
+  });
+})();
+</script>
 </body>
 </html>
