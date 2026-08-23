@@ -579,6 +579,46 @@ Komponenten-Bibliothek heißt das: Echte Terminbuchung sollte generell
 nur über ein geprüftes Drittanbieter-Tool angeboten werden, nie als
 Eigenbau-Feature — unabhängig davon, wie gut die Demo-Version aussieht.
 
+## Feinere Bewegung nach externem Vorbild (notthoff.de)
+
+Auslöser war eine reale Agentur-Website (notthoff.de, Münster) mit
+sichtbar mehr Bewegung/Übergängen als bei uns, aber ohne aufdringlich
+zu wirken. Wichtige Einordnung vorab: notthoff ist selbst eine Design-
+Agentur — deren eigene Website hat vermutlich unbegrenztes Budget für
+eine einzige Seite, ganz anders als eine Vorlage, die für viele Kunden
+zum Festpreis wiederverwendet werden muss. Direkt vergleichen hinkt
+also etwas, die Prinzipien lassen sich aber trotzdem übernehmen.
+
+Vier gewünschte Bewegungsarten abgefragt, drei vollständig umgesetzt:
+
+- **Gestaffelte Eintritts-Animationen:** `.reveal`-Elemente bekommen
+  jetzt einen `--stagger`-Index (Position unter Geschwister-Elementen)
+  und verzögern sich gegenseitig leicht (`transition-delay`), plus eine
+  weichere Kurve (`cubic-bezier(.16,1,.3,1)` statt linearem `ease`).
+- **Bild-/Hover-Feinheiten:** Galerie- und Team-Fotos bekommen jetzt
+  denselben dezenten Hover-Zoom, den das Instagram-Raster schon hatte —
+  vorher inkonsistent, jetzt einheitlich.
+- **Echte Seitenübergänge:** Sanftes Aus-/Einblenden beim Navigieren
+  zwischen allen sechs Seiten (Klick auf interne Links wird abgefangen,
+  kurze Verzögerung, dann Navigation). Nutzt dasselbe
+  Progressive-Enhancement-Muster wie die Reveal-Animationen: ohne JS
+  immer sofort sichtbar, kein Risiko einer dauerhaft unsichtbaren Seite.
+- **Nebenbei gefunden:** `scroll-margin-top` fehlte auf den
+  Sections — Anker-Sprünge (Nav-Klicks) haben Inhalte teilweise unter
+  dem fixierten Header versteckt. Kleiner, aber echter Bugfix.
+
+**Bewusst NICHT umgesetzt:** volles Inertia-/Smooth-Scrolling
+(Lenis-artig, jeder Mausrad-Tick wird gedämpft). Grund: Technisch
+deutlich aufwendiger, robust selbst zu bauen (virtuelle Scroll-Position,
+Transform-basierter Content-Wrapper), und ein echtes
+Barrierefreiheits-Risiko (kann mit Tastatur-Navigation und
+Screenreadern kollidieren). Stattdessen nur die schon vorhandene
+Anker-Sprung-Mechanik (`scroll-behavior:smooth`) sauber gemacht.
+→ Möglicher Schluss: "Wirkt hochwertiger" lässt sich oft schon mit
+gezielten, risikoarmen Details erreichen (Staffelung, Kurven, Hover-
+Feinschliff) — die auffälligste/teuerste Technik (Scroll-Hijacking)
+ist nicht zwingend der Hebel mit dem besten Aufwand-Nutzen-Verhältnis.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
