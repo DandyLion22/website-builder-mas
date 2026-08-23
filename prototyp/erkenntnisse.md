@@ -492,6 +492,47 @@ Stattdessen eine vollständig selbst gebaute, 5-stufige Buchungsstrecke
   für allgemeine Anfragen), genau die zwei Ausbaustufen aus Modul-
   Kategorie D im Katalog.
 
+## Fresha-Kosten und konkreter Ablauf recherchiert
+
+**Preise (fresha.com/pricing, EUR, netto zzgl. 19 % USt.):** Independent
+12,95 €/Monat (1 Person), Team 8,95 €/Monat **pro Teammitglied**. Für
+einen 3-Personen-Salon wie Salon Lindenblatt: 3 × 8,95 € ≈ 27 € netto
+(~32 €/Monat brutto, ~380 €/Jahr) — plus optional 1,29 % + 0,20 € pro
+Kartenzahlung, falls über Fresha abgewickelt. Die "Marketplace New
+Client Fee" (~20 % vom ersten Umsatz laut Branchenberichten) fällt laut
+Fresha **nicht** an, wenn über den eigenen Website-Button gebucht wird
+— nur wenn ein Neukunde zuerst über Freshas eigene Marketplace-App auf
+den Salon aufmerksam wird.
+
+**Entscheidung:** Kosten werden an den Kunden weitergereicht (passt zum
+Wartungsvertrag-Modell aus 7.4), kein Eigenbau vorerst — ein
+selbst gehostetes Tool wie Cal.diy wäre zwar lizenzkostenfrei, aber
+funktional schwächer für Salons (kein fertiger Personal-/Leistungs-
+Katalog) und würde Betrieb/Wartung ins eigene Geschäftsmodell ziehen.
+Lohnt sich erst bei genug Kunden, dass die Summe der Fresha-Gebühren das
+rechtfertigt (vgl. Leitprinzip 6, "erst manuell/zugekauft, dann
+automatisieren/eigenbauen").
+
+**Konkreter Ablauf laut Fresha-Hilfe-Center:** Der *Kunde* (Salon)
+braucht ein eigenes Fresha-Konto (nicht die Agentur) — sonst hängen
+Kundendaten am Website-Bauer statt am Salon, problematisch bei Wechsel/
+Kündigung. Ablauf: Salon legt Konto an → pflegt Leistungen/Preise/
+Personal/Öffnungszeiten in Fresha ein → muss das Profil auf Freshas
+Marketplace listen (Voraussetzung für Buchungslinks) → generiert über
+"Online Booking → Link Builder" einen Buchungslink/Button → dieser wird
+per Copy-paste in die Website eingebettet (kein komplexes API-Setup).
+
+**Offener Punkt für die MAS-Planung:** Das bedeutet **doppelte
+Datenpflege** — Leistungen/Preise stehen dann sowohl auf der statischen
+Website als auch in Fresha. Entweder wird das in Kauf genommen, oder
+später per Fresha-API automatisiert synchronisiert (Aufgabe für einen
+späteren Build-/Content-Agenten, nicht jetzt).
+→ Möglicher Schluss: Sobald ein Drittanbieter-Tool (Fresha, aber auch
+Google/Instagram vorher) echte Geschäftsdaten braucht, entsteht
+zwangsläufig eine zweite Datenquelle neben der Website selbst — das ist
+ein wiederkehrendes Muster, kein Einzelfall, und sollte im Datenmodell
+(Abschnitt 5 der Planung) irgendwann mitgedacht werden.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
