@@ -16,6 +16,9 @@ Abschnitt 10.3.
 | ergebnis-2.jpg | 20046793 | https://www.pexels.com/photo/20046793/ |
 | empfang.jpg | 7195809 | https://www.pexels.com/photo/7195809/ |
 | team-bei-der-arbeit.jpg | 3993470 | https://www.pexels.com/photo/3993470/ |
-| team-sabine-vogt.jpg | 33866498 | https://www.pexels.com/photo/33866498/ |
-| team-timo-reinhardt.jpg | 31052395 | https://www.pexels.com/photo/31052395/ |
-| team-lea-brandt.jpg | 29852852 | https://www.pexels.com/photo/29852852/ |
+| team-sabine-vogt.jpg | 36733301 | https://www.pexels.com/photo/36733301/ |
+| team-timo-reinhardt.jpg | 37159572 | https://www.pexels.com/photo/37159572/ |
+| team-lea-brandt.jpg | 8727454 | https://www.pexels.com/photo/8727454/ |
+
+Team-Fotos am 2026-08-23 ausgetauscht (Bitte um Portraits, die zu den
+deutschen Namen der fiktiven Team-Mitglieder passen).
