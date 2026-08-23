@@ -686,6 +686,30 @@ branchen-/kundenübergreifend konstant bleiben.
   beim Trenner-Ornament zwischen Hero und Stats-Leiste (kollidierte mit
   dem folgenden Block).
 
+## Eigenes Logo statt Text-Monogramm
+
+Bisher gab es nur ein reines Text-Monogramm ("SL" in einem Kreis). Auf
+Wunsch ein echtes Bildzeichen entworfen: eine Lindenblatt-Silhouette,
+bei der die Scheren-Klingen gleichzeitig als Blattadern funktionieren
+(ein Motiv, zwei Lesarten — Baum-/Firmenname UND Branche in einem
+Zeichen). Ersetzt das Monogramm im Header-Logo und als Favicon auf
+**allen sechs Seiten** — dabei aufgefallen: Impressum und Datenschutz
+hatten bisher gar kein Favicon, das wurde nebenbei ergänzt.
+→ Möglicher Schluss: Ein Firmen-Logo sollte in der Komponenten-
+Bibliothek von Anfang an als eigenes, wiederverwendbares Bild-Snippet
+angelegt werden (Header + Favicon aus derselben Quelle generiert),
+nicht als zwei separate, potenziell auseinanderlaufende Kopien.
+
+## Team-Fotos: Glaubwürdigkeit von Foto und Name
+
+Rückmeldung: Die ursprünglich zufällig gewählten Stock-Fotos passten
+nicht überzeugend zu den deutschen Namen der (fiktiven) Team-Mitglieder.
+Fotos ausgetauscht gegen Portraits, die zur Namensherkunft passen.
+→ Möglicher Schluss: Bei der Foto-Auswahl für Kunden-Templates sollte
+die Konsistenz zwischen Namen/Kontext und Bildmaterial ein eigener
+Prüfpunkt sein, nicht nur "professionell wirkendes Foto" — sonst wirkt
+eine sonst überzeugende Seite an genau dieser Stelle unglaubwürdig.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
