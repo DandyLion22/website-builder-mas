@@ -557,6 +557,28 @@ antworten mit HTTP 200.
   Vorschau-Variante gebaut werden — Erinnerung steht auch als
   Code-Kommentar direkt im HTML.
 
+## Entscheidung: eigene Buchungsstrecke wieder entfernt
+
+Kurz nach der Fresha-Einbindung kam die Rückmeldung, die zuvor gebaute
+selbst gebaute Mehrschritt-Buchungsstrecke (5 Schritte, mailto-Fallback,
+siehe oben) doch nicht anzubieten: **Ohne echtes Backend lassen sich
+Terminabsage und -bestätigung nicht verlässlich lösen**, und genau das
+sollte Kunden nicht zugemutet werden. Komplett entfernt (Markup, CSS,
+JS). Online-Terminbuchung existiert jetzt ausschließlich über den
+echten Fresha-Link, klar als **optionales Zusatzmodul** formuliert, das
+der Kunde dazubuchen kann — nicht als Standard-Bestandteil jeder
+Website.
+
+→ Möglicher Schluss: Das bestätigt rückblickend eine Einschätzung von
+ganz früh im Modul-Katalog (Kategorie D): Ein selbst gebautes
+Buchungssystem ist nicht einfach "die aufwendigere Variante" des
+Kontaktformulars, sondern eine andere Risikoklasse — ein Formular, das
+nicht ankommt, ist ärgerlich, ein Termin, der nicht storniert werden
+kann, kostet den Kunden echtes Geld/Vertrauen. Für die
+Komponenten-Bibliothek heißt das: Echte Terminbuchung sollte generell
+nur über ein geprüftes Drittanbieter-Tool angeboten werden, nie als
+Eigenbau-Feature — unabhängig davon, wie gut die Demo-Version aussieht.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
