@@ -866,6 +866,52 @@ DSGVO-Thema neu durchzudenken — das Kriterium (automatische vs.
 klickbasierte vs. keine Verbindung) ist anbieterunabhängig und
 wiederverwendbar.
 
+## Drei weitere Module ergänzt: Live-Öffnungsstatus, Aktionsbanner, Chat-Widget (2026-08-25)
+
+Auf Nutzerfrage "welche Module wären noch relevant für Friseursalons"
+zunächst eine Liste möglicher Ergänzungen zusammengestellt (Newsletter,
+Empfehlungsprogramm, Aktionsbanner, Live-Öffnungsstatus, Presse-/
+Auszeichnungs-Leiste, Blog, Team-Filter, Barrierefreiheitserklärung,
+Live-Chat) und den Nutzer per Auswahl entscheiden lassen, statt alles auf
+einmal zu bauen. Ausgewählt: Live-Öffnungsstatus, Aktionsbanner, Chat-
+Widget. Umgesetzt:
+
+1. **Live-Öffnungsstatus**: berechnet "Jetzt geöffnet" / "Geschlossen"
+   (inkl. nächster Öffnungszeit) direkt aus den bereits hinterlegten
+   Öffnungszeiten, live je nach ausgewähltem Standort. **Wichtige
+   Einschränkung:** nutzt die Uhrzeit/Zeitzone des Besucher-*Geräts*,
+   nicht eine Server-verifizierte Zeit — für einen echten Kunden mit
+   Besuchern in anderen Zeitzonen (unwahrscheinlich bei einem lokalen
+   Friseursalon, aber grundsätzlich zu bedenken) wäre das ein
+   Genauigkeitsproblem. Kein Drittanbieter nötig, Betriebsmodell 1
+   (siehe Modul-Katalog Kategorie E).
+2. **Aktions-/Rabattbanner**: eigenständiges Promo-Modul, bewusst von
+   der bestehenden Ankündigungsleiste abgegrenzt — die Ankündigungsleiste
+   ist für kurzfristige Betriebsmeldungen (z. B. "heute geschlossen"),
+   das Aktionsbanner für zeitlich begrenzte Marketing-Angebote. Als
+   MOCK-Inhalt bewusst an die neue "Bart & Herrenpflege"-Kategorie
+   angeknüpft (thematisch stimmig: neue Leistung + Einführungsrabatt).
+3. **Chat-Widget**: als Demo-Mechanik mit fest hinterlegten Antworten
+   umgesetzt (Quick-Reply-Buttons zu Öffnungszeiten/Buchung/Preisen),
+   *keine* echte Live-Chat-Anbindung (Tawk.to/Crisp o. Ä.) gebaut.
+   Begründung: Ein echter Live-Chat bräuchte entweder einen echten
+   Drittanbieter-Account (den ich nicht autonom für eine fiktive Firma
+   anlegen sollte) oder eine reale Support-Person im Hintergrund — beides
+   für einen Prototyp nicht sinnvoll. Gleiches Muster wie beim Vorher/
+   Nachher-Vergleichsslider: Interaktions-*Mechanik* zeigen, ohne echte
+   Funktionalität vorzutäuschen, mit klarer Kennzeichnung im HTML-
+   Kommentar.
+
+→ Möglicher Schluss: Bei Modul-Vorschlägen aus eigener Initiative lohnt
+es sich, dem Nutzer eine Auswahl zu geben statt alles ungefragt zu bauen
+— besonders wenn manche Optionen (wie hier BFSG-Recherche) eher
+Recherche- als Umsetzungsaufwand sind und unterschiedlich priorisiert
+werden könnten. Und: Nicht jedes „Live"-klingende Feature-Modul
+*braucht* eine echte Drittanbieter-Anbindung — bei Chat-Widgets und
+Öffnungsstatus lässt sich der Nutzen oft komplett clientseitig
+demonstrieren, ganz ohne das DSGVO-Abwägungsproblem aus den Social-
+Media-/Bewertungs-Modulen überhaupt erst aufzuwerfen.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
