@@ -912,6 +912,55 @@ werden könnten. Und: Nicht jedes „Live"-klingende Feature-Modul
 demonstrieren, ganz ohne das DSGVO-Abwägungsproblem aus den Social-
 Media-/Bewertungs-Modulen überhaupt erst aufzuwerfen.
 
+## Chatbot-Ausbau und Social-Media-Speed-Dial (2026-08-25)
+
+**Chatbot ausgebaut** (Fortsetzung von "Drei weitere Module ergänzt"
+oben): Statt eines echten Live-Chat-Anbieters oder KI-Bots (bewusst
+abgelehnt, siehe dort) wurde die bestehende Demo-Mechanik inhaltlich
+vertieft, ohne neue Abhängigkeiten:
+- Zweite Themenebene über einen "Weitere Fragen"-Button (Parken/
+  Anfahrt, Stornierung, Gutschein) statt aller Themen auf einmal —
+  einfache Form von Verzweigung, rein clientseitig per JS-generiertem
+  DOM, kein Framework nötig.
+- Persistenter WhatsApp-Handoff-Footer im Chat-Panel — verbindet
+  Chat-Widget und WhatsApp-Button sinnvoll, statt sie als zwei isolierte
+  Kontaktkanäle nebeneinander zu betreiben.
+- Dynamische Begrüßung: Beim ersten Öffnen außerhalb der Öffnungszeiten
+  erscheint automatisch ein Hinweis. Nutzt dieselbe Öffnungszeiten-Logik
+  wie der Live-Öffnungsstatus (Wiederverwendung statt Duplizierung der
+  Kernberechnung).
+
+**Rechtlicher Hinweis dabei recherchiert:** Bei einem *echten*
+KI-gestützten Chatbot (nicht der hier gebauten Demo-Mechanik mit fest
+hinterlegten Antworten) greift inzwischen der **EU AI Act** — Nutzer
+müssen erkennen können, dass sie mit einem Bot statt einem Menschen
+sprechen (Transparenzpflicht). Für die Planungsdatei relevant, sobald
+ein echter KI-Chatbot als Modul angeboten werden sollte.
+
+**Social-Media-Speed-Dial ergänzt:** Nutzer wollte Instagram/Facebook/
+TikTok-Buttons neben WhatsApp und Chat unten rechts, "in Form eines
+roten Logos" — stellte sich in der Rückfrage als echte Mehrdeutigkeit
+heraus (rot vs. rund gemeint?), deshalb per Auswahlfrage geklärt statt
+geraten. Ergebnis: runde Buttons in den offiziellen Marken-Farben
+(Instagram-Gradient, Facebook-Blau, TikTok-Schwarz), aber nicht dauerhaft
+gestapelt, sondern als Speed-Dial hinter einem einzelnen Toggle-Button
+versteckt — sonst wären es 5 permanent sichtbare runde Buttons
+übereinander gewesen, was dem vom Nutzer gewünschten "clean" Look
+widersprochen hätte.
+
+→ Möglicher Schluss: Bei mündlich/diktierten Anfragen (dieser ganze
+Prototyp-Austausch läuft erkennbar über Diktat) lohnt sich bei
+lautähnlichen, aber semantisch stark unterschiedlichen Wörtern
+("rot"/"rund") eine kurze Rückfrage mehr als eine Annahme — der
+Interpretationsfehler wäre hier sichtbar und musste, aber schwer
+rückgängig zu machen gewesen (neue Farbe vs. neue Form sind zwei
+verschiedene Design-Entscheidungen mit unterschiedlicher Tragweite).
+Zusätzlich: Ein einzelner Toggle, der mehrere gleichartige Buttons
+bündelt (Speed-Dial), ist generell die bessere Lösung, sobald mehr als
+2 fixierte Kontakt-/Aktions-Buttons in derselben Ecke gewünscht sind —
+sollte als generisches UI-Muster in die Planungsdatei aufgenommen
+werden, nicht nur für Social-Media-Buttons.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
