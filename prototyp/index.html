@@ -65,6 +65,13 @@
     *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
   }
 
+  /* ---------- Scrollbar im Salon-Farbschema ---------- */
+  html{scrollbar-color: var(--pine-light) var(--bg-alt); scrollbar-width:thin;}
+  ::-webkit-scrollbar{width:12px; height:12px;}
+  ::-webkit-scrollbar-track{background:var(--bg-alt);}
+  ::-webkit-scrollbar-thumb{background:var(--pine-light); border-radius:20px; border:3px solid var(--bg-alt);}
+  ::-webkit-scrollbar-thumb:hover{background:var(--brass);}
+
   body{
     margin:0;
     background:var(--bg);
