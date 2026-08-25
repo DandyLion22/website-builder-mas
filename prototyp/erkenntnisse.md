@@ -769,6 +769,48 @@ bereits umgesetztes Feature sei "nicht sichtbar", ist die Antwort selten
 Werte (Deckkraft, Größe, Kontrast) zu konservativ gewählt, gerade bei
 dezent gedachten Hintergrund-Effekten.
 
+## Scrollbar im Marken-Look eingefärbt (2026-08-25)
+
+Nutzerwunsch: Die (browserseitige, standardmäßig graue) Scrollbar sollte
+farblich zum Salon passen. Umgesetzt über `scrollbar-color`/
+`scrollbar-width` (Firefox) und `::-webkit-scrollbar*`
+(Chrome/Edge/Safari) auf allen sechs Seiten des Prototyps — Thumb in
+Pine-Grün, Hover in Bronze, Track in der helleren Hintergrundfarbe.
+
+→ Möglicher Schluss: Browser-Chrome-Elemente (Scrollbar, aber auch z. B.
+Formularfelder, `<select>`-Pfeile, Fokus-Ringe) sind ein eigener,
+leicht übersehener Kategorie-Punkt für "Wo überall taucht die
+Marken-Identität auf" — sollte in die Modul-/Checklisten-Kategorisierung
+mit aufgenommen werden, nicht nur Content-Flächen.
+
+## Leistungskatalog erweitert: Recherche zu Branchenstandard als Ausgangspunkt (2026-08-25)
+
+Nutzerwunsch: Die Leistungsliste wirkte im Vergleich zu echten
+Friseursalons unvollständig — Auftrag war, sich an typischen Angeboten
+zu orientieren und das Paket entsprechend zu erweitern. Vorher: 4
+Kategorien (Schnitt, Farbe, Styling, Pflege), 7 Positionen insgesamt.
+Nachher: 5 Kategorien, 16 Positionen. Neu hinzugekommen:
+
+- Schnitt: Pony nachschneiden (kurzer, günstiger Einstiegspunkt)
+- Farbe: Foliensträhnen, Tönung, Blondierung/Komplettfärbung (deckt die
+  gängige Preisspanne von "Auffrischung" bis "komplette Umfärbung" ab)
+- Styling: Hochsteckfrisur/Brautstyling, Glätten (Keratin-Anwendung)
+- Pflege: Olaplex-Behandlung (aktuell stark nachgefragtes Zusatzprodukt
+  bei Farbservices), Kopfhautbehandlung
+- Neue eigene Kategorie "Bart & Herrenpflege" (Bartschnitt/-konturen,
+  Bartrasur mit heißem Handtuch) — bei praktisch jedem Vollsortiment-
+  Friseursalon mit Herrenkundschaft Standard, fehlte komplett
+
+→ Möglicher Schluss: Ein Leistungsmodul sollte im Modul-Katalog nicht
+als "einmal befüllt, fertig" behandelt werden, sondern mit einer Art
+Mindest-Checkliste pro Branche hinterlegt sein (z. B. für Friseure:
+Schnitt/Farbe/Styling/Pflege/Herrenbereich als Mindestabdeckung), damit
+ein Kunde beim Erstaufbau nicht versehentlich mit einer unvollständig
+wirkenden Preisliste startet. Das ist vermutlich branchenübergreifend
+relevant — jede Branche hat ein "das erwartet man einfach"-Set an
+Leistungen, das über generisches Nachfragen hinaus aktiv recherchiert
+werden sollte.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
