@@ -210,6 +210,51 @@
   .chat-quick-replies{display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.2rem;}
   .chat-quick-reply{border:1px solid var(--line); background:var(--paper); color:var(--pine); border-radius:999px; padding:0.4rem 0.8rem; font:inherit; font-size:0.8rem; font-weight:600; cursor:pointer;}
   .chat-quick-reply:hover{background:var(--bg-alt);}
+  .chat-panel-footer{border-top:1px solid var(--line); padding:0.7rem 1.1rem; flex-shrink:0;}
+  .chat-whatsapp-handoff{display:flex; align-items:center; gap:0.5rem; color:#128C4A; text-decoration:none; font-size:0.82rem; font-weight:600;}
+  .chat-whatsapp-handoff:hover{text-decoration:underline;}
+  .chat-whatsapp-handoff svg{width:1.1rem; height:1.1rem; flex-shrink:0; color:#25D366;}
+
+  /* ---------- Social-Media-Buttons (Speed-Dial, offizielle Markenfarben) ---------- */
+  .social-fab-group{position:fixed; right:1.25rem; bottom:9.05rem; z-index:100;}
+  .social-fab-toggle{
+    width:3.2rem; height:3.2rem;
+    border-radius:50%;
+    background:var(--pine);
+    color:var(--paper);
+    border:0;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 20px rgba(28,31,27,0.25);
+    transition:transform .15s ease;
+  }
+  .social-fab-toggle:hover{transform:scale(1.06);}
+  .social-fab-toggle svg{width:1.5rem; height:1.5rem; transition:transform .25s cubic-bezier(.16,1,.3,1);}
+  .social-fab-group.is-open .social-fab-toggle svg{transform:rotate(45deg);}
+  .social-fab-items{
+    position:absolute; right:0; bottom:calc(100% + 0.7rem);
+    display:flex; flex-direction:column-reverse; align-items:flex-end;
+    gap:0.7rem;
+  }
+  .social-fab-item{
+    width:2.75rem; height:2.75rem;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:#fff;
+    box-shadow:0 6px 16px rgba(28,31,27,0.22);
+    opacity:0;
+    transform:translateY(10px) scale(0.85);
+    pointer-events:none;
+    transition:opacity .2s ease, transform .2s ease;
+  }
+  .social-fab-group.is-open .social-fab-item{opacity:1; transform:translateY(0) scale(1); pointer-events:auto;}
+  .social-fab-group.is-open .social-fab-item:nth-child(1){transition-delay:.09s;}
+  .social-fab-group.is-open .social-fab-item:nth-child(2){transition-delay:.05s;}
+  .social-fab-group.is-open .social-fab-item:nth-child(3){transition-delay:0s;}
+  .social-fab-item svg{width:1.3rem; height:1.3rem;}
+  .social-fab-item.ig{background:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);}
+  .social-fab-item.fb{background:#1877F2;}
+  .social-fab-item.tiktok{background:#000;}
 
   /* ---------- Sprachumschalter (Demo-Mechanik, siehe HTML-Kommentar) ---------- */
   [data-i18n]{display:none;}
@@ -1134,13 +1179,43 @@
         <span data-i18n="de">Hallo! 👋 Wie können wir dir helfen?</span>
         <span data-i18n="en">Hi there! 👋 How can we help?</span>
       </p>
-      <div class="chat-quick-replies">
+      <div class="chat-quick-replies" id="chatQuickReplies">
         <button type="button" class="chat-quick-reply" data-reply="hours"><span data-i18n="de">Öffnungszeiten</span><span data-i18n="en">Opening hours</span></button>
         <button type="button" class="chat-quick-reply" data-reply="booking"><span data-i18n="de">Termin buchen</span><span data-i18n="en">Book an appointment</span></button>
         <button type="button" class="chat-quick-reply" data-reply="prices"><span data-i18n="de">Preise</span><span data-i18n="en">Prices</span></button>
+        <button type="button" class="chat-quick-reply" data-reply="more"><span data-i18n="de">Weitere Fragen</span><span data-i18n="en">More questions</span></button>
       </div>
     </div>
+    <div class="chat-panel-footer">
+      <a class="chat-whatsapp-handoff" href="https://wa.me/496313456789" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5.1-1.3c1.5.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.1c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.5 13.5 3.5 12c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5-3.8 8.5-8.5 8.5z"/><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.6-1.4-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.8 2.9 4.5 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.4.2-.6.2-1.2.2-1.3-.1-.1-.2-.2-.5-.3z"/></svg>
+        <span data-i18n="de">Lieber direkt per WhatsApp schreiben?</span><span data-i18n="en">Prefer to message us on WhatsApp?</span>
+      </a>
+    </div>
   </div>
+</div>
+
+<!--
+  MOCK-DATEN: Profil-Links sind Platzhalter (href="#"), analog zu den
+  übrigen Social-Media-Links im Prototyp (siehe Instagram-Sektion).
+  Speed-Dial-Muster: die drei Plattform-Buttons sind standardmäßig
+  eingeklappt, damit die Button-Reihe unten rechts nicht überladen wirkt.
+-->
+<div class="social-fab-group" id="socialFabGroup">
+  <div class="social-fab-items">
+    <a class="social-fab-item ig" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a class="social-fab-item fb" href="#" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 13.5h2.5l.4-3H14V8.5c0-.9.2-1.5 1.5-1.5H17V4.3C16.7 4.3 15.7 4 14.5 4 12 4 10.5 5.5 10.5 8.2v2.3H8v3h2.5V20h3v-6.5z"/></svg>
+    </a>
+    <a class="social-fab-item tiktok" href="#" target="_blank" rel="noopener" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.4 2.2 1.9 3.7 4.1 4v3c-1.5 0-2.9-.5-4.1-1.3v6.6a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v3.1a2.7 2.7 0 1 0 1.9 2.6V3h2.9z"/></svg>
+    </a>
+  </div>
+  <button type="button" class="social-fab-toggle" id="socialFabToggle" aria-expanded="false" aria-label="Weitere Social-Media-Kanäle anzeigen">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+  </button>
 </div>
 
 <header>
@@ -2143,15 +2218,34 @@
     updateOpenStatus(activeTab ? activeTab.dataset.location : 'hauptstrasse');
   }, 60000);
 
+  function isSalonOpenNow(){
+    var hours = LOCATION_HOURS.hauptstrasse;
+    var now = new Date();
+    var today = hours[now.getDay()];
+    var minutesNow = now.getHours()*60 + now.getMinutes();
+    return !!(today && minutesNow >= today[0] && minutesNow < today[1]);
+  }
+
   var chatWidget = document.getElementById('chatWidget');
   var chatToggle = document.getElementById('chatToggle');
   var chatPanel = document.getElementById('chatPanel');
   var chatBody = document.getElementById('chatBody');
   if(chatWidget && chatToggle && chatPanel && chatBody){
+    var chatFirstOpen = true;
     chatToggle.addEventListener('click', function(){
       var isOpen = chatWidget.classList.toggle('is-open');
       chatPanel.hidden = !isOpen;
       chatToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if(isOpen && chatFirstOpen){
+        chatFirstOpen = false;
+        if(!isSalonOpenNow()){
+          var noticeBubble = document.createElement('p');
+          noticeBubble.className = 'chat-bubble';
+          noticeBubble.innerHTML = '<span data-i18n="de">Wir sind aktuell geschlossen, antworten aber gerne, sobald wir wieder da sind.</span><span data-i18n="en">We\'re currently closed, but we\'ll get back to you as soon as we\'re back.</span>';
+          chatBody.insertBefore(noticeBubble, document.getElementById('chatQuickReplies'));
+          chatBody.scrollTop = chatBody.scrollHeight;
+        }
+      }
     });
     var CHAT_REPLIES = {
       hours: {
@@ -2165,10 +2259,44 @@
       prices: {
         de: 'Unsere aktuelle Preisliste findest du im Abschnitt „Leistungen" weiter oben.',
         en: 'Our current price list is in the "Services" section above.'
+      },
+      parking: {
+        de: 'Kundenparkplätze direkt vor dem Salon, alternativ das Parkhaus Fackelstraße (ca. 5 Gehminuten).',
+        en: 'Customer parking is right in front of the salon, or the Fackelstraße car park (about a 5-minute walk).'
+      },
+      cancellation: {
+        de: 'Bitte so früh wie möglich absagen oder verschieben — am einfachsten per Telefon oder WhatsApp, spätestens 24 Stunden vorher.',
+        en: 'Please cancel or reschedule as early as possible — easiest by phone or WhatsApp, at least 24 hours in advance.'
+      },
+      voucher: {
+        de: 'Gutscheine gibt es in jedem Wert — einfach im Abschnitt „Gutscheine verschenken" anfragen.',
+        en: 'Vouchers are available in any amount — just request one in the "Give the gift of a voucher" section.'
       }
     };
-    chatPanel.querySelectorAll('.chat-quick-reply').forEach(function(btn){
+    var MORE_TOPICS = [
+      {key: 'parking', de: 'Parken / Anfahrt', en: 'Parking / directions'},
+      {key: 'cancellation', de: 'Termin stornieren', en: 'Cancel appointment'},
+      {key: 'voucher', de: 'Gutschein', en: 'Voucher'}
+    ];
+    function bindQuickReply(btn){
       btn.addEventListener('click', function(){
+        if(btn.dataset.reply === 'more'){
+          btn.remove();
+          var row = document.createElement('div');
+          row.className = 'chat-quick-replies';
+          MORE_TOPICS.forEach(function(t){
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'chat-quick-reply';
+            b.dataset.reply = t.key;
+            b.innerHTML = '<span data-i18n="de">' + t.de + '</span><span data-i18n="en">' + t.en + '</span>';
+            bindQuickReply(b);
+            row.appendChild(b);
+          });
+          chatBody.appendChild(row);
+          chatBody.scrollTop = chatBody.scrollHeight;
+          return;
+        }
         var deLabel = btn.querySelector('[data-i18n="de"]').textContent;
         var enLabel = btn.querySelector('[data-i18n="en"]').textContent;
         var userBubble = document.createElement('p');
@@ -2184,6 +2312,16 @@
         }
         chatBody.scrollTop = chatBody.scrollHeight;
       });
+    }
+    chatPanel.querySelectorAll('.chat-quick-reply').forEach(bindQuickReply);
+  }
+
+  var socialFabGroup = document.getElementById('socialFabGroup');
+  var socialFabToggle = document.getElementById('socialFabToggle');
+  if(socialFabGroup && socialFabToggle){
+    socialFabToggle.addEventListener('click', function(){
+      var isOpen = socialFabGroup.classList.toggle('is-open');
+      socialFabToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
   }
 
