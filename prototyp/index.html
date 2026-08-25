@@ -151,30 +151,11 @@
   .announce-close:hover{opacity:1;}
   .announce-close svg{width:1rem; height:1rem;}
 
-  /* ---------- WhatsApp-Kontaktbutton (fixiert) ---------- */
-  .whatsapp-fab{
-    position:fixed;
-    right:1.25rem;
-    bottom:1.25rem;
-    z-index:100;
-    width:3.2rem;
-    height:3.2rem;
-    border-radius:50%;
-    background:#25D366;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 8px 20px rgba(28,31,27,0.25);
-    transition:transform .15s ease;
-  }
-  .whatsapp-fab:hover{transform:scale(1.06);}
-  .whatsapp-fab svg{width:1.7rem; height:1.7rem;}
-
-  /* ---------- Kontakt-Button-Cluster: Social-Buttons vertikal am Rand, Chat auf Höhe des untersten Social-Buttons links davon ---------- */
+  /* ---------- Kontakt-Button-Cluster: WhatsApp + Chat auf gleicher Höhe, Social-Buttons vertikal daneben, alle Buttons gleich groß ---------- */
   .fab-cluster{
     position:fixed;
     right:1.25rem;
-    bottom:5.15rem;
+    bottom:1.25rem;
     z-index:100;
     display:flex;
     align-items:flex-end;
@@ -185,6 +166,22 @@
     flex-direction:column;
     gap:0.6rem;
   }
+
+  /* ---------- WhatsApp-Kontaktbutton ---------- */
+  .whatsapp-fab{
+    width:3.2rem;
+    height:3.2rem;
+    border-radius:50%;
+    background:#25D366;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 20px rgba(28,31,27,0.25);
+    transition:transform .15s ease;
+    flex-shrink:0;
+  }
+  .whatsapp-fab:hover{transform:scale(1.06);}
+  .whatsapp-fab svg{width:1.6rem; height:1.6rem;}
 
   /* ---------- Chat-Widget (Demo-Mechanik: vorgefertigte Antworten, kein echter Live-Chat) ---------- */
   .chat-widget{position:relative;}
@@ -215,6 +212,19 @@
     overflow:hidden;
     display:flex;
     flex-direction:column;
+    transform-origin:bottom right;
+    opacity:0;
+    transform:scale(0.92) translateY(8px);
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+  }
+  .chat-widget.is-open .chat-panel{
+    opacity:1;
+    transform:scale(1) translateY(0);
+    visibility:visible;
+    pointer-events:auto;
+    transition:opacity .18s ease, transform .18s ease;
   }
   .chat-panel-head{background:var(--pine); color:var(--paper); padding:0.9rem 1.1rem; flex-shrink:0;}
   .chat-panel-head strong{display:block; font-family:Georgia,serif; font-size:1rem;}
@@ -233,7 +243,7 @@
 
   /* ---------- Social-Media-Buttons (dauerhaft sichtbar, offizielle Markenfarben) ---------- */
   .social-fab-item{
-    width:2.9rem; height:2.9rem;
+    width:3.2rem; height:3.2rem;
     border-radius:50%;
     display:flex; align-items:center; justify-content:center;
     color:#fff;
@@ -242,7 +252,7 @@
     transition:transform .15s ease;
   }
   .social-fab-item:hover{transform:scale(1.06);}
-  .social-fab-item svg{width:1.35rem; height:1.35rem;}
+  .social-fab-item svg{width:1.5rem; height:1.5rem;}
   .social-fab-item.ig{background:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);}
   .social-fab-item.fb{background:#1877F2;}
   .social-fab-item.tiktok{background:#000;}
@@ -1144,25 +1154,26 @@
   </div>
 </div>
 
-<a class="whatsapp-fab" href="https://wa.me/496313456789" target="_blank" rel="noopener" aria-label="Per WhatsApp schreiben">
-  <svg viewBox="0 0 32 32" fill="#F7F8F3" aria-hidden="true"><path d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.3.64 4.45 1.75 6.29L4 29l7.86-1.7a11.98 11.98 0 0 0 4.16.74C22.64 28.04 28 22.64 28 16.02 28 9.4 22.64 3 16.02 3zm0 21.6c-1.5 0-2.94-.4-4.2-1.14l-.3-.18-4.66 1.01 1-4.55-.2-.32a9.55 9.55 0 0 1-1.5-5.4c0-5.3 4.32-9.6 9.6-9.6 2.56 0 4.97.99 6.78 2.8a9.53 9.53 0 0 1 2.82 6.8c0 5.3-4.31 9.58-9.34 9.58zm5.26-7.18c-.29-.14-1.7-.84-1.96-.93-.26-.1-.46-.14-.65.14-.19.29-.75.93-.92 1.12-.17.19-.34.22-.63.07-.29-.14-1.2-.44-2.29-1.41-.85-.75-1.42-1.68-1.59-1.97-.17-.29-.02-.44.13-.58.13-.13.29-.34.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.65-1.57-.89-2.15-.23-.56-.47-.48-.65-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.39s1.02 2.77 1.17 2.96c.14.19 2 3.05 4.85 4.28.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34z"/></svg>
-</a>
-
 <!--
-  Kontakt-Button-Cluster unten rechts: Social-Media-Buttons vertikal
-  gestapelt am rechten Rand, Chat-Widget links davon auf Höhe des
-  untersten Social-Buttons (align-items:flex-end auf .fab-cluster).
-  Chat-DEMO-MECHANIK: fest hinterlegte Antworten, keine echte Live-Chat-
-  Anbindung. Social-Media-Links sind Platzhalter (href="#"), analog zu
-  den übrigen Social-Media-Links im Prototyp — siehe erkenntnisse.md.
+  Kontakt-Button-Cluster unten rechts: WhatsApp und Chat auf gleicher
+  Höhe nebeneinander, Social-Media-Buttons vertikal gestapelt daneben
+  am rechten Rand (unterster Social-Button = TikTok liegt dank
+  align-items:flex-end auf derselben Höhe wie WhatsApp/Chat). Alle
+  Buttons einheitlich 3.2rem groß. Chat-DEMO-MECHANIK: fest hinterlegte
+  Antworten, keine echte Live-Chat-Anbindung. Social-Media-Links sind
+  Platzhalter (href="#"), analog zu den übrigen Social-Media-Links im
+  Prototyp — siehe erkenntnisse.md.
 -->
 <div class="fab-cluster">
+  <a class="whatsapp-fab" href="https://wa.me/496313456789" target="_blank" rel="noopener" aria-label="Per WhatsApp schreiben">
+    <svg viewBox="0 0 32 32" fill="#F7F8F3" aria-hidden="true"><path d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.3.64 4.45 1.75 6.29L4 29l7.86-1.7a11.98 11.98 0 0 0 4.16.74C22.64 28.04 28 22.64 28 16.02 28 9.4 22.64 3 16.02 3zm0 21.6c-1.5 0-2.94-.4-4.2-1.14l-.3-.18-4.66 1.01 1-4.55-.2-.32a9.55 9.55 0 0 1-1.5-5.4c0-5.3 4.32-9.6 9.6-9.6 2.56 0 4.97.99 6.78 2.8a9.53 9.53 0 0 1 2.82 6.8c0 5.3-4.31 9.58-9.34 9.58zm5.26-7.18c-.29-.14-1.7-.84-1.96-.93-.26-.1-.46-.14-.65.14-.19.29-.75.93-.92 1.12-.17.19-.34.22-.63.07-.29-.14-1.2-.44-2.29-1.41-.85-.75-1.42-1.68-1.59-1.97-.17-.29-.02-.44.13-.58.13-.13.29-.34.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.65-1.57-.89-2.15-.23-.56-.47-.48-.65-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.39s1.02 2.77 1.17 2.96c.14.19 2 3.05 4.85 4.28.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34z"/></svg>
+  </a>
   <div class="chat-widget" id="chatWidget">
     <button type="button" class="chat-fab" id="chatToggle" aria-expanded="false" aria-controls="chatPanel" aria-label="Chat öffnen">
       <svg class="chat-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H9l-5 4.5V5.5Z"/></svg>
       <svg class="chat-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
     </button>
-    <div class="chat-panel" id="chatPanel" hidden>
+    <div class="chat-panel" id="chatPanel" aria-hidden="true">
       <div class="chat-panel-head">
         <strong>Salon Lindenblatt</strong>
         <span class="chat-status"><span class="dot" aria-hidden="true"></span><span data-i18n="de">Antwortet meist innerhalb weniger Stunden</span><span data-i18n="en">Usually replies within a few hours</span></span>
@@ -2216,7 +2227,7 @@
     var chatFirstOpen = true;
     chatToggle.addEventListener('click', function(){
       var isOpen = chatWidget.classList.toggle('is-open');
-      chatPanel.hidden = !isOpen;
+      chatPanel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
       chatToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       if(isOpen && chatFirstOpen){
         chatFirstOpen = false;
