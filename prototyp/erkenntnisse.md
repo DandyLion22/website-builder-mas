@@ -982,6 +982,40 @@ Sollte in Zukunft bei rein geschmacklichen/layout-bezogenen
 Eigenentscheidungen eher kurz nachfragen oder die Alternative explizit
 mit anbieten, statt sich auf eine Interpretation festzulegen.
 
+## Kontakt-Button-Cluster: dritte Iteration bis zum passenden Layout (2026-08-25)
+
+Nach dem Speed-Dial (verworfen) und der vertikalen Social-Stack-Variante
+("fast richtig") kam eine dritte, präzisere Korrektur: Chat-Button auf
+Höhe des WhatsApp-Buttons statt auf Höhe des untersten Social-Buttons,
+und alle Buttons einheitlich groß. Ergebnis: WhatsApp ist jetzt kein
+eigenständiger fixierter Button mehr, sondern Teil desselben
+`.fab-cluster` wie der Chat-Button (gleiche Zeile), während der
+Social-Media-Stapel weiterhin vertikal daneben steht — durch
+`align-items:flex-end` liegt dessen unterster Eintrag (TikTok)
+automatisch auf derselben Höhe wie WhatsApp/Chat, ohne dass die Höhe
+irgendwo doppelt gepflegt werden muss. Alle 5 Buttons (WhatsApp, Chat,
+Instagram, Facebook, TikTok) sind jetzt einheitlich 3.2rem groß.
+
+Zusätzlich das Chat-Fenster von einem abrupten `hidden`-Attribut-Toggle
+auf eine echte Opacity-/Scale-Transition umgestellt ("dass auch das
+Fenster auf und zu geht") — technisch war die Toggle-*Logik* vorher
+schon korrekt, aber ohne sichtbare Animation wirkte es nicht wie ein
+bewusstes Auf-/Zuklappen, sondern wie ein Ein-/Ausblenden ohne
+Übergang. `aria-hidden` übernimmt jetzt die Screenreader-Zugänglichkeit,
+die vorher das `hidden`-Attribut erledigt hat.
+
+→ Möglicher Schluss: Bei reinen Layout-/Positionierungs-Wünschen lohnt
+es sich, nach der ersten Umsetzung explizit zu fragen "so wie gemeint?"
+statt die Bestätigung erst beim nächsten Nutzer-Feedback zu bekommen —
+hier brauchte es drei Runden für ein eigentlich einfaches Anliegen
+(Button-Anordnung unten rechts). Ein kurzer ASCII-artiger
+Positions-Hinweis oder eine Nachfrage vor der Umsetzung hätte
+mindestens eine Runde gespart. Zusätzlich: "öffnet/schließt" bei einem
+UI-Element sollte ich standardmäßig als "mit sichtbarer Übergangs-
+Animation" verstehen, nicht nur als "Sichtbarkeits-Zustand wechselt" —
+letzteres ist zwar technisch auch ein Toggle, wirkt für den Nutzer aber
+nicht wie ein bewusstes Öffnen/Schließen.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
