@@ -961,6 +961,27 @@ bündelt (Speed-Dial), ist generell die bessere Lösung, sobald mehr als
 sollte als generisches UI-Muster in die Planungsdatei aufgenommen
 werden, nicht nur für Social-Media-Buttons.
 
+## Speed-Dial wieder rückgängig gemacht: dauerhaft sichtbar gewünscht (2026-08-25)
+
+Direkt im Anschluss an den Speed-Dial (siehe oben) kam die
+Rückmeldung, dass die Social-Media-Buttons doch dauerhaft sichtbar
+bleiben sollen (nicht ein-/ausklappbar), und der Chat-Button links
+davon stehen soll. Umgesetzt: Chat-Widget und die drei Social-Buttons
+teilen sich jetzt eine gemeinsame `.fab-row` (horizontales Flexbox,
+`justify-content` implizit durch `right`-Positionierung der Zeile
+selbst), WhatsApp bleibt als eigener Button darunter. Toggle-Button,
+Ein-/Ausklapp-Animation und die zugehörige JS-Logik komplett entfernt.
+
+→ Möglicher Schluss: Bei einem UI-Vorschlag aus eigener Initiative
+(hier: Speed-Dial, um die Buttonreihe "clean" zu halten) sollte klarer
+kommuniziert werden, dass das eine von mehreren gültigen Lösungen für
+das genannte Ziel ist, nicht die einzige — der Nutzer hatte ein anderes
+Verständnis von "clean" (alles sichtbar, aber ordentlich in einer Reihe)
+als ich unterstellt hatte (möglichst wenig dauerhaft sichtbare Elemente).
+Sollte in Zukunft bei rein geschmacklichen/layout-bezogenen
+Eigenentscheidungen eher kurz nachfragen oder die Alternative explizit
+mit anbieten, statt sich auf eine Interpretation festzulegen.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
