@@ -1016,6 +1016,36 @@ Animation" verstehen, nicht nur als "Sichtbarkeits-Zustand wechselt" —
 letzteres ist zwar technisch auch ein Toggle, wirkt für den Nutzer aber
 nicht wie ein bewusstes Öffnen/Schließen.
 
+## Kontakt-Cluster final: WhatsApp in den Stapel, plus Freitext-Chat (2026-08-25)
+
+Letzte Korrektur am Button-Cluster: WhatsApp wandert vom "gleiche Höhe
+wie Chat"-Platz in den vertikalen Social-Stapel selbst, als obersten
+Eintrag über Instagram. Der Chat-Button bleibt links vom Stapel, weiter
+auf Höhe des jeweils untersten Eintrags (jetzt weiterhin TikTok) — die
+`align-items:flex-end`-Regel musste dafür gar nicht angefasst werden,
+nur welches Element im Stapel liegt. Vierte Iteration insgesamt für ein
+eigentlich simples Anordnungsanliegen (siehe vorherige Erkenntnis).
+
+**Freitext-Chat ergänzt:** Zusätzlich zu den Quick-Reply-Buttons kann
+jetzt frei getippt werden. Umgesetzt als einfaches Keyword-Matching
+(String enthält z. B. "preis"/"price") gegen dieselben sechs Themen wie
+die Buttons, mit Fallback-Antwort bei keinem Treffer, die auf die
+Buttons/WhatsApp verweist. Bewusst *kein* echtes NLU/KI-Sprachmodell —
+das wäre Option B/C aus der ursprünglichen Chatbot-Ausbau-Liste
+(Backend, laufende Kosten, EU-AI-Act-Transparenzpflicht) und für den
+Prototyp nicht verhältnismäßig, siehe "Chatbot-Ausbau" oben. Nutzereingabe
+wird über `textContent` statt `innerHTML` eingefügt, um XSS über die
+Chat-Bubble auszuschließen (einzige Stelle im Prototyp, an der
+ungefilterter Freitext von einem Besucher direkt ins DOM geschrieben
+wird).
+
+→ Möglicher Schluss: Ein Freitextfeld mit Keyword-Matching ist ein
+guter Mittelweg zwischen reinen Klick-Buttons und einem echten KI-Bot —
+bringt einen Großteil des "lebendiger wirkenden" Eindrucks, ohne neue
+Kosten, Abhängigkeiten oder Rechtsfragen einzuführen. Für die Planung
+als eigene Ausbaustufe zwischen den Betriebsmodellen 1 (rein manuell)
+und den echten API-/KI-Anbindungen dokumentieren.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
