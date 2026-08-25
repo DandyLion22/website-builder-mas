@@ -811,6 +811,61 @@ relevant — jede Branche hat ein "das erwartet man einfach"-Set an
 Leistungen, das über generisches Nachfragen hinaus aktiv recherchiert
 werden sollte.
 
+## Social-Media-Integration allgemein: vier Muster, ein DSGVO-Kriterium (2026-08-25)
+
+Nutzerfrage: Wie funktioniert Social-Media-Integration technisch, und ist
+das DSGVO-konform? Zusammengefasst gibt es vier grundsätzlich
+unterschiedliche technische Muster, deren DSGVO-Risiko systematisch mit
+der Frage steigt, *wann* eine Verbindung zum Drittanbieter-Server
+aufgebaut wird:
+
+1. **Offizielle Plattform-API, automatisch beim Seitenaufruf** (Meta
+   Graph/Instagram API, Google Places API für Bewertungen). Braucht
+   Business-Account, oft App-Review, Token-/Key-Verwaltung mit Ablauf —
+   und weil die Verbindung automatisch beim Laden entsteht (IP-Adresse
+   des Besuchers geht an den Anbieter), ist eine Einwilligung nötig
+   (Cookie-Banner/Consent-Layer), nicht nur "berechtigtes Interesse".
+2. **Drittanbieter-Aggregator-Widget** (Elfsight, SnapWidget, Juicer
+   u. Ä.). Gleiches DSGVO-Problem wie 1, plus ein *zusätzlicher*
+   Auftragsverarbeiter (der Widget-Anbieter selbst) mit eigenem AVV-
+   Bedarf.
+3. **Klick-zum-Laden (Consent-Gate)**: Inhalt wird nicht automatisch
+   geladen, sondern erst nach aktivem Nutzer-Klick — der Klick selbst
+   ist die Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), kein Cookie-Banner
+   nötig. Genau das Muster, das hier schon für die Google-Maps-
+   Kartenanzeige gebaut wurde (datenschutz.html, Ziffer 5).
+4. **Manuell gepflegt, keine Live-Verbindung**: Inhalte werden von Hand
+   als lokale Dateien gepflegt (wie hier für Instagram und die Google-
+   Bewertungen umgesetzt). Beim Laden der Seite entsteht gar keine
+   Verbindung zu Meta/Google — dadurch entfällt die DSGVO-Frage
+   komplett, nicht nur die Einwilligungspflicht.
+
+**Gilt das auch für Google?** Ja, unverändert — das Kriterium ist nicht
+der Anbieter (Meta vs. Google), sondern *ob und wann* automatisch eine
+Verbindung zum jeweiligen Server aufgebaut wird. Die Google-
+Bewertungen im Prototyp folgen deshalb bewusst Muster 4 (siehe "Echte
+Google-Bewertungen einbinden" oben), während die Kartenanzeige bewusst
+Muster 3 nutzt — sie *muss* eine echte externe Karte zeigen, um ihren
+Zweck zu erfüllen, ein Bewertungs- oder Feed-Widget dagegen nicht
+zwingend live sein muss, um seinen Zweck (Social Proof / Aktualität
+zeigen) zu erfüllen.
+
+**Am Prototyp umgesetzt:** Unter dem Instagram-Raster steht jetzt eine
+Caption (wie schon beim Vorher/Nachher-Vergleich), die explizit
+klarstellt, dass es sich um eine manuell gepflegte Vorschau ohne
+automatische Instagram-Verbindung handelt, und in datenschutz.html gibt
+es dazu eine eigene neue Ziffer 6 "Social Media (Instagram, TikTok)".
+Dabei auch einen bestehenden Nummerierungsfehler behoben: Ziffer 3
+verwies fälschlich auf "Ziffer 6" für die Kartenanzeige, korrekt ist
+Ziffer 5.
+
+→ Möglicher Schluss: Für die Planungsdatei lohnt sich eine einzige
+generische Checkliste "Drittanbieter-Integration" mit genau diesen vier
+Mustern, statt für jeden Anbieter (Google, Meta, TikTok, ...) das
+DSGVO-Thema neu durchzudenken — das Kriterium (automatische vs.
+klickbasierte vs. keine Verbindung) ist anbieterunabhängig und
+wiederverwendbar.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
