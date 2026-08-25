@@ -1046,6 +1046,54 @@ Kosten, Abhängigkeiten oder Rechtsfragen einzuführen. Für die Planung
 als eigene Ausbaustufe zwischen den Betriebsmodellen 1 (rein manuell)
 und den echten API-/KI-Anbindungen dokumentieren.
 
+## Echter KI-Chatbot geprüft und bewusst verworfen — organisches Lernen statt LLM (2026-08-25)
+
+Nutzerfrage: Lohnt sich ein echter KI-Chatbot (Sprachmodell statt
+Keyword-Matching) für einen Friseursalon? Kostenrecherche durchgeführt
+(Claude Haiku 4.5: $1/Mio. Input-Token, $5/Mio. Output-Token — für
+diesen Anwendungsfall das richtige Preis-Leistungs-Modell, nicht die
+teureren Sonnet-/Opus-Modelle). Ergebnis der Rechnung: Bei realistischer
+Nutzung (schätzungsweise 5–30 Unterhaltungen/Tag, ~7 Nachrichten je
+Unterhaltung) liegen die API-Kosten bei ca. 2–10 € im Monat — de facto
+vernachlässigbar gegenüber Fresha (~27 €/Monat).
+
+**Trotzdem gegen einen echten KI-Chatbot entschieden.** Nicht wegen der
+Kosten, sondern:
+1. Das reale Fragevolumen eines einzelnen Salons ist klein und
+   vorhersehbar — Öffnungszeiten/Preise/Parken/Stornieren decken
+   vermutlich den Großteil ab, das deckt das bestehende Keyword-System
+   bereits kostenlos und *garantiert korrekt* ab (feste Antworten,
+   keine Interpretation).
+2. Ein echtes Sprachmodell bringt ein neues Risiko mit, das das
+   jetzige System strukturell nicht hat: Halluzination (erfundene
+   Preise/Verfügbarkeiten), das ohne sorgfältiges Prompt-Engineering
+   auftreten kann.
+3. EU-AI-Act-Transparenzpflicht (Nutzer muss erkennen, dass er mit
+   einer KI statt einem Menschen spricht) kommt als zusätzliche
+   Pflicht hinzu.
+
+**Stattdessen umgesetzt:** organisches Lernen ohne LLM. Findet das
+Freitext-Keyword-Matching kein passendes Thema, erscheint neben der
+Fallback-Antwort ein "Frage an den Salon senden"-Button, der die Frage
+per `mailto:` direkt an die Salon-E-Mail schickt (gleiches Muster wie
+Gutschein-Anfrage/Initiativbewerbung — kein Backend nötig, da die Seite
+statisch auf GitHub Pages läuft und "serverseitiges Cachen" von Fragen
+technisch gar nicht möglich wäre). Der Betreiber sieht so echte,
+tatsächlich gestellte Fragen und kann wiederkehrende Themen manuell als
+neuen Eintrag in `CHAT_KEYWORDS`/`CHAT_REPLIES` nachpflegen — der Bot
+wird über die Zeit besser, ohne API-Kosten, Wartungsaufwand für
+Token-Handling oder Halluzinationsrisiko.
+
+→ Möglicher Schluss: "Kann sich das Modul kostenmäßig lohnen" und "ist
+das Modul für diesen Kundentyp die richtige Lösung" sind zwei getrennte
+Fragen — hier war die Antwort auf die erste Ja, auf die zweite Nein.
+Ein einfacher, deterministischer Mechanismus (Keyword-Matching + manuell
+kuratiertes Feedback-Loop) kann für einen Kleinbetrieb der bessere
+Kompromiss sein als die technisch fortschrittlichere Lösung — das
+passt zum bereits mehrfach in diesem Dokument aufgetauchten Muster
+("Betriebsmodell 1: manuell" ist oft nicht die Notlösung, sondern die
+bewusst richtige Wahl für kleine Kunden).
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
