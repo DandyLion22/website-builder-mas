@@ -629,6 +629,44 @@
   .promo-banner-text .desc{color:var(--ink-soft); font-size:0.9rem;}
   .promo-banner .cta-ghost{flex-shrink:0;}
 
+  /* ---------- Style-Finder-Quiz ---------- */
+  .quiz-card{
+    max-width:640px;
+    margin:0 auto;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:clamp(1.75rem,4vw,2.75rem);
+  }
+  .quiz-progress{display:flex; justify-content:center; gap:0.5rem; margin-bottom:1.75rem;}
+  .quiz-progress-dot{width:0.55rem; height:0.55rem; border-radius:50%; background:var(--line);}
+  .quiz-progress-dot.is-active{background:var(--pine);}
+  .quiz-step h3{font-family:Georgia,serif; font-size:1.3rem; margin:0 0 1.25rem; text-align:center;}
+  .quiz-options{display:flex; flex-direction:column; gap:0.7rem;}
+  .quiz-option{
+    text-align:left;
+    padding:0.85rem 1.1rem;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:var(--bg);
+    font:inherit; font-size:0.95rem; color:var(--ink);
+    cursor:pointer;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .quiz-option:hover{border-color:var(--pine); background:var(--bg-alt);}
+  .quiz-result{text-align:center;}
+  .quiz-result-icon{width:2.5rem; height:2.5rem; margin:0 auto 1rem; color:var(--pine);}
+  .quiz-result-icon svg{width:100%; height:100%;}
+  .quiz-result h3{font-family:Georgia,serif; font-size:1.5rem; margin:0 0 0.6rem;}
+  .quiz-result > p{color:var(--ink-soft); max-width:42ch; margin:0 auto 1.5rem;}
+  .quiz-result-services{border-top:1px solid var(--line); margin-bottom:1.5rem;}
+  .quiz-service-row{display:flex; justify-content:space-between; padding:0.7rem 0; border-bottom:1px solid var(--line); font-size:0.95rem;}
+  .quiz-service-row strong{font-family:Georgia,serif; font-weight:400;}
+  .quiz-result-ctas{display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-bottom:1.25rem;}
+  .quiz-restart{background:none; border:0; color:var(--ink-soft); font:inherit; font-size:0.85rem; text-decoration:underline; cursor:pointer;}
+  .quiz-restart:hover{color:var(--ink);}
+  @media (max-width:480px){.quiz-result-ctas{flex-direction:column;}}
+
   /* ---------- Partner-/Marken-Leiste ---------- */
   .brand-strip{
     background:var(--paper);
@@ -1470,6 +1508,69 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V9"/><path d="M12 9c0-4 3-7 7-7 0 4-3 7-7 7Z"/><path d="M12 13c0-3-2.5-5-6-5 0 3 2.5 5 6 5Z"/></svg>
           Verde Botanicals
         </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Style-Finder-Quiz ---------- -->
+  <section id="style-finder" class="ambient-shell">
+    <span class="ambient-blob b" aria-hidden="true" style="top:-90px; left:-60px; right:auto;"></span>
+    <span class="ambient-blob a" aria-hidden="true" style="top:auto; bottom:-100px; right:-70px;"></span>
+    <div class="wrap" style="position:relative; z-index:1;">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span data-i18n="de">Quiz</span><span data-i18n="en">Quiz</span></p>
+        <h2><span data-i18n="de">Finde deinen Look</span><span data-i18n="en">Find your look</span></h2>
+        <p><span data-i18n="de">Drei kurze Fragen, eine passende Empfehlung aus unserem Angebot.</span><span data-i18n="en">Three quick questions, one fitting recommendation from our services.</span></p>
+      </div>
+
+      <div class="quiz-card reveal" id="quizCard">
+        <div class="quiz-progress" aria-hidden="true">
+          <span class="quiz-progress-dot is-active" data-step="1"></span>
+          <span class="quiz-progress-dot" data-step="2"></span>
+          <span class="quiz-progress-dot" data-step="3"></span>
+        </div>
+
+        <div class="quiz-step" data-step="1">
+          <h3><span data-i18n="de">Was bringt dich gerade zu uns?</span><span data-i18n="en">What brings you to us right now?</span></h3>
+          <div class="quiz-options">
+            <button type="button" class="quiz-option" data-category="cut"><span data-i18n="de">Ansatz oder Länge stört mich</span><span data-i18n="en">My roots or length are bothering me</span></button>
+            <button type="button" class="quiz-option" data-category="color"><span data-i18n="de">Ich will eine neue Farbe</span><span data-i18n="en">I want a new colour</span></button>
+            <button type="button" class="quiz-option" data-category="style"><span data-i18n="de">Ich habe bald einen besonderen Anlass</span><span data-i18n="en">I have a special occasion coming up</span></button>
+            <button type="button" class="quiz-option" data-category="care"><span data-i18n="de">Meine Haare brauchen dringend Pflege</span><span data-i18n="en">My hair urgently needs care</span></button>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="2" hidden>
+          <h3><span data-i18n="de">Wie viel Zeit steckst du morgens in deine Haare?</span><span data-i18n="en">How much time do you spend on your hair each morning?</span></h3>
+          <div class="quiz-options">
+            <button type="button" class="quiz-option" data-category="cut"><span data-i18n="de">So wenig wie möglich</span><span data-i18n="en">As little as possible</span></button>
+            <button type="button" class="quiz-option" data-category="color"><span data-i18n="de">Ich probiere gerne Neues mit Farbe</span><span data-i18n="en">I like experimenting with colour</span></button>
+            <button type="button" class="quiz-option" data-category="style"><span data-i18n="de">Ich style gerne ausführlich</span><span data-i18n="en">I enjoy taking time to style it</span></button>
+            <button type="button" class="quiz-option" data-category="care"><span data-i18n="de">Ich pflege lieber, als zu stylen</span><span data-i18n="en">I'd rather care for it than style it</span></button>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="3" hidden>
+          <h3><span data-i18n="de">Was wäre für dich das schönste Kompliment?</span><span data-i18n="en">What would be the nicest compliment for you?</span></h3>
+          <div class="quiz-options">
+            <button type="button" class="quiz-option" data-category="cut"><span data-i18n="de">Sieht immer ordentlich aus</span><span data-i18n="en">It always looks neat</span></button>
+            <button type="button" class="quiz-option" data-category="color"><span data-i18n="de">Wow, die Farbe!</span><span data-i18n="en">Wow, that colour!</span></button>
+            <button type="button" class="quiz-option" data-category="style"><span data-i18n="de">Perfekt für den Anlass</span><span data-i18n="en">Perfect for the occasion</span></button>
+            <button type="button" class="quiz-option" data-category="care"><span data-i18n="de">Deine Haare glänzen so gesund</span><span data-i18n="en">Your hair looks so healthy</span></button>
+          </div>
+        </div>
+
+        <div class="quiz-result" data-step="result" hidden>
+          <div class="quiz-result-icon" id="quizResultIcon"></div>
+          <h3 id="quizResultTitle"></h3>
+          <p id="quizResultText"></p>
+          <div class="quiz-result-services" id="quizResultServices"></div>
+          <div class="quiz-result-ctas">
+            <a class="cta magnetic" href="#buchen"><span data-i18n="de">Termin buchen</span><span data-i18n="en">Book now</span></a>
+            <a class="cta-ghost magnetic" href="#leistungen"><span data-i18n="de">Alle Leistungen ansehen</span><span data-i18n="en">View all services</span></a>
+          </div>
+          <button type="button" class="quiz-restart" id="quizRestart"><span data-i18n="de">Nochmal starten</span><span data-i18n="en">Start over</span></button>
+        </div>
       </div>
     </div>
   </section>
@@ -2386,6 +2487,85 @@
     if(chatInputEl) chatInputEl.placeholder = document.documentElement.lang === 'en' ? 'Type your question…' : 'Deine Frage eingeben…';
   }
   updateChatInputPlaceholder();
+
+  var quizCard = document.getElementById('quizCard');
+  if(quizCard){
+    var quizVotes = {cut: 0, color: 0, style: 0, care: 0};
+    var quizStep = 1;
+    var quizSteps = quizCard.querySelectorAll('.quiz-step');
+    var quizResultPanel = quizCard.querySelector('.quiz-result');
+    var quizProgressDots = quizCard.querySelectorAll('.quiz-progress-dot');
+    var QUIZ_ICONS = {
+      cut: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="5.5" cy="15" r="2"/><circle cx="14.5" cy="15" r="2"/><path d="M6.8 13.5 L16 4"/><path d="M13.2 13.5 L4 4"/></svg>',
+      color: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2.5 C10 2.5 4.5 9.5 4.5 13.5 a5.5 5.5 0 0 0 11 0 C15.5 9.5 10 2.5 10 2.5 Z"/></svg>',
+      style: '<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2 L11.3 8.2 L17.5 10 L11.3 11.8 L10 18 L8.7 11.8 L2.5 10 L8.7 8.2 Z"/></svg>',
+      care: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16.5 C4 8.5 10 3.5 17 3.5 C17 10.5 12 16.5 4 16.5 Z" fill="currentColor" fill-opacity="0.18"/><path d="M4.5 16 C7 12.5 10 10.5 13.5 8.5"/></svg>'
+    };
+    var QUIZ_RESULTS = {
+      cut: {
+        de: {title: 'Der Frische-Typ', text: 'Du legst Wert auf einen klaren, pflegeleichten Schnitt, der immer sitzt.', services: [['Damenschnitt', '45 €'], ['Herrenschnitt', '32 €']]},
+        en: {title: 'The Fresh Type', text: 'You value a clean, low-maintenance cut that always looks sharp.', services: [['Women\'s cut', '45 €'], ['Men\'s cut', '32 €']]}
+      },
+      color: {
+        de: {title: 'Der Verwandlungs-Typ', text: 'Du hast Lust auf Veränderung — Farbe ist dein Ding.', services: [['Balayage', '95 €'], ['Foliensträhnen', '75 €']]},
+        en: {title: 'The Transformer', text: 'You\'re up for change — colour is your thing.', services: [['Balayage', '95 €'], ['Foil highlights', '75 €']]}
+      },
+      style: {
+        de: {title: 'Der Auftritts-Typ', text: 'Du liebst besondere Momente und den perfekten Auftritt.', services: [['Festliches Styling', '40 €'], ['Hochsteckfrisur / Brautstyling', '55 €']]},
+        en: {title: 'The Show-Stopper', text: 'You love special moments and making an entrance.', services: [['Occasion styling', '40 €'], ['Updo / bridal styling', '55 €']]}
+      },
+      care: {
+        de: {title: 'Der Pflege-Typ', text: 'Deinen Haaren tut gerade ein bisschen Erholung gut.', services: [['Intensivkur', '18 €'], ['Olaplex-Behandlung', '25 €']]},
+        en: {title: 'The Care Type', text: 'Your hair could use a little TLC right now.', services: [['Deep treatment', '18 €'], ['Olaplex treatment', '25 €']]}
+      }
+    };
+    function showQuizStep(n){
+      quizSteps.forEach(function(s){ s.hidden = (parseInt(s.dataset.step, 10) !== n); });
+      quizResultPanel.hidden = true;
+      quizProgressDots.forEach(function(d){ d.classList.toggle('is-active', parseInt(d.dataset.step, 10) <= n); });
+    }
+    function showQuizResult(){
+      quizSteps.forEach(function(s){ s.hidden = true; });
+      quizProgressDots.forEach(function(d){ d.classList.add('is-active'); });
+      var winner = 'cut', best = -1;
+      ['cut', 'color', 'style', 'care'].forEach(function(cat){
+        if(quizVotes[cat] > best){ best = quizVotes[cat]; winner = cat; }
+      });
+      var r = QUIZ_RESULTS[winner];
+      document.getElementById('quizResultIcon').innerHTML = QUIZ_ICONS[winner];
+      document.getElementById('quizResultTitle').innerHTML = '<span data-i18n="de">' + r.de.title + '</span><span data-i18n="en">' + r.en.title + '</span>';
+      document.getElementById('quizResultText').innerHTML = '<span data-i18n="de">' + r.de.text + '</span><span data-i18n="en">' + r.en.text + '</span>';
+      var servicesEl = document.getElementById('quizResultServices');
+      servicesEl.innerHTML = '';
+      r.de.services.forEach(function(svc, i){
+        var row = document.createElement('div');
+        row.className = 'quiz-service-row';
+        row.innerHTML = '<span><span data-i18n="de">' + svc[0] + '</span><span data-i18n="en">' + r.en.services[i][0] + '</span></span><strong>' + svc[1] + '</strong>';
+        servicesEl.appendChild(row);
+      });
+      quizResultPanel.hidden = false;
+    }
+    quizCard.querySelectorAll('.quiz-option').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var cat = btn.dataset.category;
+        quizVotes[cat] = (quizVotes[cat] || 0) + 1;
+        if(quizStep < 3){
+          quizStep++;
+          showQuizStep(quizStep);
+        } else {
+          showQuizResult();
+        }
+      });
+    });
+    var quizRestart = document.getElementById('quizRestart');
+    if(quizRestart){
+      quizRestart.addEventListener('click', function(){
+        quizVotes = {cut: 0, color: 0, style: 0, care: 0};
+        quizStep = 1;
+        showQuizStep(1);
+      });
+    }
+  }
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
