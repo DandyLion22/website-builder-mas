@@ -1131,6 +1131,48 @@ sobald ein zweiter Branchen-Prototyp zeigt, ob sich das Muster
 verallgemeinern lässt (z. B. "Welcher Beratungstyp bist du" für andere
 Dienstleister).
 
+## Quiz-Erweiterung, Magnet-Dosierung und Bild-Wiederverwendung als übersehener Qualitätspunkt (2026-08-26)
+
+Drei kleinere, aber lehrreiche Korrekturen in einer Runde:
+
+1. **Quiz auf alle 5 Leistungskategorien erweitert**: Das Style-Finder-
+   Quiz deckte bisher nur 4 von 5 Kategorien ab (Bart & Herrenpflege
+   fehlte) — direkte Folge davon, dass das Quiz vor der Bart-Kategorie
+   entstanden ist und beim Hinzufügen neuer Leistungskategorien nicht
+   automatisch mitgedacht wurde. Fünfte Antwortoption je Frage ergänzt.
+   → Möglicher Schluss: Wenn ein Modul (hier: Quiz) inhaltlich von einem
+   anderen Modul (hier: Leistungskatalog) abhängt, sollte eine spätere
+   Erweiterung des einen Moduls zum Anlass werden, alle abhängigen
+   Module auf Vollständigkeit zu prüfen — nicht nur beim ursprünglichen
+   Bauen einmalig verknüpfen und danach getrennt weiterpflegen.
+
+2. **Magnetic-Hover-Stärke war zu intensiv** (0.35) — auf 0.16 reduziert.
+   Reiner Geschmackswert ohne tieferen Erkenntnisgehalt, aber zeigt:
+   Bei rein "gefühlten" Interaktions-Parametern (Stärke/Geschwindigkeit/
+   Dauer eines Effekts) lohnt sich ein niedrigerer Startwert als der
+   erste Instinkt vermuten lässt — leicht nachträglich verstärken ist
+   unauffälliger als zu stark starten und dann zurückrudern.
+
+3. **Bild-Wiederverwendung als eigener, bisher nicht geprüfter
+   Qualitätspunkt**: Hero und Instagram-Raster nutzten bis zu diesem
+   Zeitpunkt exakt dieselben 6 Fotos wie die Galerie-Sektion (die
+   Instagram-Sektion war sogar bewusst so dokumentiert: "nutzt
+   dieselben Fotos wie die Galerie"). Das wirkte für mich naheliegend
+   (weniger Fotos beschaffen/pflegen), für den Nutzer aber wie ein
+   Fehler ("manche Bilder werden doppelt verwendet, das möchte ich
+   nicht"). Sieben neue Pexels-Fotos ergänzt, damit jedes Bild nur noch
+   an einer Stelle vorkommt — mit einer bewussten, dokumentierten
+   Ausnahme: der Vorher/Nachher-Regler zeigt weiterhin dieselbe Aufnahme
+   zweimal, weil das die einzig ehrliche Umsetzung ohne echte gepaarte
+   Vorher/Nachher-Fotos ist.
+   → Möglicher Schluss: "Ressourcen sparen durch Wiederverwendung" ist
+   in der Softwareentwicklung meist positiv besetzt (DRY-Prinzip),
+   gilt aber nicht 1:1 für Bildmaterial auf einer öffentlichen Website —
+   dort wirkt Wiederholung schnell wie mangelnde Sorgfalt oder ein zu
+   kleiner Fundus an echtem Material. Bildvielfalt sollte als eigener
+   Checklisten-Punkt geführt werden, unabhängig von technischer
+   Effizienz.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
