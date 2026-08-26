@@ -1094,6 +1094,43 @@ passt zum bereits mehrfach in diesem Dokument aufgetauchten Muster
 ("Betriebsmodell 1: manuell" ist oft nicht die Notlösung, sondern die
 bewusst richtige Wahl für kleine Kunden).
 
+## Style-Finder-Quiz als neues Modul (2026-08-25)
+
+Auf die wiederkehrende Frage "welche Module wären noch relevant"
+diesmal bewusst eine interaktive statt eine rein informative Ergänzung
+vorgeschlagen (neben Barrierefreiheit/PWA/Blog, die aber nicht gewählt
+wurden). Umgesetzt: ein 3-Fragen-Quiz ("Was bringt dich zu uns?" /
+Zeitaufwand / gewünschtes Kompliment), das über ein simples Punktesystem
+auf eine von vier Kategorien (Schnitt/Farbe/Styling/Pflege) mappt und am
+Ende zwei echte Leistungen mit echten Preisen aus dem bestehenden
+Katalog empfiehlt, plus CTA zu Buchung und Leistungsübersicht.
+
+Bewusste Entscheidungen dabei:
+- **Kein Drittanbieter, keine KI** — reine Punktevergabe in JS, genau
+  im selben "deterministisch statt Sprachmodell"-Geist wie die
+  Chatbot-Entscheidung oben. Für ein Marketing-Gimmick wie dieses wäre
+  eine KI-Anbindung erst recht unverhältnismäßig.
+- **Ergebnisse verlinken auf echte Katalog-Preise**, nicht auf erfundene
+  Empfehlungen — das Quiz bewirbt am Ende tatsächlich buchbare
+  Leistungen, keine Fantasie-Pakete.
+- **Icon-Wiederverwendung**: Die Ergebnis-Icons sind exakt dieselben
+  SVG-Pfade wie die Kategorie-Icons im Leistungen-Abschnitt (Schere,
+  Tropfen, Stern, Blatt) — konsistente Bildsprache statt neuer Icons
+  nur für dieses eine Feature.
+- **Nicht in die Hauptnavigation aufgenommen**, analog zu Testimonials
+  und Vorher/Nachher — die Seite hat bereits genug Nav-Punkte, das Quiz
+  ist über den normalen Scroll-Fluss zwischen Leistungen und Buchen
+  gut auffindbar.
+
+→ Möglicher Schluss: Ein interaktives "Gimmick"-Modul (Quiz/Konfigurator)
+ist ein eigener, bisher nicht katalogisierter Modul-Typ neben Content-,
+Social-Proof- und Conversion-Modulen — es dient primär der
+Vorführwirkung/Differenzierung, nicht der reinen Informationsvermittlung.
+Sollte als eigene Kategorie in den Modul-Katalog aufgenommen werden,
+sobald ein zweiter Branchen-Prototyp zeigt, ob sich das Muster
+verallgemeinern lässt (z. B. "Welcher Beratungstyp bist du" für andere
+Dienstleister).
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
