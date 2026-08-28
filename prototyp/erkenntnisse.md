@@ -1173,6 +1173,74 @@ Drei kleinere, aber lehrreiche Korrekturen in einer Runde:
    Checklisten-Punkt geführt werden, unabhängig von technischer
    Effizienz.
 
+## Strategie-Entscheidung: Branchenfokus statt Farbvarianten, und vier weitere Module (2026-08-26)
+
+**Strategische Weichenstellung:** Auf die Frage, ob mehrere Prototyp-
+Websites (z. B. 5 Stück in verschiedenen Farbvarianten) sinnvoll wären,
+um potenziellen Kunden die Möglichkeiten zu zeigen, wurde empfohlen,
+stattdessen auf echte Branchenvielfalt statt Farbvarianten zu setzen —
+Design/Farbe lässt sich in einem Verkaufsgespräch leicht erklären,
+überzeugender ist zu zeigen, dass sich das System an unterschiedliche
+Branchen anpasst. Der Nutzer hat sich daraufhin bewusst **gegen**
+weitere Branchen-Prototypen entschieden: Er möchte sich zunächst
+ausschließlich auf die Friseur-Branche spezialisieren und dort echte,
+wiederkehrend zahlende Kunden gewinnen. Das ist eine sinnvolle
+Fokus-Entscheidung für ein frühphasiges Ein-Personen-Vorhaben — wurde
+entsprechend akzeptiert, nicht in Frage gestellt.
+
+Gleichzeitig empfohlen: Der Prototyp selbst ist inzwischen sehr
+feature-reich; der eigentliche Engpass für "echte zahlende Kunden
+finden" liegt eher bei fehlender Verkaufsinfrastruktur (eigene Domain,
+Preis-/Paketstruktur, Verkaufs-Ein-Pager, Gewerbe-/Vertragsgrundlagen,
+aktive Akquise) als bei weiteren Website-Features. Der Nutzer hat sich
+trotzdem für "Prototyp weiter ausbauen" entschieden — auch das wurde
+akzeptiert, nicht gegen seinen Willen umgelenkt.
+
+**Vier weitere Module in einer Runde ergänzt** (aus einer zuvor nicht
+gewählten Ideenliste, diesmal alle vier auf einmal ausgewählt):
+
+1. **Barrierefreiheit (BFSG)**: neue Rechtsseite `barrierefreiheit.html`
+   nach dem Vorbild von Impressum/Datenschutz, plus eine echte kleine
+   Werkzeugleiste im Header (Schriftgröße stufenweise 90–130 %,
+   Hoher-Kontrast-Umschalter über CSS-Variablen-Override auf
+   `html.high-contrast`). Einstellungen werden per localStorage
+   gemerkt. Bewusst *keine* vollständige WCAG-AAA-Prüfung behauptet,
+   sondern als Selbsteinschätzung gekennzeichnet — passt zum
+   etablierten Ehrlichkeitsprinzip des Prototyps.
+2. **PWA-Grundausstattung**: `manifest.json` + minimaler Service
+   Worker (`sw.js`, cached nur die Startseite als Offline-Basisseite).
+   **Wichtige Einschränkung:** In dieser Umgebung stand kein
+   Bild-Konvertierungstool zur Verfügung (kein ImageMagick/rsvg-
+   convert/Pillow/sharp) — das PWA-Icon existiert daher nur als SVG
+   (`assets/img/icon.svg`), nicht als PNG. Funktioniert für Chrome/
+   Android "Zur Startseite hinzufügen", aber `apple-touch-icon`
+   erwartet offiziell PNG; auf iOS könnte das auf ein automatisches
+   Screenshot-Icon zurückfallen statt das echte Logo zu zeigen. Für
+   einen echten Kunden bräuchte es einen echten Icon-Export (z. B. vom
+   Grafikdesigner mitgeliefert), keine KI-generierte Rastergrafik ohne
+   passendes Tool.
+3. **Ratgeber-Bereich**: drei vollständige, für Suchmaschinen
+   indexierbare Artikelseiten (bewusst *ohne* `robots noindex`, im
+   Unterschied zu Impressum/Datenschutz/Barrierefreiheit — der ganze
+   Sinn eines Ratgeber-Moduls ist Auffindbarkeit) mit echten internen
+   Verlinkungen zu Buchung, Leistungen und dem Style-Finder-Quiz. Drei
+   weitere, bislang unbenutzte Fotos ergänzt, um die gerade erst
+   etablierte "keine Bild-Duplikate"-Regel nicht sofort wieder zu
+   brechen.
+4. **Presse-/Auszeichnungs-Leiste**: reine Wiederverwendung der
+   bestehenden `.brand-strip`/`.brand-row`-Klassen mit anderem Inhalt
+   (Social Proof statt Partner-Marken) — kein neues CSS nötig, zeigt,
+   wie gut das bestehende Komponentensystem für neue, ähnlich
+   strukturierte Inhalte wiederverwendbar ist.
+
+→ Möglicher Schluss: `robots.txt` und `sitemap.xml` fehlen im Prototyp
+trotzdem noch (Kategorie A im Modul-Katalog nennt sie als Pflicht-
+Checkliste, umgesetzt sind bisher nur schema.org-Daten und Meta-/
+OG-Tags) — mit dem neuen Ratgeber-Modul, das von echter Auffindbarkeit
+lebt, wird diese Lücke relevanter als vorher und sollte als Nächstes
+geschlossen werden, sobald es wieder um Prototyp-Ausbau statt
+Business-Infrastruktur geht.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
