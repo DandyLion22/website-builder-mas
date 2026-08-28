@@ -1330,6 +1330,32 @@ Ziel-Interaktion bestätigen lassen, bevor implementiert wird), ähnlich
 wie es bei den vorherigen Iterationen dieses Clusters schon vermutet
 wurde.
 
+## "Bewerte uns"-CTA und Treuekarte: Kundenbindungs-Module (2026-08-26)
+
+Aus einer erneuten Ideenrunde ("was noch ändern, um attraktiver für
+Kunden zu wirken") zwei Module ausgewählt, die beide auf
+Kundenbindung/Reputationsmanagement zielen statt auf reine
+Erstansprache:
+
+- **"Bewerte uns"-CTA**: schließt eine Lücke, die beim Bau der
+  Mock-Bewertungen entstanden ist — es gab Bewertungen *anzeigen*,
+  aber keinen Aufruf, welche zu *hinterlassen*. Rein informativ
+  gelöst (Platzhalter-Link href="#"), da kein echtes Google-
+  Unternehmensprofil existiert.
+- **Treuekarte**: rein illustrativ (6 von 10 Stempeln als Beispiel),
+  bewusst *kein* Versuch, echtes Tracking vorzutäuschen — passt zum
+  wiederkehrenden Prinzip dieses Prototyps, Funktionen ohne echtes
+  Backend ehrlich als Demo/Beispiel zu kennzeichnen statt eine
+  Nutzerkonto-Illusion zu erzeugen.
+
+→ Möglicher Schluss: Beide Module sind Beispiele für eine Modul-
+Kategorie, die im Katalog bisher unterrepräsentiert ist —
+Kundenbindung/Retention für *bestehende* Kunden, nicht nur
+Neukundengewinnung. Lohnt sich als eigene Kategorie im Modul-Katalog
+zu ergänzen, sobald der nächste Branchen-Prototyp zeigt, ob das
+branchenübergreifend gilt oder friseurspezifisch ist (Treuekarten sind
+im Beauty-Bereich sehr verbreitet, in anderen Branchen evtl. weniger).
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
