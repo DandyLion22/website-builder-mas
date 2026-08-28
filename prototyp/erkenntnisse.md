@@ -1263,6 +1263,53 @@ einen echten Kunden bleibt trotzdem richtig: Ein echtes Logo würde
 ohnehin vom Grafikdesigner in allen benötigten Formaten geliefert,
 dieser Workaround war nur für den Prototyp nötig.
 
+## Mobil-Tauglichkeit: schon mitgebaut, aber gezielte Prüfung nach Feature-Serie lohnt sich (2026-08-26)
+
+Nutzerfrage: Sollte die Seite jetzt schon für Handy/Tablet optimiert
+werden, oder ist das verfrüht? Antwort: Mobil-Tauglichkeit war die
+ganze Zeit Teil des Fundaments (mobiles Menü, responsive Grids,
+`clamp()`-Typografie, `@media`-Anpassungen praktisch überall) — keine
+separate, nachzuholende Grundlage. Trotzdem lohnte sich jetzt ein
+gezielter Code-Audit der zuletzt schnell hinzugefügten Elemente (Fab-
+Cluster, Chat-Fenster, Quiz, A11y-Menü, Ratgeber-Kacheln), weil diese
+noch nicht einzeln auf schmalen Bildschirmen geprüft wurden. Dabei zwei
+echte Bugs gefunden (kein echtes Gerät verfügbar — reiner Code-Audit,
+keine visuelle Verifikation):
+
+1. Die Ratgeber-Kacheln nutzten `.gallery-tile` mit — dadurch hätten
+   sie die festen `nth-child`-Bento-Grid-Positionen der 6-Bilder-
+   Fotogalerie geerbt (verzerrte Positionierung). Behoben mit eigenen
+   `.ratgeber-grid`/`.ratgeber-tile`-Klassen. Dabei zusätzlich bemerkt:
+   Die Bildunterschrift der Galerie-Kacheln ist nur bei `:hover`
+   sichtbar — für die Fotogalerie okay (Bilder sprechen für sich), für
+   Blog-Teaser aber ein echtes Problem, weil Touch-Geräte kein Hover
+   kennen und der Artikeltitel auf dem Handy dadurch nie sichtbar
+   gewesen wäre. Deshalb bei den Ratgeber-Kacheln die Unterschrift
+   dauerhaft sichtbar gemacht statt hover-abhängig.
+2. Das Chat-Fenster war rechtsbündig zum Chat-*Button* positioniert,
+   der aber links neben der Social-Media-Spalte sitzt, nicht am
+   Bildschirmrand. Auf schmalen Handys hätte das Fenster links über
+   den Bildschirmrand hinausgeragt. Mit einem Ausgleichs-Offset
+   (`right:-3.8rem`, exakt Breite+Abstand der Social-Spalte) behoben.
+
+**Noch offen, nicht behoben (kein echtes Gerät zur Verifikation):** Der
+Kontakt-Button-Cluster stapelt inzwischen 5 Buttons (Chat + WhatsApp +
+3 Social-Media) vertikal — auf kurzen Bildschirmen (z. B. Handy im
+Querformat) könnte dieser Stapel einen großen Teil der Bildschirmhöhe
+einnehmen und Inhalte verdecken. Ohne echten Gerätetest lässt sich
+nicht sicher sagen, ob das ein reales Problem ist oder nur eine
+theoretische Sorge — sollte bei Gelegenheit auf einem echten Smartphone
+gegengeprüft werden.
+
+→ Möglicher Schluss: Das generelle Muster "Klasse aus einer bestehenden
+Komponente mitbenutzen, um Styling zu sparen" (hier: `.gallery-tile`
+für die Ratgeber-Kacheln) ist riskant, sobald die Ursprungs-Komponente
+zusätzliche, kontextspezifische Regeln hat (`nth-child`-Positionierung,
+hover-only-Sichtbarkeit) — diese Regeln gelten dann unbeabsichtigt auch
+im neuen Kontext mit. Bei visueller Wiederverwendung lieber gezielt nur
+die *Optik* kopieren (Farben, Radius, Schatten) und dafür eine neue,
+unabhängige Klasse anlegen, statt die alte Klasse direkt zu erben.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
