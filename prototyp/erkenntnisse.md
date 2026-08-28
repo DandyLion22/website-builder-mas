@@ -1241,6 +1241,28 @@ lebt, wird diese Lücke relevanter als vorher und sollte als Nächstes
 geschlossen werden, sobald es wieder um Prototyp-Ausbau statt
 Business-Infrastruktur geht.
 
+## PWA-Icon-Lücke doch noch geschlossen: npm als übersehene Werkzeug-Quelle (2026-08-26)
+
+Die zuvor dokumentierte Einschränkung ("kein Bild-Konvertierungstool
+verfügbar, PWA-Icon nur als SVG") stellte sich als vorschnell heraus.
+`npm` war die ganze Zeit verfügbar — nur klassische Bildwerkzeuge
+(ImageMagick, rsvg-convert, Python+Pillow/cairosvg, node-sharp
+vorinstalliert) fehlten. Mit `npm install sharp --no-save` in einem
+Scratch-Verzeichnis (nicht im Projekt, nichts committet) ließ sich das
+SVG-Logo doch sauber in echte PNGs (180/192/512px) rendern. Danach
+`apple-touch-icon` auf das 180px-PNG umgestellt und beide weiteren
+Größen in `manifest.json` ergänzt — die iOS-Einschränkung ist damit
+behoben, nicht mehr nur dokumentiert.
+
+→ Möglicher Schluss: "Kein X verfügbar" sollte heißen "die X, die ich
+zuerst geprüft habe, fehlen" — bevor eine Einschränkung als endgültig
+dokumentiert wird, lohnt sich ein Blick auf allgemeinere
+Werkzeug-Ökosysteme (hier: npm als Bezugsquelle für ein Konvertierungs-
+Paket), nicht nur auf die naheliegendsten, dedizierten CLI-Tools. Für
+einen echten Kunden bleibt trotzdem richtig: Ein echtes Logo würde
+ohnehin vom Grafikdesigner in allen benötigten Formaten geliefert,
+dieser Workaround war nur für den Prototyp nötig.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
