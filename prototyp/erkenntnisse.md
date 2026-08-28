@@ -1356,6 +1356,53 @@ zu ergänzen, sobald der nächste Branchen-Prototyp zeigt, ob das
 branchenübergreifend gilt oder friseurspezifisch ist (Treuekarten sind
 im Beauty-Bereich sehr verbreitet, in anderen Branchen evtl. weniger).
 
+## Letztes Feature vor Vertriebs-Pause: bewusst auf unsichtbaren Hebel statt weiteres sichtbares Modul gesetzt (2026-08-26)
+
+Nach der Einschätzung "der Prototyp ist jetzt umfangreich genug"
+(mehrfach wiederholt, zuletzt am deutlichsten) wollte der Nutzer noch
+genau ein letztes Feature, diesmal aber ausdrücklich mit der Bitte,
+"tiefgehend" über echte Bedürfnisse deutscher Friseure nachzudenken,
+statt die nächste Idee von der Liste zu nehmen.
+
+**Gewählt: Google Rich-Snippet-Sterne (schema.org AggregateRating).**
+Begründung der Auswahl (nicht nur Umsetzung, auch die Entscheidung
+selbst dokumentiert): Anders als alle bisherigen Module setzt dieses
+*vor* dem eigentlichen Website-Besuch an - direkt im Google-
+Suchergebnis. Für eine Zielgruppe, die stark such- und
+bewertungsgetrieben einen Dienstleister auswählt (typisch für
+Friseur-Kundschaft in Deutschland), ist die Klickrate aus der Suche
+selbst der Hebel, nicht nur die Conversion auf der Seite. Viele kleine
+Konkurrenz-Websites (Baukasten-Systeme, reine Buchungsplattform-
+Profile) haben das nicht sauber eingebunden.
+
+**Problem dabei erkannt und gelöst:** Eine korrekt eingebaute, aber
+unsichtbare strukturierte Dateneigenschaft lässt sich in einem
+Kundengespräch schlecht zeigen ("hier hat sich nichts verändert" ist
+kein überzeugendes Verkaufsargument). Deshalb zusätzlich eine kleine,
+klar als Vorschau gekennzeichnete Karte gebaut, die zeigt, wie der
+Google-Sucheintrag mit Sternen aussehen könnte - macht den technischen
+Vorteil im Gespräch greifbar, ohne eine echte Google-Suchseite
+nachzubauen oder vorzutäuschen, eine zu sein (nur ein einzelnes
+Ergebnis-Snippet, deutlich als "So könnte..." beschriftet).
+
+**Eigener Fehler dabei bemerkt und sofort korrigiert:** Beim Schreiben
+des Vorschau-Textes selbst versehentlich einen langen Gedankenstrich
+(über die HTML-Entity `&mdash;`) eingebaut - genau das, was der Nutzer
+eine Nachricht zuvor explizit abgestellt haben wollte. Vor dem Commit
+bemerkt und behoben.
+
+→ Möglicher Schluss: Bei einer bewussten "letztes Feature, aber richtig
+durchdacht"-Anfrage lohnt sich, explizit zwischen sichtbaren und
+unsichtbaren Hebeln zu unterscheiden - ein unsichtbarer technischer
+Vorteil (Suchmaschinen-Sichtbarkeit) kann geschäftlich wertvoller sein
+als ein weiteres sichtbares Modul, braucht aber eine zusätzliche
+Übersetzungsleistung (hier: die Vorschau-Karte), um in einem
+Verkaufsgespräch überhaupt vermittelbar zu sein. Und: Frisch vereinbarte
+Stilregeln (keine Gedankenstriche) sollten aktiv mitgeprüft werden,
+auch wenn der neue Text nicht direkt im Fokus der Änderung steht -
+solche Regeln rutschen sonst leicht durch, wenn Aufmerksamkeit auf der
+inhaltlichen Aufgabe liegt.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
