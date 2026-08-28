@@ -176,17 +176,22 @@
   .glow-fab{position:relative;}
   .glow-fab::before{
     content:"";
-    position:absolute; inset:-5px;
+    position:absolute; inset:-10px;
     border-radius:50%;
-    background:radial-gradient(circle, rgba(43,59,46,0.55) 0%, rgba(43,59,46,0) 72%);
-    filter:blur(5px);
+    background:radial-gradient(circle, rgba(43,59,46,0.5) 0%, rgba(43,59,46,0) 70%);
+    filter:blur(7px);
     z-index:-1;
     animation:fabGlowPulse 2.8s ease-in-out infinite;
     pointer-events:none;
   }
   @keyframes fabGlowPulse{
-    0%, 100%{ opacity:0.4; transform:scale(0.94); }
-    50%{ opacity:0.85; transform:scale(1.08); }
+    0%, 100%{ opacity:0.35; transform:scale(0.92); }
+    50%{ opacity:0.75; transform:scale(1.1); }
+  }
+  .fab-cluster.chat-active .social-fab-group{
+    pointer-events:none;
+    opacity:0.4;
+    transition:opacity .2s ease;
   }
 
   /* ---------- Chat-Widget (Demo-Mechanik: vorgefertigte Antworten, kein echter Live-Chat) ---------- */
@@ -1334,7 +1339,7 @@
   (href="#"), analog zu den übrigen Social-Media-Links im Prototyp —
   siehe erkenntnisse.md.
 -->
-<div class="fab-cluster">
+<div class="fab-cluster" id="fabCluster">
   <div class="chat-widget" id="chatWidget">
     <button type="button" class="chat-fab glow-fab" id="chatToggle" aria-expanded="false" aria-controls="chatPanel" aria-label="Chat öffnen">
       <svg class="chat-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H9l-5 4.5V5.5Z"/></svg>
@@ -2628,6 +2633,14 @@
       var isOpen = chatWidget.classList.toggle('is-open');
       chatPanel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
       chatToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      var fabCluster = document.getElementById('fabCluster');
+      if(fabCluster) fabCluster.classList.toggle('chat-active', isOpen);
+      if(isOpen){
+        var socialFabGroupEl = document.getElementById('socialFabGroup');
+        var socialFabToggleEl = document.getElementById('socialFabToggle');
+        if(socialFabGroupEl) socialFabGroupEl.classList.remove('is-open');
+        if(socialFabToggleEl) socialFabToggleEl.setAttribute('aria-expanded', 'false');
+      }
       if(isOpen && chatFirstOpen){
         chatFirstOpen = false;
         if(!isSalonOpenNow()){
