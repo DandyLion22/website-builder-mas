@@ -1310,6 +1310,26 @@ im neuen Kontext mit. Bei visueller Wiederverwendung lieber gezielt nur
 die *Optik* kopieren (Farben, Radius, Schatten) und dafür eine neue,
 unabhängige Klasse anlegen, statt die alte Klasse direkt zu erben.
 
+## Button-Cluster fünfte Iteration: Hover-Einklappen plus Glow (2026-08-26)
+
+Nochmal Anordnung des Kontakt-Button-Clusters geändert: Social-Media-
+Kanäle (WhatsApp, Instagram, Facebook, TikTok) sind jetzt wieder hinter
+einem einzelnen Button verborgen, öffnen sich aber diesmal per **Hover**
+statt Klick (mit Klick- und `:focus-within`-Fallback für Touch/
+Tastatur) — im Kern eine Rückkehr zum Speed-Dial-Muster von vorhin,
+nur mit anderem Trigger. Dazu ein dezenter, pulsierender Glow-Halo
+(`.glow-fab`) für Chat- und Social-Media-Button ergänzt, um beide als
+zusammengehöriges Paar erkennbar zu machen.
+
+→ Möglicher Schluss: Bei diesem Cluster hat sich über fünf Runden
+gezeigt, dass "Layout in Worten beschreiben" bei komplexeren
+Interaktionsmustern (mehrere Buttons, ein/ausklappen, Hover vs. Klick)
+fehleranfälliger ist als bei einfachen Element-Anordnungen — hier hätte
+sich ein Zwischenschritt gelohnt (kurze Skizze/Beschreibung der
+Ziel-Interaktion bestätigen lassen, bevor implementiert wird), ähnlich
+wie es bei den vorherigen Iterationen dieses Clusters schon vermutet
+wurde.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
