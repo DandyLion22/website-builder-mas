@@ -20,6 +20,18 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://dandylion22.github.io/website-builder-mas/assets/img/salon-innenraum.jpg">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 4C79 4 93 27 93 49C93 72 72 88 52 93C51.3 93.3 50.7 93.3 50 93C29 88 7 72 7 49C7 27 21 4 50 4Z' fill='%232B3B2E'/%3E%3Cline x1='50' y1='93' x2='50' y2='99' stroke='%232B3B2E' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='42' cy='74' r='6' fill='none' stroke='%23F7F8F3' stroke-width='5'/%3E%3Ccircle cx='58' cy='74' r='6' fill='none' stroke='%23F7F8F3' stroke-width='5'/%3E%3Cpath d='M42 68 L66 26' stroke='%23F7F8F3' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M58 68 L34 26' stroke='%23F7F8F3' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+<!--
+  PWA-Grundausstattung: manifest.json + Service Worker (sw.js) fuer
+  "Zur Startseite hinzufuegen" und eine einfache Offline-Basisseite.
+  apple-touch-icon zeigt bewusst auf das SVG-Icon, obwohl iOS offiziell
+  PNG erwartet -- ohne Bildkonvertierungs-Tool in dieser Umgebung war
+  kein PNG-Export moeglich. Auf iOS faellt das ggf. auf einen
+  automatischen Screenshot-Icon zurueck statt auf das echte Logo, siehe
+  erkenntnisse.md.
+-->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2B3B2E">
+<link rel="apple-touch-icon" href="assets/img/icon.svg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -285,6 +297,48 @@
   }
   .lang-toggle:hover{color:var(--ink); border-color:var(--ink);}
   .nav-actions{display:flex; align-items:center; gap:0.9rem;}
+
+  /* ---------- Barrierefreiheits-Werkzeugleiste (Schriftgröße/Kontrast) ---------- */
+  .a11y-wrap{position:relative;}
+  .a11y-toggle{
+    width:2.1rem; height:2.1rem; border-radius:50%;
+    border:1px solid var(--line); background:transparent; color:var(--ink-soft);
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+  }
+  .a11y-toggle:hover{color:var(--ink); border-color:var(--ink);}
+  .a11y-toggle svg{width:1.1rem; height:1.1rem;}
+  .a11y-panel{
+    position:absolute; top:calc(100% + 0.6rem); right:0;
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:0 12px 30px rgba(28,31,27,0.15);
+    padding:0.9rem; display:flex; flex-direction:column; gap:0.7rem;
+    min-width:190px;
+    opacity:0; transform:translateY(-6px); pointer-events:none;
+    transition:opacity .15s ease, transform .15s ease;
+    z-index:60;
+  }
+  .a11y-wrap.is-open .a11y-panel{opacity:1; transform:translateY(0); pointer-events:auto;}
+  .a11y-row{display:flex; align-items:center; justify-content:space-between; gap:0.6rem;}
+  .a11y-row > span{font-size:0.8rem; color:var(--ink-soft);}
+  .a11y-font-controls{display:flex; align-items:center; gap:0.4rem;}
+  .a11y-font-btn{
+    width:1.9rem; height:1.9rem; border-radius:50%; border:1px solid var(--line);
+    background:var(--bg); color:var(--ink); font-size:0.85rem; font-weight:700;
+    cursor:pointer; display:flex; align-items:center; justify-content:center;
+  }
+  .a11y-font-btn:hover{border-color:var(--pine); color:var(--pine);}
+  .a11y-contrast-btn{
+    border:1px solid var(--line); background:var(--bg); color:var(--ink);
+    font:inherit; font-size:0.78rem; font-weight:600; padding:0.4rem 0.7rem;
+    border-radius:999px; cursor:pointer;
+  }
+  .a11y-contrast-btn.is-active{background:var(--pine); color:var(--paper); border-color:var(--pine);}
+
+  html.high-contrast{
+    --bg:#ffffff; --bg-alt:#ffffff; --ink:#000000; --ink-soft:#000000;
+    --line:#000000; --paper:#ffffff;
+  }
+  html.high-contrast .ambient-blob{display:none;}
 
   /* ---------- Header ---------- */
   header{
@@ -1295,6 +1349,25 @@
       <li><a href="#kontakt"><span data-i18n="de">Kontakt</span><span data-i18n="en">Contact</span></a></li>
     </ul>
     <div class="nav-actions">
+      <div class="a11y-wrap" id="a11yWrap">
+        <button type="button" class="a11y-toggle" id="a11yToggle" aria-expanded="false" aria-label="Anzeige-Einstellungen: Schriftgröße und Kontrast">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18Z" fill="currentColor" stroke="none"/></svg>
+        </button>
+        <div class="a11y-panel" id="a11yPanel">
+          <div class="a11y-row">
+            <span><span data-i18n="de">Schriftgröße</span><span data-i18n="en">Text size</span></span>
+            <div class="a11y-font-controls">
+              <button type="button" class="a11y-font-btn" id="a11yFontDecrease" aria-label="Schrift verkleinern">A−</button>
+              <span id="a11yFontReset" style="font-size:0.75rem; color:var(--ink-soft); min-width:2.2rem; text-align:center;">100%</span>
+              <button type="button" class="a11y-font-btn" id="a11yFontIncrease" aria-label="Schrift vergrößern">A+</button>
+            </div>
+          </div>
+          <div class="a11y-row">
+            <span><span data-i18n="de">Kontrast</span><span data-i18n="en">Contrast</span></span>
+            <button type="button" class="a11y-contrast-btn" id="a11yContrastToggle" aria-pressed="false"><span data-i18n="de">Hoher Kontrast</span><span data-i18n="en">High contrast</span></button>
+          </div>
+        </div>
+      </div>
       <!-- DEMO-MECHANIK: Nur Nav/Hero/Section-Überschriften/Footer übersetzt, siehe erkenntnisse.md. -->
       <button type="button" class="lang-toggle" id="langToggle" aria-label="Sprache wechseln / switch language">
         <span data-i18n="de">EN</span><span data-i18n="en">DE</span>
@@ -1950,6 +2023,28 @@
     </div>
   </section>
 
+  <!-- MOCK-DATEN: Presse-/Auszeichnungs-Leiste, erfundene Publikationen (fiktiver Salon, kein Bezug zu echten Medien). -->
+  <section class="brand-strip ambient-shell">
+    <span class="ambient-blob b" aria-hidden="true" style="width:220px; height:220px; top:-120px; left:30%; right:auto;"></span>
+    <div class="wrap" style="position:relative; z-index:1;">
+      <p class="eyebrow"><span data-i18n="de">Erwähnt in</span><span data-i18n="en">Featured in</span></p>
+      <div class="brand-row">
+        <span class="brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M3 9h18"/><path d="M7 13h5"/><path d="M7 16.5h8"/></svg>
+          Pfalz Lifestyle Magazin
+        </span>
+        <span class="brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          Kaiserslauterer Rundschau
+        </span>
+        <span class="brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9.5 L16.5 14 L17.7 20.5 L12 17.3 L6.3 20.5 L7.5 14 L3 9.5 L9.5 8.5 Z"/></svg>
+          <span data-i18n="de">Beauty Insider Award 2025</span><span data-i18n="en">Beauty Insider Award 2025</span>
+        </span>
+      </div>
+    </div>
+  </section>
+
   <!-- MOCK-DATEN: Gutschein-Panel, einfachste Ausbaustufe (Anfrage statt Online-Kauf, siehe erkenntnisse.md Kategorie F). -->
   <section class="ambient-shell">
     <span class="ambient-blob a" aria-hidden="true" style="top:-60px; left:-40px; bottom:auto; right:auto;"></span>
@@ -2028,6 +2123,32 @@
             <span data-i18n="en">Yes, in any amount — just ask via the contact form or directly at the salon.</span>
           </p>
         </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Ratgeber (Blog-Teaser, SEO-Modul) ---------- -->
+  <section id="ratgeber" class="ambient-shell" style="background:var(--bg-alt);">
+    <span class="ambient-blob c" aria-hidden="true" style="top:-80px; right:-60px; bottom:auto; left:auto;"></span>
+    <span class="ambient-blob a" aria-hidden="true" style="top:auto; bottom:-90px; left:10%; right:auto;"></span>
+    <div class="wrap" style="position:relative; z-index:1;">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span data-i18n="de">Ratgeber</span><span data-i18n="en">Guides</span></p>
+        <h2><span data-i18n="de">Gut zu wissen, rund ums Haar</span><span data-i18n="en">Good to know, all about hair</span></h2>
+      </div>
+      <div class="gallery-grid" style="grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));">
+        <a class="gallery-tile reveal tilt" href="ratgeber-haarpflege-winter.html" style="text-decoration:none; color:inherit;">
+          <img src="assets/img/ratgeber-winterhaar.jpg" alt="" loading="lazy" decoding="async">
+          <span class="caption" aria-hidden="true"><span data-i18n="de">5 Tipps für gesundes Haar im Winter</span><span data-i18n="en">5 tips for healthy hair in winter</span></span>
+        </a>
+        <a class="gallery-tile reveal tilt" href="ratgeber-balayage-oder-straehnen.html" style="text-decoration:none; color:inherit;">
+          <img src="assets/img/ratgeber-farbberatung.jpg" alt="" loading="lazy" decoding="async">
+          <span class="caption" aria-hidden="true"><span data-i18n="de">Balayage oder Foliensträhnen?</span><span data-i18n="en">Balayage or foil highlights?</span></span>
+        </a>
+        <a class="gallery-tile reveal tilt" href="ratgeber-salontermin-vorbereiten.html" style="text-decoration:none; color:inherit;">
+          <img src="assets/img/ratgeber-terminvorbereitung.jpg" alt="" loading="lazy" decoding="async">
+          <span class="caption" aria-hidden="true"><span data-i18n="de">So bereitest du dich auf deinen Termin vor</span><span data-i18n="en">How to prepare for your appointment</span></span>
+        </a>
       </div>
     </div>
   </section>
@@ -2176,6 +2297,7 @@
     <div>
       <a href="impressum.html"><span data-i18n="de">Impressum</span><span data-i18n="en">Legal Notice</span></a>
       <a href="datenschutz.html"><span data-i18n="de">Datenschutz</span><span data-i18n="en">Privacy Policy</span></a>
+      <a href="barrierefreiheit.html"><span data-i18n="de">Barrierefreiheit</span><span data-i18n="en">Accessibility</span></a>
     </div>
   </div>
 </footer>
@@ -2183,6 +2305,12 @@
 <script>
 (function(){
   document.body.classList.add('js-enabled');
+
+  if('serviceWorker' in navigator){
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('sw.js').catch(function(){ /* PWA-Feature optional, kein Fehler-UI noetig */ });
+    });
+  }
 
   var pageReduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(pageReduceMotion){
@@ -2226,6 +2354,68 @@
       });
     }
   } catch(e) { /* sessionStorage evtl. nicht verfügbar (private mode) — Leiste bleibt dann einfach sichtbar */ }
+
+  var a11yWrap = document.getElementById('a11yWrap');
+  var a11yToggle = document.getElementById('a11yToggle');
+  var a11yFontDecrease = document.getElementById('a11yFontDecrease');
+  var a11yFontIncrease = document.getElementById('a11yFontIncrease');
+  var a11yFontReset = document.getElementById('a11yFontReset');
+  var a11yContrastToggle = document.getElementById('a11yContrastToggle');
+  var a11yFontScale = 100;
+
+  function applyA11yFontScale(){
+    document.documentElement.style.fontSize = a11yFontScale + '%';
+    if(a11yFontReset) a11yFontReset.textContent = a11yFontScale + '%';
+  }
+  function saveA11yPrefs(){
+    try {
+      localStorage.setItem('salonLindenblattFontScale', String(a11yFontScale));
+      localStorage.setItem('salonLindenblattContrast', document.documentElement.classList.contains('high-contrast') ? '1' : '0');
+    } catch(e) { /* localStorage evtl. nicht verfügbar */ }
+  }
+  try {
+    var savedScale = parseInt(localStorage.getItem('salonLindenblattFontScale'), 10);
+    if(!isNaN(savedScale) && savedScale >= 90 && savedScale <= 130){ a11yFontScale = savedScale; }
+    if(localStorage.getItem('salonLindenblattContrast') === '1'){ document.documentElement.classList.add('high-contrast'); }
+  } catch(e) { /* localStorage evtl. nicht verfügbar */ }
+  applyA11yFontScale();
+  if(a11yContrastToggle){
+    var contrastIsActive = document.documentElement.classList.contains('high-contrast');
+    a11yContrastToggle.classList.toggle('is-active', contrastIsActive);
+    a11yContrastToggle.setAttribute('aria-pressed', contrastIsActive ? 'true' : 'false');
+  }
+  if(a11yWrap && a11yToggle){
+    a11yToggle.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = a11yWrap.classList.toggle('is-open');
+      a11yToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    document.addEventListener('click', function(e){
+      if(!a11yWrap.contains(e.target)) a11yWrap.classList.remove('is-open');
+    });
+  }
+  if(a11yFontDecrease){
+    a11yFontDecrease.addEventListener('click', function(){
+      a11yFontScale = Math.max(90, a11yFontScale - 10);
+      applyA11yFontScale();
+      saveA11yPrefs();
+    });
+  }
+  if(a11yFontIncrease){
+    a11yFontIncrease.addEventListener('click', function(){
+      a11yFontScale = Math.min(130, a11yFontScale + 10);
+      applyA11yFontScale();
+      saveA11yPrefs();
+    });
+  }
+  if(a11yContrastToggle){
+    a11yContrastToggle.addEventListener('click', function(){
+      var isActive = document.documentElement.classList.toggle('high-contrast');
+      a11yContrastToggle.classList.toggle('is-active', isActive);
+      a11yContrastToggle.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      saveA11yPrefs();
+    });
+  }
 
   var langToggle = document.getElementById('langToggle');
   if(langToggle){

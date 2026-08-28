@@ -1,0 +1,14 @@
+{
+  "name": "Salon Lindenblatt",
+  "short_name": "Lindenblatt",
+  "description": "Friseursalon in Kaiserslautern — Leistungen, Team, Online-Terminbuchung.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#EEF0E9",
+  "theme_color": "#2B3B2E",
+  "lang": "de",
+  "icons": [
+    { "src": "assets/img/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

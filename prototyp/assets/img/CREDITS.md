@@ -26,6 +26,13 @@ Abschnitt 10.3.
 | instagram-schnitt.jpg | 7755226 | https://www.pexels.com/photo/7755226/ |
 | instagram-styling.jpg | 6503332 | https://www.pexels.com/photo/6503332/ |
 | instagram-bart.jpg | 7518752 | https://www.pexels.com/photo/7518752/ |
+| ratgeber-winterhaar.jpg | 6968500 | https://www.pexels.com/photo/6968500/ |
+| ratgeber-farbberatung.jpg | 7819732 | https://www.pexels.com/photo/7819732/ |
+| ratgeber-terminvorbereitung.jpg | 7819723 | https://www.pexels.com/photo/7819723/ |
+
+`icon.svg` ist kein Stock-Foto, sondern eine eigene, im Prototyp
+gezeichnete SVG-Variante des Salon-Logos (PWA-Icon), keine
+Pexels-Herkunft.
 
 Team-Fotos am 2026-08-23 ausgetauscht (Bitte um Portraits, die zu den
 deutschen Namen der fiktiven Team-Mitglieder passen).
