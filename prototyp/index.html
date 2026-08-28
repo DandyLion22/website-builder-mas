@@ -176,17 +176,17 @@
   .glow-fab{position:relative;}
   .glow-fab::before{
     content:"";
-    position:absolute; inset:-10px;
+    position:absolute; inset:-13px;
     border-radius:50%;
-    background:radial-gradient(circle, rgba(43,59,46,0.5) 0%, rgba(43,59,46,0) 70%);
-    filter:blur(7px);
+    background:radial-gradient(circle, rgba(43,59,46,0.65) 0%, rgba(43,59,46,0) 70%);
+    filter:blur(8px);
     z-index:-1;
     animation:fabGlowPulse 2.8s ease-in-out infinite;
     pointer-events:none;
   }
   @keyframes fabGlowPulse{
-    0%, 100%{ opacity:0.35; transform:scale(0.92); }
-    50%{ opacity:0.75; transform:scale(1.1); }
+    0%, 100%{ opacity:0.5; transform:scale(0.92); }
+    50%{ opacity:1; transform:scale(1.12); }
   }
   .fab-cluster.chat-active .social-fab-group{
     pointer-events:none;
