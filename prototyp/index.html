@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <!--
-  KONKRETER PROTOTYP — Branche: Frisörsalon
+  KONKRETER PROTOTYP - Branche: Frisörsalon
   Basiert auf vorlage-friseursalon.html (Template-Bibliothek, Abschnitt 3.8).
 
   Fiktive Beispiel-Website "Salon Lindenblatt". Alle Inhalte (Adresse,
   Telefon, Namen, Preise) sind erfunden und dienen nur dazu, den vollen
-  Website-Aufbau inkl. Rechtstexten und Deployment durchzuspielen — siehe
+  Website-Aufbau inkl. Rechtstexten und Deployment durchzuspielen - siehe
   mas-website-builder-planung.md, Abschnitt 10 für die daraus abgeleiteten
   Erkenntnisse.
 -->
@@ -13,9 +13,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Salon Lindenblatt — Friseur in Kaiserslautern</title>
+<title>Salon Lindenblatt - Friseur in Kaiserslautern</title>
 <meta name="description" content="Salon Lindenblatt in Kaiserslautern: Schnitt, Farbe und Styling mit Zeit für persönliche Beratung.">
-<meta property="og:title" content="Salon Lindenblatt — Friseur in Kaiserslautern">
+<meta property="og:title" content="Salon Lindenblatt - Friseur in Kaiserslautern">
 <meta property="og:description" content="Schnitt, Farbe und Styling mit Zeit für persönliche Beratung.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://dandylion22.github.io/website-builder-mas/assets/img/salon-innenraum.jpg">
@@ -607,7 +607,7 @@
   /*
     Hero-Bildfläche. War ursprünglich ein abstraktes Farbmuster
     (laut Planungsdatei Abschnitt 10.2 als branchenübergreifend
-    konstantes Signature-Element gedacht) — auf ausdrücklichen Wunsch
+    konstantes Signature-Element gedacht) - auf ausdrücklichen Wunsch
     durch ein echtes Salon-Foto ersetzt. Bewusste Abweichung von der
     dokumentierten Konstanz, siehe erkenntnisse.md.
   */
@@ -1371,8 +1371,8 @@
 <div class="announce-bar" id="announceBar">
   <div class="announce-inner">
     <span>
-      <span data-i18n="de">Hinweis: Am 24.12. und 31.12. geschlossen — reguläre Öffnungszeiten sonst wie gewohnt.</span>
-      <span data-i18n="en">Notice: Closed on Dec 24 &amp; 31 — regular hours apply otherwise.</span>
+      <span data-i18n="de">Hinweis: Am 24.12. und 31.12. geschlossen - reguläre Öffnungszeiten sonst wie gewohnt.</span>
+      <span data-i18n="en">Notice: Closed on Dec 24 &amp; 31 - regular hours apply otherwise.</span>
     </span>
     <button type="button" class="announce-close" id="announceClose" aria-label="Hinweis schließen">
       <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
@@ -1384,12 +1384,12 @@
   Kontakt-Button-Cluster unten rechts: Chat-Button links, Social-Media-
   Button rechts daneben, beide mit sanftem Glow-Halo. Der Social-Media-
   Button ist eingeklappt (WhatsApp/Instagram/Facebook/TikTok dahinter
-  verborgen) und klappt bei Hover/Fokus/Klick nach oben auf — Klick
+  verborgen) und klappt bei Hover/Fokus/Klick nach oben auf - Klick
   zusätzlich zu Hover als Fallback für Touch-Geräte (kein Hover) und
   Tastatur-Bedienung (:focus-within). Chat-DEMO-MECHANIK: fest
   hinterlegte Antworten plus einfaches Freitext-Keyword-Matching, keine
   echte Live-Chat-Anbindung. Social-Media-Links sind Platzhalter
-  (href="#"), analog zu den übrigen Social-Media-Links im Prototyp —
+  (href="#"), analog zu den übrigen Social-Media-Links im Prototyp -
   siehe erkenntnisse.md.
 -->
 <div class="fab-cluster" id="fabCluster">
@@ -1783,12 +1783,12 @@
     Entscheidung (siehe erkenntnisse.md): Die zuvor hier vorhandene,
     selbst gebaute Mehrschritt-Buchungsstrecke wurde wieder entfernt.
     Ohne echtes Backend ist Terminabsage/-bestätigung damit nicht
-    verlässlich lösbar — das Risiko will der Betreiber Kunden nicht
+    verlässlich lösbar - das Risiko will der Betreiber Kunden nicht
     zumuten. Online-Terminbuchung gibt es jetzt ausschließlich über
     Fresha, als optionales Zusatzmodul (siehe Modul-Katalog Kategorie D
     in erkenntnisse.md), das der Kunde dazubuchen kann. Der Fresha-Link
     unten führt zu einem echten, aber befristeten 7-Tage-Testaccount
-    ("Salon Lindenblatt Demo") — läuft nach Ablauf vermutlich auf eine
+    ("Salon Lindenblatt Demo") - läuft nach Ablauf vermutlich auf eine
     Fresha-Fehlerseite, dann erneuern.
   -->
   <section id="buchen" class="ambient-shell" style="background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
@@ -1799,8 +1799,8 @@
         <p class="eyebrow"><span data-i18n="de">Online buchen</span><span data-i18n="en">Book online</span></p>
         <h2><span data-i18n="de">Termine bequem online buchen</span><span data-i18n="en">Book your appointment online</span></h2>
         <p>
-          <span data-i18n="de">Die Online-Terminbuchung läuft über unseren Partner Fresha — sicher, mit Erinnerungen und einfacher Absage-/Umbuchungsfunktion.</span>
-          <span data-i18n="en">Online booking runs through our partner Fresha — secure, with reminders and easy cancellation/rescheduling.</span>
+          <span data-i18n="de">Die Online-Terminbuchung läuft über unseren Partner Fresha - sicher, mit Erinnerungen und einfacher Absage-/Umbuchungsfunktion.</span>
+          <span data-i18n="en">Online booking runs through our partner Fresha - secure, with reminders and easy cancellation/rescheduling.</span>
         </p>
       </div>
 
@@ -1878,8 +1878,8 @@
           <svg class="career-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7.5" width="19" height="12.5" rx="2"/><path d="M8.5 7.5V5.8a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2V7.5"/><path d="M2.5 13h19"/></svg>
           <p>
             <strong><span data-i18n="de">Werde Teil des Teams</span><span data-i18n="en">Join the team</span></strong>
-            <span data-i18n="de">Wir suchen laufend Verstärkung — auch Ausbildungsplätze.</span>
-            <span data-i18n="en">We're always looking for new talent — apprenticeships included.</span>
+            <span data-i18n="de">Wir suchen laufend Verstärkung - auch Ausbildungsplätze.</span>
+            <span data-i18n="en">We're always looking for new talent - apprenticeships included.</span>
           </p>
         </div>
         <a class="cta-ghost magnetic" href="mailto:info@salon-lindenblatt-beispiel.de?subject=Initiativbewerbung"><span data-i18n="de">Initiativbewerbung senden</span><span data-i18n="en">Send a speculative application</span></a>
@@ -1911,7 +1911,7 @@
     DEMO-MECHANIK, kein echtes Ergebnis: Es gibt keine echten, gepaarten
     Vorher/Nachher-Fotos derselben Person (siehe erkenntnisse.md). Um
     trotzdem nichts Irreführendes zu zeigen, nutzt der Regler zweimal
-    dasselbe Foto — "vorher" ist per CSS-Filter entsättigt/abgedunkelt.
+    dasselbe Foto - "vorher" ist per CSS-Filter entsättigt/abgedunkelt.
     Zeigt die Interaktions-Mechanik, nicht ein echtes Styling-Ergebnis.
   -->
   <section class="ambient-shell">
@@ -1931,19 +1931,19 @@
         <input type="range" class="compare-range" id="compareRange" min="0" max="100" value="50" aria-label="Vorher/Nachher-Regler">
       </div>
       <p class="compare-caption">
-        <span data-i18n="de">Demo-Mechanik mit einem Beispielfoto — bei echten Kund:innen mit echten, freigegebenen Vorher/Nachher-Aufnahmen.</span>
-        <span data-i18n="en">Demo mechanic with a sample photo — real client photos would be used with their consent.</span>
+        <span data-i18n="de">Demo-Mechanik mit einem Beispielfoto - bei echten Kund:innen mit echten, freigegebenen Vorher/Nachher-Aufnahmen.</span>
+        <span data-i18n="en">Demo mechanic with a sample photo - real client photos would be used with their consent.</span>
       </p>
     </div>
   </section>
 
   <!--
-    MOCK-DATEN — Betriebsmodell: manuell gepflegt, keine API.
+    MOCK-DATEN - Betriebsmodell: manuell gepflegt, keine API.
     Entscheidung (siehe prototyp/erkenntnisse.md): Instagram/Meta Graph
     API bewusst verworfen (Token-Verwaltung, App-Review, DSGVO-Aufwand
     unverhältnismäßig für den Nutzen). Stattdessen: Salon liefert
     gelegentlich ein paar Fotos (Handy-Export, E-Mail o. Ä.), die hier
-    von Hand als lokale Dateien ausgetauscht werden — genau wie die
+    von Hand als lokale Dateien ausgetauscht werden - genau wie die
     Galerie-Fotos. Diese 6 <img>-Tags + die Like-/Kommentarzahlen sind
     die einzigen Stellen, die beim Aktualisieren angefasst werden müssen.
   -->
@@ -1956,8 +1956,8 @@
         <p class="eyebrow">Social</p>
         <h2><span data-i18n="de">Folgt uns auf Instagram</span><span data-i18n="en">Follow us on Instagram</span></h2>
         <p>
-          <span data-i18n="de">Aktuelle Ergebnisse und Einblicke in den Salon —</span>
-          <span data-i18n="en">Recent results and behind-the-scenes looks —</span>
+          <span data-i18n="de">Aktuelle Ergebnisse und Einblicke in den Salon -</span>
+          <span data-i18n="en">Recent results and behind-the-scenes looks -</span>
           <a class="ig-link" href="#" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
             @salon.lindenblatt
@@ -2031,7 +2031,7 @@
         <p class="eyebrow"><span data-i18n="de">Stimmen</span><span data-i18n="en">Reviews</span></p>
         <h2><span data-i18n="de">Was Kund:innen sagen</span><span data-i18n="en">What our clients say</span></h2>
         <!--
-          MOCK-DATEN — Betriebsmodell: manuell gepflegt, keine API.
+          MOCK-DATEN - Betriebsmodell: manuell gepflegt, keine API.
           Entscheidung (siehe prototyp/erkenntnisse.md): Google Places
           API bewusst verworfen (API-Key/Billing/Cache-Regeln
           unverhältnismäßig für den Nutzen). Stattdessen: Betreiber
@@ -2039,7 +2039,7 @@
           und trägt neue/bessere Bewertungen hier von Hand als Text ein
           (Name, Zeitangabe, Zitat je Karte). Die Google-Optik (Logo,
           Sternfarbe #FBBC04) bleibt als reines Design-Signal für "diese
-          Bewertungen stammen von Google" — ohne Live-Datenanbindung.
+          Bewertungen stammen von Google" - ohne Live-Datenanbindung.
         -->
         <div class="rating google">
           <span class="stars" aria-hidden="true">
@@ -2143,8 +2143,8 @@
             <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5 L12.6 7.2 L19 7.9 L14.2 12.1 L15.6 18.4 L10 15.1 L4.4 18.4 L5.8 12.1 L1 7.9 L7.4 7.2 Z"/></svg>
           </div>
           <p>
-            <span data-i18n="de">„Habe zum ersten Mal Balayage machen lassen — bin begeistert vom Ergebnis."</span>
-            <span data-i18n="en">"Had balayage done for the first time — thrilled with the result."</span>
+            <span data-i18n="de">„Habe zum ersten Mal Balayage machen lassen - bin begeistert vom Ergebnis."</span>
+            <span data-i18n="en">"Had balayage done for the first time - thrilled with the result."</span>
           </p>
         </div>
       </div>
@@ -2194,7 +2194,7 @@
           <svg class="loyalty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="12" cy="12" r="4"/></svg>
           <div>
             <h3><span data-i18n="de">Treueprogramm</span><span data-i18n="en">Loyalty programme</span></h3>
-            <p><span data-i18n="de">Bei jedem Besuch sammelst du einen Stempel — die 10. Behandlung ist gratis.</span><span data-i18n="en">Collect a stamp with every visit — your 10th treatment is on us.</span></p>
+            <p><span data-i18n="de">Bei jedem Besuch sammelst du einen Stempel - die 10. Behandlung ist gratis.</span><span data-i18n="en">Collect a stamp with every visit - your 10th treatment is on us.</span></p>
           </div>
         </div>
         <div class="loyalty-stamps" aria-hidden="true">
@@ -2223,8 +2223,8 @@
           <svg class="voucher-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="9" width="19" height="12" rx="1.5"/><path d="M2.5 13.5h19"/><path d="M12 9v12"/><path d="M12 9c-1.6 0-3.2-1-3.2-2.8S9.6 3.4 12 5.6c2.4-2.2 3.2-.4 3.2 0.6S13.6 9 12 9Z"/></svg>
           <h3><span data-i18n="de">Gutscheine verschenken</span><span data-i18n="en">Give the gift of a voucher</span></h3>
           <p>
-            <span data-i18n="de">Ob Geburtstag oder einfach so — Gutscheine für Salon Lindenblatt gibt es in jedem Wert.</span>
-            <span data-i18n="en">Whether for a birthday or just because — Salon Lindenblatt vouchers are available in any amount.</span>
+            <span data-i18n="de">Ob Geburtstag oder einfach so - Gutscheine für Salon Lindenblatt gibt es in jedem Wert.</span>
+            <span data-i18n="en">Whether for a birthday or just because - Salon Lindenblatt vouchers are available in any amount.</span>
           </p>
         </div>
         <a class="cta magnetic" href="mailto:info@salon-lindenblatt-beispiel.de?subject=Gutschein-Anfrage"><span data-i18n="de">Gutschein anfragen</span><span data-i18n="en">Request a voucher</span></a>
@@ -2258,8 +2258,8 @@
             <span class="plus" aria-hidden="true"></span>
           </summary>
           <p>
-            <span data-i18n="de">Bei akutem Bedarf einfach anrufen oder per WhatsApp schreiben — häufig lässt sich noch am selben Tag etwas einrichten.</span>
-            <span data-i18n="en">Just call or message us on WhatsApp — we can often fit you in on the same day.</span>
+            <span data-i18n="de">Bei akutem Bedarf einfach anrufen oder per WhatsApp schreiben - häufig lässt sich noch am selben Tag etwas einrichten.</span>
+            <span data-i18n="en">Just call or message us on WhatsApp - we can often fit you in on the same day.</span>
           </p>
         </details>
         <details class="faq-item">
@@ -2278,8 +2278,8 @@
             <span class="plus" aria-hidden="true"></span>
           </summary>
           <p>
-            <span data-i18n="de">Bitte so früh wie möglich absagen oder verschieben — am einfachsten per Telefon oder WhatsApp, spätestens 24 Stunden vorher.</span>
-            <span data-i18n="en">Please cancel or reschedule as early as possible — easiest by phone or WhatsApp, at least 24 hours in advance.</span>
+            <span data-i18n="de">Bitte so früh wie möglich absagen oder verschieben - am einfachsten per Telefon oder WhatsApp, spätestens 24 Stunden vorher.</span>
+            <span data-i18n="en">Please cancel or reschedule as early as possible - easiest by phone or WhatsApp, at least 24 hours in advance.</span>
           </p>
         </details>
         <details class="faq-item">
@@ -2288,8 +2288,8 @@
             <span class="plus" aria-hidden="true"></span>
           </summary>
           <p>
-            <span data-i18n="de">Ja, in jedem Wert — einfach über das Kontaktformular oder direkt im Salon anfragen.</span>
-            <span data-i18n="en">Yes, in any amount — just ask via the contact form or directly at the salon.</span>
+            <span data-i18n="de">Ja, in jedem Wert - einfach über das Kontaktformular oder direkt im Salon anfragen.</span>
+            <span data-i18n="en">Yes, in any amount - just ask via the contact form or directly at the salon.</span>
           </p>
         </details>
       </div>
@@ -2358,7 +2358,7 @@
 
         <!--
           Echte Berechnung aus den Öffnungszeiten unten, kein Drittanbieter
-          und keine feste Ansage — nutzt die Uhrzeit/Zeitzone des
+          und keine feste Ansage - nutzt die Uhrzeit/Zeitzone des
           Besucher-Geräts. Siehe erkenntnisse.md.
         -->
         <div class="open-status" id="openStatus" aria-live="polite"></div>
@@ -2366,8 +2366,8 @@
         <div class="location-panel" data-location-panel="hauptstrasse">
           <ul class="hours-list">
             <li><span><span data-i18n="de">Montag</span><span data-i18n="en">Monday</span></span><span><span data-i18n="de">geschlossen</span><span data-i18n="en">closed</span></span></li>
-            <li><span><span data-i18n="de">Dienstag – Freitag</span><span data-i18n="en">Tuesday – Friday</span></span><span>9:00 – 18:30</span></li>
-            <li><span><span data-i18n="de">Samstag</span><span data-i18n="en">Saturday</span></span><span>9:00 – 14:00</span></li>
+            <li><span><span data-i18n="de">Dienstag - Freitag</span><span data-i18n="en">Tuesday - Friday</span></span><span>9:00 - 18:30</span></li>
+            <li><span><span data-i18n="de">Samstag</span><span data-i18n="en">Saturday</span></span><span>9:00 - 14:00</span></li>
             <li><span><span data-i18n="de">Sonntag</span><span data-i18n="en">Sunday</span></span><span><span data-i18n="de">geschlossen</span><span data-i18n="en">closed</span></span></li>
           </ul>
           <p style="margin-top:1.6rem;">
@@ -2383,7 +2383,7 @@
           <!--
             DRITTANBIETER-EMBED, bewusst mit Zwei-Klick-Lösung:
             Betriebsmodell 3 aus prototyp/erkenntnisse.md (Kategorie E).
-            Die Karte lädt NICHT automatisch beim Seitenaufruf — erst nach
+            Die Karte lädt NICHT automatisch beim Seitenaufruf - erst nach
             Klick auf "Karte laden" wird eine Verbindung zu Google
             hergestellt. Siehe datenschutz.html für die zugehörige
             Datenschutz-Klausel. Nur zu Vorführzwecken im Prototyp aktiv,
@@ -2393,7 +2393,7 @@
             <button type="button" class="map-load-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
               <span data-i18n="de">Karte laden</span><span data-i18n="en">Load map</span>
-              <span class="map-hint"><span data-i18n="de">Lädt Inhalte von Google Maps — dabei wird eine Verbindung zu Google hergestellt.</span><span data-i18n="en">Loads content from Google Maps — this connects to Google.</span></span>
+              <span class="map-hint"><span data-i18n="de">Lädt Inhalte von Google Maps - dabei wird eine Verbindung zu Google hergestellt.</span><span data-i18n="en">Loads content from Google Maps - this connects to Google.</span></span>
             </button>
           </div>
         </div>
@@ -2401,8 +2401,8 @@
         <div class="location-panel" data-location-panel="filiale" hidden>
           <ul class="hours-list">
             <li><span><span data-i18n="de">Montag</span><span data-i18n="en">Monday</span></span><span><span data-i18n="de">geschlossen</span><span data-i18n="en">closed</span></span></li>
-            <li><span><span data-i18n="de">Dienstag – Freitag</span><span data-i18n="en">Tuesday – Friday</span></span><span>10:00 – 19:00</span></li>
-            <li><span><span data-i18n="de">Samstag</span><span data-i18n="en">Saturday</span></span><span>9:00 – 13:00</span></li>
+            <li><span><span data-i18n="de">Dienstag - Freitag</span><span data-i18n="en">Tuesday - Friday</span></span><span>10:00 - 19:00</span></li>
+            <li><span><span data-i18n="de">Samstag</span><span data-i18n="en">Saturday</span></span><span>9:00 - 13:00</span></li>
             <li><span><span data-i18n="de">Sonntag</span><span data-i18n="en">Sunday</span></span><span><span data-i18n="de">geschlossen</span><span data-i18n="en">closed</span></span></li>
           </ul>
           <p style="margin-top:1.6rem;">
@@ -2418,7 +2418,7 @@
             <button type="button" class="map-load-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
               <span data-i18n="de">Karte laden</span><span data-i18n="en">Load map</span>
-              <span class="map-hint"><span data-i18n="de">Lädt Inhalte von Google Maps — dabei wird eine Verbindung zu Google hergestellt.</span><span data-i18n="en">Loads content from Google Maps — this connects to Google.</span></span>
+              <span class="map-hint"><span data-i18n="de">Lädt Inhalte von Google Maps - dabei wird eine Verbindung zu Google hergestellt.</span><span data-i18n="en">Loads content from Google Maps - this connects to Google.</span></span>
             </button>
           </div>
         </div>
@@ -2522,7 +2522,7 @@
         sessionStorage.setItem('announceDismissed', '1');
       });
     }
-  } catch(e) { /* sessionStorage evtl. nicht verfügbar (private mode) — Leiste bleibt dann einfach sichtbar */ }
+  } catch(e) { /* sessionStorage evtl. nicht verfügbar (private mode) - Leiste bleibt dann einfach sichtbar */ }
 
   var a11yWrap = document.getElementById('a11yWrap');
   var a11yToggle = document.getElementById('a11yToggle');
@@ -2593,7 +2593,7 @@
       if(savedLang === 'en' || savedLang === 'de'){
         document.documentElement.lang = savedLang;
       }
-    } catch(e) { /* localStorage evtl. nicht verfügbar — Standard bleibt "de" */ }
+    } catch(e) { /* localStorage evtl. nicht verfügbar - Standard bleibt "de" */ }
     langToggle.addEventListener('click', function(){
       var next = document.documentElement.lang === 'de' ? 'en' : 'de';
       document.documentElement.lang = next;
@@ -2748,12 +2748,12 @@
     });
     var CHAT_REPLIES = {
       hours: {
-        de: 'Unsere Öffnungszeiten: Di–Fr 9–18:30 Uhr, Sa 9–14 Uhr (Hauptstraße). Details siehe Abschnitt „Kontakt".',
-        en: 'Our hours: Tue–Fri 9am–6:30pm, Sat 9am–2pm (Hauptstraße location). Details in the "Contact" section.'
+        de: 'Unsere Öffnungszeiten: Di-Fr 9-18:30 Uhr, Sa 9-14 Uhr (Hauptstraße). Details siehe Abschnitt „Kontakt".',
+        en: 'Our hours: Tue-Fri 9am-6:30pm, Sat 9am-2pm (Hauptstraße location). Details in the "Contact" section.'
       },
       booking: {
-        de: 'Am schnellsten geht’s online über unseren Partner Fresha — Link im Abschnitt „Online buchen".',
-        en: 'Fastest way is online via our partner Fresha — link in the "Book online" section.'
+        de: 'Am schnellsten geht’s online über unseren Partner Fresha - Link im Abschnitt „Online buchen".',
+        en: 'Fastest way is online via our partner Fresha - link in the "Book online" section.'
       },
       prices: {
         de: 'Unsere aktuelle Preisliste findest du im Abschnitt „Leistungen" weiter oben.',
@@ -2764,12 +2764,12 @@
         en: 'Customer parking is right in front of the salon, or the Fackelstraße car park (about a 5-minute walk).'
       },
       cancellation: {
-        de: 'Bitte so früh wie möglich absagen oder verschieben — am einfachsten per Telefon oder WhatsApp, spätestens 24 Stunden vorher.',
-        en: 'Please cancel or reschedule as early as possible — easiest by phone or WhatsApp, at least 24 hours in advance.'
+        de: 'Bitte so früh wie möglich absagen oder verschieben - am einfachsten per Telefon oder WhatsApp, spätestens 24 Stunden vorher.',
+        en: 'Please cancel or reschedule as early as possible - easiest by phone or WhatsApp, at least 24 hours in advance.'
       },
       voucher: {
-        de: 'Gutscheine gibt es in jedem Wert — einfach im Abschnitt „Gutscheine verschenken" anfragen.',
-        en: 'Vouchers are available in any amount — just request one in the "Give the gift of a voucher" section.'
+        de: 'Gutscheine gibt es in jedem Wert - einfach im Abschnitt „Gutscheine verschenken" anfragen.',
+        en: 'Vouchers are available in any amount - just request one in the "Give the gift of a voucher" section.'
       }
     };
     var MORE_TOPICS = [
@@ -2893,8 +2893,8 @@
         en: {title: 'The Fresh Type', text: 'You value a clean, low-maintenance cut that always looks sharp.', services: [['Women\'s cut', '45 €'], ['Men\'s cut', '32 €']]}
       },
       color: {
-        de: {title: 'Der Verwandlungs-Typ', text: 'Du hast Lust auf Veränderung — Farbe ist dein Ding.', services: [['Balayage', '95 €'], ['Foliensträhnen', '75 €']]},
-        en: {title: 'The Transformer', text: 'You\'re up for change — colour is your thing.', services: [['Balayage', '95 €'], ['Foil highlights', '75 €']]}
+        de: {title: 'Der Verwandlungs-Typ', text: 'Du hast Lust auf Veränderung - Farbe ist dein Ding.', services: [['Balayage', '95 €'], ['Foliensträhnen', '75 €']]},
+        en: {title: 'The Transformer', text: 'You\'re up for change - colour is your thing.', services: [['Balayage', '95 €'], ['Foil highlights', '75 €']]}
       },
       style: {
         de: {title: 'Der Auftritts-Typ', text: 'Du liebst besondere Momente und den perfekten Auftritt.', services: [['Festliches Styling', '40 €'], ['Hochsteckfrisur / Brautstyling', '55 €']]},
