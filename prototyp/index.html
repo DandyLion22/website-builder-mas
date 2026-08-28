@@ -841,6 +841,43 @@
   .faq-item[open] summary .plus::after{transform:translate(-50%,-50%) rotate(90deg); opacity:0;}
   .faq-item p{margin:0 0 1.2rem; color:var(--ink-soft); max-width:60ch;}
 
+  /* ---------- Treuekarte ---------- */
+  .loyalty-panel{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:clamp(1.75rem,4vw,2.5rem);
+  }
+  .loyalty-head{display:flex; align-items:flex-start; gap:1rem; margin-bottom:1.5rem;}
+  .loyalty-icon{width:2rem; height:2rem; color:var(--brass); flex-shrink:0; margin-top:0.2rem;}
+  .loyalty-head h3{margin:0 0 0.4rem;}
+  .loyalty-head p{margin:0; color:var(--ink-soft); max-width:48ch;}
+  .loyalty-stamps{display:flex; flex-wrap:wrap; gap:0.6rem; margin-bottom:1.25rem;}
+  .stamp{
+    width:2.6rem; height:2.6rem;
+    border-radius:50%;
+    border:1.5px dashed var(--line);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--line);
+    flex-shrink:0;
+  }
+  .stamp svg{width:1.1rem; height:1.1rem;}
+  .stamp.is-filled{
+    border-style:solid;
+    border-color:var(--pine);
+    background:var(--pine);
+    color:var(--paper);
+  }
+  .stamp.is-final{
+    border-style:solid;
+    border-color:var(--brass);
+    color:var(--brass);
+    font-family:Georgia,serif;
+    font-weight:700;
+    font-size:0.9rem;
+  }
+  .loyalty-note{margin:0; font-size:0.85rem; color:var(--ink-soft);}
+
   /* ---------- Gutschein-Panel ---------- */
   .voucher-panel{
     background:var(--pine);
@@ -1191,6 +1228,22 @@
     border-left:3px solid var(--brass);
   }
   .quote p{margin:0; font-size:1.02rem;}
+
+  /* ---------- "Bewerte uns"-CTA ---------- */
+  .review-cta{
+    margin-top:2.25rem;
+    padding:1.75rem;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0.9rem;
+  }
+  .review-cta .google-g{width:1.9rem; height:1.9rem;}
+  .review-cta p{margin:0; color:var(--ink-soft); max-width:38ch;}
 
   /* ---------- Google-Bewertungs-Optik (Mock-Daten, siehe HTML-Kommentar) ---------- */
   .quote-header{display:flex; align-items:center; gap:0.75rem; margin-bottom:0.7rem;}
@@ -2095,6 +2148,18 @@
           </p>
         </div>
       </div>
+
+      <!-- MOCK-DATEN: Kein echtes Google-Unternehmensprofil vorhanden, daher Platzhalter-Link (href="#"). Bei einem echten Kunden führt dieser Button zur echten Google-Bewertungsseite (writereview?placeid=...). -->
+      <div class="review-cta reveal">
+        <svg class="google-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.11-7.45 2.11-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.19c-.44-1.32-.69-2.72-.69-4.19s.25-2.87.69-4.19v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.89l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.11l7.35 5.7c1.73-5.2 6.58-9.06 12.31-9.06z"/></svg>
+        <p>
+          <span data-i18n="de">War dein letzter Besuch bei uns gut? Wir freuen uns über eine Bewertung.</span>
+          <span data-i18n="en">Was your last visit a good one? We'd love to hear about it.</span>
+        </p>
+        <a class="cta-ghost magnetic" href="#" target="_blank" rel="noopener">
+          <span data-i18n="de">Jetzt bei Google bewerten</span><span data-i18n="en">Leave a review on Google</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -2116,6 +2181,35 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 L14.5 8.5 L21 9.5 L16.5 14 L17.7 20.5 L12 17.3 L6.3 20.5 L7.5 14 L3 9.5 L9.5 8.5 Z"/></svg>
           <span data-i18n="de">Beauty Insider Award 2025</span><span data-i18n="en">Beauty Insider Award 2025</span>
         </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOCK-DATEN: Treuekarte zeigt das Prinzip beispielhaft (6 von 10 Stempeln), kein echtes Nutzerkonto/Tracking -- eine reale Umsetzung würde physisch oder über das Buchungstool (Fresha) laufen, siehe erkenntnisse.md. -->
+  <section class="ambient-shell">
+    <span class="ambient-blob b" aria-hidden="true" style="top:-70px; right:-50px; bottom:auto; left:auto;"></span>
+    <div class="wrap" style="position:relative; z-index:1;">
+      <div class="loyalty-panel reveal">
+        <div class="loyalty-head">
+          <svg class="loyalty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="12" cy="12" r="4"/></svg>
+          <div>
+            <h3><span data-i18n="de">Treueprogramm</span><span data-i18n="en">Loyalty programme</span></h3>
+            <p><span data-i18n="de">Bei jedem Besuch sammelst du einen Stempel — die 10. Behandlung ist gratis.</span><span data-i18n="en">Collect a stamp with every visit — your 10th treatment is on us.</span></p>
+          </div>
+        </div>
+        <div class="loyalty-stamps" aria-hidden="true">
+          <span class="stamp is-filled"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M50 4C79 4 93 27 93 49C93 72 72 88 52 93C51.3 93.3 50.7 93.3 50 93C29 88 7 72 7 49C7 27 21 4 50 4Z"/></svg></span>
+          <span class="stamp is-filled"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M50 4C79 4 93 27 93 49C93 72 72 88 52 93C51.3 93.3 50.7 93.3 50 93C29 88 7 72 7 49C7 27 21 4 50 4Z"/></svg></span>
+          <span class="stamp is-filled"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M50 4C79 4 93 27 93 49C93 72 72 88 52 93C51.3 93.3 50.7 93.3 50 93C29 88 7 72 7 49C7 27 21 4 50 4Z"/></svg></span>
+          <span class="stamp is-filled"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M50 4C79 4 93 27 93 49C93 72 72 88 52 93C51.3 93.3 50.7 93.3 50 93C29 88 7 72 7 49C7 27 21 4 50 4Z"/></svg></span>
+          <span class="stamp is-filled"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M50 4C79 4 93 27 93 49C93 72 72 88 52 93C51.3 93.3 50.7 93.3 50 93C29 88 7 72 7 49C7 27 21 4 50 4Z"/></svg></span>
+          <span class="stamp is-filled"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M50 4C79 4 93 27 93 49C93 72 72 88 52 93C51.3 93.3 50.7 93.3 50 93C29 88 7 72 7 49C7 27 21 4 50 4Z"/></svg></span>
+          <span class="stamp"></span>
+          <span class="stamp"></span>
+          <span class="stamp"></span>
+          <span class="stamp is-final">10</span>
+        </div>
+        <p class="loyalty-note"><span data-i18n="de">Frag beim nächsten Termin einfach nach deiner Treuekarte.</span><span data-i18n="en">Just ask for your loyalty card at your next appointment.</span></p>
       </div>
     </div>
   </section>
