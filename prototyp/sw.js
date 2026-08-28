@@ -5,8 +5,8 @@
   das waere fuer einen echten Kunden separat zu entscheiden (Aufwand vs.
   Nutzen), siehe erkenntnisse.md.
 */
-var CACHE_NAME = 'salon-lindenblatt-v1';
-var PRECACHE = ['index.html', 'assets/img/icon.svg'];
+var CACHE_NAME = 'salon-lindenblatt-v2';
+var PRECACHE = ['index.html', 'assets/img/icon.svg', 'assets/img/icon-192.png', 'assets/img/icon-512.png'];
 
 self.addEventListener('install', function(event){
   event.waitUntil(

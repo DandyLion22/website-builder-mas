@@ -23,15 +23,13 @@
 <!--
   PWA-Grundausstattung: manifest.json + Service Worker (sw.js) fuer
   "Zur Startseite hinzufuegen" und eine einfache Offline-Basisseite.
-  apple-touch-icon zeigt bewusst auf das SVG-Icon, obwohl iOS offiziell
-  PNG erwartet -- ohne Bildkonvertierungs-Tool in dieser Umgebung war
-  kein PNG-Export moeglich. Auf iOS faellt das ggf. auf einen
-  automatischen Screenshot-Icon zurueck statt auf das echte Logo, siehe
+  Icons als SVG (Android/Chrome) und als echte PNGs in 180/192/512px
+  (iOS/Manifest), gerendert aus assets/img/icon.svg via sharp -- siehe
   erkenntnisse.md.
 -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#2B3B2E">
-<link rel="apple-touch-icon" href="assets/img/icon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon-180.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
