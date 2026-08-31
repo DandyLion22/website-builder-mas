@@ -5,7 +5,7 @@ Alle Fotos in diesem Ordner sind kostenlose Stock-Fotos von
 auch kommerziell, keine Zuschreibung erforderlich). Sie dienen nur dem
 Prototyp "Salon Lindenblatt" (fiktives Beispielunternehmen) und müssen
 bei einem echten Kunden durch echte Fotos des Salons/Teams ersetzt werden
-— siehe `../erkenntnisse.md` und `../../planung/mas-website-builder-planung.md`
+- siehe `../../../erkenntnisse.md` und `../../../../planung/mas-website-builder-planung.md`
 Abschnitt 10.3.
 
 | Datei | Pexels-Foto-ID | Quelle |

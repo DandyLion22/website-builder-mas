@@ -1,10 +1,10 @@
-name: Deploy Prototyp to GitHub Pages
+name: Deploy Prototypen to GitHub Pages
 
 on:
   push:
     branches: [master]
     paths:
-      - 'prototyp/**'
+      - 'prototypen/**'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
@@ -28,6 +28,6 @@ jobs:
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: './prototyp'
+          path: './prototypen'
       - id: deployment
         uses: actions/deploy-pages@v4

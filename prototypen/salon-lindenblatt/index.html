@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <!--
   KONKRETER PROTOTYP - Branche: Frisörsalon
-  Basiert auf vorlage-friseursalon.html (Template-Bibliothek, Abschnitt 3.8).
+  Basiert auf ../vorlage-friseursalon.html (Template-Bibliothek, Abschnitt 3.8).
+  Eines von mehreren Prototyp-Projekten unter prototypen/ - siehe
+  ../erkenntnisse.md für die branchenübergreifend geführten Erkenntnisse
+  aus allen Prototypen.
 
   Fiktive Beispiel-Website "Salon Lindenblatt". Alle Inhalte (Adresse,
   Telefon, Namen, Preise) sind erfunden und dienen nur dazu, den vollen
@@ -18,14 +21,14 @@
 <meta property="og:title" content="Salon Lindenblatt - Friseur in Kaiserslautern">
 <meta property="og:description" content="Schnitt, Farbe und Styling mit Zeit für persönliche Beratung.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://dandylion22.github.io/website-builder-mas/assets/img/salon-innenraum.jpg">
+<meta property="og:image" content="https://dandylion22.github.io/website-builder-mas/salon-lindenblatt/assets/img/salon-innenraum.jpg">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 4C79 4 93 27 93 49C93 72 72 88 52 93C51.3 93.3 50.7 93.3 50 93C29 88 7 72 7 49C7 27 21 4 50 4Z' fill='%232B3B2E'/%3E%3Cline x1='50' y1='93' x2='50' y2='99' stroke='%232B3B2E' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='42' cy='74' r='6' fill='none' stroke='%23F7F8F3' stroke-width='5'/%3E%3Ccircle cx='58' cy='74' r='6' fill='none' stroke='%23F7F8F3' stroke-width='5'/%3E%3Cpath d='M42 68 L66 26' stroke='%23F7F8F3' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M58 68 L34 26' stroke='%23F7F8F3' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
 <!--
   PWA-Grundausstattung: manifest.json + Service Worker (sw.js) fuer
   "Zur Startseite hinzufuegen" und eine einfache Offline-Basisseite.
   Icons als SVG (Android/Chrome) und als echte PNGs in 180/192/512px
   (iOS/Manifest), gerendert aus assets/img/icon.svg via sharp -- siehe
-  erkenntnisse.md.
+  ../erkenntnisse.md.
 -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#2B3B2E">
@@ -33,7 +36,7 @@
 <!--
   aggregateRating unten: dieselben Werte (4,9 / 120 Bewertungen), die
   auch in der Stats-Leiste und im Testimonials-Bereich als Mock-Daten
-  angezeigt werden -- siehe erkenntnisse.md. Für einen echten Kunden
+  angezeigt werden -- siehe ../erkenntnisse.md. Für einen echten Kunden
   MUSS das die tatsächliche, verifizierte Bewertung aus dem echten
   Google-Unternehmensprofil sein, niemals erfunden: Google prüft
   strukturierte Bewertungsdaten gegen echte Quellen und entfernt/
@@ -44,7 +47,7 @@
   "@context": "https://schema.org",
   "@type": "HairSalon",
   "name": "Salon Lindenblatt",
-  "image": "https://dandylion22.github.io/website-builder-mas/assets/img/salon-innenraum.jpg",
+  "image": "https://dandylion22.github.io/website-builder-mas/salon-lindenblatt/assets/img/salon-innenraum.jpg",
   "telephone": "+49 631 3456789",
   "email": "info@salon-lindenblatt-beispiel.de",
   "priceRange": "€€",
@@ -624,7 +627,7 @@
     (laut Planungsdatei Abschnitt 10.2 als branchenübergreifend
     konstantes Signature-Element gedacht) - auf ausdrücklichen Wunsch
     durch ein echtes Salon-Foto ersetzt. Bewusste Abweichung von der
-    dokumentierten Konstanz, siehe erkenntnisse.md.
+    dokumentierten Konstanz, siehe ../erkenntnisse.md.
   */
   .swatch-panel{
     position:relative;
@@ -1405,7 +1408,7 @@
   hinterlegte Antworten plus einfaches Freitext-Keyword-Matching, keine
   echte Live-Chat-Anbindung. Social-Media-Links sind Platzhalter
   (href="#"), analog zu den übrigen Social-Media-Links im Prototyp -
-  siehe erkenntnisse.md.
+  siehe ../erkenntnisse.md.
 -->
 <div class="fab-cluster" id="fabCluster">
   <div class="chat-widget" id="chatWidget">
@@ -1511,7 +1514,7 @@
           </div>
         </div>
       </div>
-      <!-- DEMO-MECHANIK: Nur Nav/Hero/Section-Überschriften/Footer übersetzt, siehe erkenntnisse.md. -->
+      <!-- DEMO-MECHANIK: Nur Nav/Hero/Section-Überschriften/Footer übersetzt, siehe ../erkenntnisse.md. -->
       <button type="button" class="lang-toggle" id="langToggle" aria-label="Sprache wechseln / switch language">
         <span data-i18n="de">EN</span><span data-i18n="en">DE</span>
       </button>
@@ -1795,13 +1798,13 @@
   </section>
 
   <!--
-    Entscheidung (siehe erkenntnisse.md): Die zuvor hier vorhandene,
+    Entscheidung (siehe ../erkenntnisse.md): Die zuvor hier vorhandene,
     selbst gebaute Mehrschritt-Buchungsstrecke wurde wieder entfernt.
     Ohne echtes Backend ist Terminabsage/-bestätigung damit nicht
     verlässlich lösbar - das Risiko will der Betreiber Kunden nicht
     zumuten. Online-Terminbuchung gibt es jetzt ausschließlich über
     Fresha, als optionales Zusatzmodul (siehe Modul-Katalog Kategorie D
-    in erkenntnisse.md), das der Kunde dazubuchen kann. Der Fresha-Link
+    in ../erkenntnisse.md), das der Kunde dazubuchen kann. Der Fresha-Link
     unten führt zu einem echten, aber befristeten 7-Tage-Testaccount
     ("Salon Lindenblatt Demo") - läuft nach Ablauf vermutlich auf eine
     Fresha-Fehlerseite, dann erneuern.
@@ -1924,7 +1927,7 @@
 
   <!--
     DEMO-MECHANIK, kein echtes Ergebnis: Es gibt keine echten, gepaarten
-    Vorher/Nachher-Fotos derselben Person (siehe erkenntnisse.md). Um
+    Vorher/Nachher-Fotos derselben Person (siehe ../erkenntnisse.md). Um
     trotzdem nichts Irreführendes zu zeigen, nutzt der Regler zweimal
     dasselbe Foto - "vorher" ist per CSS-Filter entsättigt/abgedunkelt.
     Zeigt die Interaktions-Mechanik, nicht ein echtes Styling-Ergebnis.
@@ -1954,7 +1957,7 @@
 
   <!--
     MOCK-DATEN - Betriebsmodell: manuell gepflegt, keine API.
-    Entscheidung (siehe prototyp/erkenntnisse.md): Instagram/Meta Graph
+    Entscheidung (siehe ../erkenntnisse.md): Instagram/Meta Graph
     API bewusst verworfen (Token-Verwaltung, App-Review, DSGVO-Aufwand
     unverhältnismäßig für den Nutzen). Stattdessen: Salon liefert
     gelegentlich ein paar Fotos (Handy-Export, E-Mail o. Ä.), die hier
@@ -2047,7 +2050,7 @@
         <h2><span data-i18n="de">Was Kund:innen sagen</span><span data-i18n="en">What our clients say</span></h2>
         <!--
           MOCK-DATEN - Betriebsmodell: manuell gepflegt, keine API.
-          Entscheidung (siehe prototyp/erkenntnisse.md): Google Places
+          Entscheidung (siehe ../erkenntnisse.md): Google Places
           API bewusst verworfen (API-Key/Billing/Cache-Regeln
           unverhältnismäßig für den Nutzen). Stattdessen: Betreiber
           schaut gelegentlich im echten Google-Unternehmensprofil nach
@@ -2200,7 +2203,7 @@
     </div>
   </section>
 
-  <!-- MOCK-DATEN: Treuekarte zeigt das Prinzip beispielhaft (6 von 10 Stempeln), kein echtes Nutzerkonto/Tracking -- eine reale Umsetzung würde physisch oder über das Buchungstool (Fresha) laufen, siehe erkenntnisse.md. -->
+  <!-- MOCK-DATEN: Treuekarte zeigt das Prinzip beispielhaft (6 von 10 Stempeln), kein echtes Nutzerkonto/Tracking -- eine reale Umsetzung würde physisch oder über das Buchungstool (Fresha) laufen, siehe ../erkenntnisse.md. -->
   <section class="ambient-shell">
     <span class="ambient-blob b" aria-hidden="true" style="top:-70px; right:-50px; bottom:auto; left:auto;"></span>
     <div class="wrap" style="position:relative; z-index:1;">
@@ -2229,7 +2232,7 @@
     </div>
   </section>
 
-  <!-- MOCK-DATEN: Gutschein-Panel, einfachste Ausbaustufe (Anfrage statt Online-Kauf, siehe erkenntnisse.md Kategorie F). -->
+  <!-- MOCK-DATEN: Gutschein-Panel, einfachste Ausbaustufe (Anfrage statt Online-Kauf, siehe ../erkenntnisse.md Kategorie F). -->
   <section class="ambient-shell">
     <span class="ambient-blob a" aria-hidden="true" style="top:-60px; left:-40px; bottom:auto; right:auto;"></span>
     <div class="wrap" style="position:relative; z-index:1;">
@@ -2365,7 +2368,7 @@
           <span data-i18n="en">Hours &amp; Address</span>
         </p>
 
-        <!-- MOCK-DATEN: zweiter Standort nur zu Vorführzwecken, siehe erkenntnisse.md. -->
+        <!-- MOCK-DATEN: zweiter Standort nur zu Vorführzwecken, siehe ../erkenntnisse.md. -->
         <div class="location-tabs" role="tablist" aria-label="Standort wählen">
           <button type="button" class="location-tab is-active" data-location="hauptstrasse" aria-selected="true">Hauptstraße</button>
           <button type="button" class="location-tab" data-location="filiale" aria-selected="false">Filiale Betzenberg</button>
@@ -2374,7 +2377,7 @@
         <!--
           Echte Berechnung aus den Öffnungszeiten unten, kein Drittanbieter
           und keine feste Ansage - nutzt die Uhrzeit/Zeitzone des
-          Besucher-Geräts. Siehe erkenntnisse.md.
+          Besucher-Geräts. Siehe ../erkenntnisse.md.
         -->
         <div class="open-status" id="openStatus" aria-live="polite"></div>
 
@@ -2397,7 +2400,7 @@
 
           <!--
             DRITTANBIETER-EMBED, bewusst mit Zwei-Klick-Lösung:
-            Betriebsmodell 3 aus prototyp/erkenntnisse.md (Kategorie E).
+            Betriebsmodell 3 aus ../erkenntnisse.md (Kategorie E).
             Die Karte lädt NICHT automatisch beim Seitenaufruf - erst nach
             Klick auf "Karte laden" wird eine Verbindung zu Google
             hergestellt. Siehe datenschutz.html für die zugehörige

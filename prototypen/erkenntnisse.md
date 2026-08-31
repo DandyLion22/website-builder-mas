@@ -1403,6 +1403,54 @@ auch wenn der neue Text nicht direkt im Fokus der Änderung steht -
 solche Regeln rutschen sonst leicht durch, wenn Aufmerksamkeit auf der
 inhaltlichen Aufgabe liegt.
 
+## Zweiter Prototyp nötig: maskuline Zielgruppe wird von Salon Lindenblatt nicht angesprochen (2026-08-26)
+
+Beim Betrachten des fertigen Preis-/Leistungsdokuments fiel auf: Salon
+Lindenblatt (Pine-Grün, Messing, editorial-warme Optik) würde einen
+"Männerfriseur"/Barbershop-Inhaber als Referenzbeispiel eher abschrecken
+als überzeugen - die Optik ist erkennbar feminin/elegant konnotiert,
+selbst wenn die zugrunde liegenden Module identisch nutzbar wären.
+Entscheidung: **ein zweiter Prototyp mit bewusst maskuliner/Barbershop-
+Codierung** wird gebaut, damit unterschiedliche Salon-Typen sich in
+mindestens einem Referenzbeispiel wiedererkennen.
+
+Wichtig abgegrenzt von der früheren "5 Farbvarianten"-Idee (siehe oben,
+"Strategie-Entscheidung: Branchenfokus statt Farbvarianten"): Das hier
+ist kein "mehr zeigen, um zu beeindrucken", sondern deckt ein konkretes,
+benanntes Zielgruppen-Problem ab (feminine vs. maskuline
+Erstwahrnehmung). Zwei Varianten genügen dafür, nicht fünf.
+
+**Strukturelle Vorbereitung:** Bevor der zweite Prototyp entstand, wurde
+das Dateisystem umgebaut, damit mehrere Prototyp-Projekte nicht in
+einem Ordner vermischen:
+
+```
+prototypen/                    (neuer GitHub-Pages-Publish-Root, vorher: prototyp/)
+  index.html                   (neue, bewusst neutrale Auswahlseite)
+  erkenntnisse.md               (eine Datei für alle Prototypen - branchenübergreifende
+                                  Erkenntnisse gehören zusammen, nicht pro Projekt gesplittet)
+  vorlage-friseursalon.html    (geteilte Template-Bibliothek, projektübergreifend)
+  robots.txt / sitemap.xml     (eine Domain, ein robots.txt/sitemap - jetzt hier)
+  salon-lindenblatt/           (erster Prototyp, unverändert bis auf Pfad-Anpassungen)
+  [barbershop-projekt]/        (zweiter Prototyp, neu)
+```
+
+Alle `erkenntnisse.md`-Verweise in den Salon-Lindenblatt-Dateien mussten
+von `erkenntnisse.md` auf `../erkenntnisse.md` angepasst werden (eine
+Ebene tiefer durch den neuen Ordner). Der GitHub-Actions-Workflow
+(`deploy-pages.yml`) publiziert jetzt `./prototypen` statt `./prototyp`.
+Die alte Root-URL (`.../website-builder-mas/`) zeigt dadurch nicht mehr
+direkt auf Salon Lindenblatt, sondern auf die neue Auswahlseite - das
+betrifft auch den bereits veröffentlichten QR-Code im Preisdokument
+(Artifact), der nach dem Deploy geprüft/ggf. angepasst werden muss.
+
+→ Möglicher Schluss: Eine Multi-Projekt-Ordnerstruktur (Template-
+Bibliothek + eigenständige Prototyp-Ordner + eine gemeinsame
+Erkenntnis-Datei) sollte von Anfang an eingeplant werden, sobald absehbar
+ist, dass mehr als ein konkretes Beispielprojekt entstehen wird - das
+nachträgliche Umhängen aller relativen Pfade ist mechanisch lösbar, aber
+vermeidbarer Aufwand.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
