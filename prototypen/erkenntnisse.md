@@ -1451,6 +1451,48 @@ ist, dass mehr als ein konkretes Beispielprojekt entstehen wird - das
 nachträgliche Umhängen aller relativen Pfade ist mechanisch lösbar, aber
 vermeidbarer Aufwand.
 
+## Zweiter Prototyp umgesetzt: Herrenzimmer (Barbershop, Mannheim) (2026-08-31)
+
+Der in der vorherigen Erkenntnis angekündigte zweite Prototyp ist jetzt
+live unter `prototypen/herrenzimmer/`. Entscheidungen und Beobachtungen:
+
+- **Farbgebung**: bewusst dunkel als Gegenpol zur hellen, femininen
+  Salon-Lindenblatt-Optik - Anthrazit/warmes Schwarz als Grundfläche,
+  warmes Off-White als Schrift, Oxblood als Hauptakzent (Buttons,
+  Icons), Messing/Brass als zweiter Akzent (Preise, Eyebrow-Labels).
+  Gleiche Token-Architektur (CSS-Custom-Properties) wie bei Salon
+  Lindenblatt übernommen, nur die Werte getauscht - das Muster trägt
+  sich gut über verschiedene Stimmungen.
+- **Bewusst reduzierter Funktionsumfang** gegenüber Salon Lindenblatt:
+  kein Chat-Widget, kein PWA-Setup (kein manifest.json/sw.js), keine
+  Barrierefreiheits-Werkzeugleiste, kein Sprachumschalter, kein Blog,
+  kein Style-Finder-Quiz, keine Treuekarte, keine Stats-/Promo-/Brand-
+  Leisten, keine Ambient-Blob-/Grain-Textur-Effekte. Stattdessen nur:
+  Header/Nav, Hero, Leistungen, Team, Galerie, Kontakt (inkl. Klick-
+  Consent-Kartenbox wie bei Salon Lindenblatt, aber ohne die volle
+  Zwei-Klick-Mechanik drumherum), Footer, Impressum, Datenschutz. Ziel:
+  eine schlankere zweite Referenz, die bei Bedarf gezielt um einzelne
+  Module erweitert werden kann - kein Rückfall in die früher verworfene
+  "5 Farbvarianten"-Idee, sondern zwei vollständige, aber unterschiedlich
+  ausgestattete Projekte.
+- **Keine erfundene Bewertung/aggregateRating** wie bei Salon
+  Lindenblatt übernommen - bewusst weggelassen, weil für dieses Projekt
+  kein neuer Rechtfertigungsaufwand für Mock-Bewertungsdaten betrieben
+  werden sollte und die Seite auch ohne Sterne-Bewertung überzeugend
+  wirkt.
+- **Adresse als Stilmittel**: Mannheim wurde bewusst gewählt (statt z. B.
+  wieder Kaiserslautern), um die charakteristische Mannheimer
+  Quadrate-Adresse ("N 4, 12" statt Straßenname) einzubauen - ein
+  kleines, aber erkennbares Detail für lokale Kunden.
+- **Bildauswahl**: alle zehn Fotos für dieses Projekt über gezielte
+  Pexels-Suchen ("barbershop interior", "barber cutting hair", "barber
+  portrait man") ausgewählt, IDs gegen die bereits bei Salon Lindenblatt
+  verwendeten IDs geprüft, keine Überschneidung - siehe
+  `herrenzimmer/assets/img/CREDITS.md`.
+- Deploy und Live-Check über den etablierten Workflow (Tag-Balance,
+  JS-Syntax, JSON-LD-Validität, Commit/Push, `gh run list`-Polling,
+  `curl`-Statuscode-Check) durchgeführt, keine Fehler aufgetreten.
+
 ## Offene Fragen, noch nicht entschieden
 
 - Welche der obigen Punkte gelten branchenübergreifend (vermutlich:
